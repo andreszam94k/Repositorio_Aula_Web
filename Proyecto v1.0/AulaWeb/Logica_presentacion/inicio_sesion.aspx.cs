@@ -1,0 +1,64 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Net;
+using Logica;
+using Utilitarios;
+using Data;
+
+
+public partial class Presentacion_inicio_sesion : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        Response.Cache.SetNoStore();
+
+        //llamamos la logica y el metodo
+        L_inicio_sesion operacion = new L_inicio_sesion();
+        U_inicio_sesion datos = new U_inicio_sesion();
+        datos = operacion.verificar(Session["user"]);
+
+        //enviar desde la logica un codigo scrip
+        //this.RegisterStartupScript("mensaje", datos.Url_pag);
+        Response.Write(datos.Url_pag);
+       
+    }
+    protected void B_iniciarSession_Click(object sender, EventArgs e)
+    {
+        
+        //asigno esos valores para despues mandarlos a la funcion loggin_usuario
+        string user = TB_inicio_usuario.Text.ToString();
+        string clave = TB_inicio_clave.Text.ToString();
+
+        //encapsulamos campos
+        E_loggin_user datos_loggin = new E_loggin_user();
+        datos_loggin.User = user;
+        datos_loggin.Clave = clave;
+
+        //mandamos parametros para validar usuario
+        L_inicio_sesion abrir = new L_inicio_sesion();
+        E_usuario datos1 = new E_usuario();
+        datos1 = abrir.open_session(datos_loggin);
+
+        //llenamos session
+        Session["rolID"] = datos1.IdUser;
+        Session["nomUser"] = datos1.Nombre;
+        Session["docUser"] = datos1.Documento;
+        Session["user"] = datos1.UserName;
+        Session["dinero"] = datos1.Dinero;
+        Session["rolUser"] = datos1.IdRol;
+
+        //confirmamos y redireccionamos
+        Response.Write(datos1.Mensajes);
+
+    }
+    protected void B_cancelarSession_Click(object sender, EventArgs e)
+    {
+        TB_inicio_usuario.Text = " ";
+        TB_inicio_clave.Text = " ";       
+    }
+}
