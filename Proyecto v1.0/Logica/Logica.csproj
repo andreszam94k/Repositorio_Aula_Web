@@ -48,6 +48,8 @@
     <Compile Include="L_master.cs" />
     <Compile Include="L_Registrar_moderador.cs" />
     <Compile Include="L_Registrar_usuario.cs" />
+    <Compile Include="L_Subir_archivos.cs" />
+    <Compile Include="L_Ver_categorias.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

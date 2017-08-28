@@ -41,10 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="E_archivo.cs" />
+    <Compile Include="E_archivo_autor.cs" />
     <Compile Include="E_autor.cs" />
     <Compile Include="E_categoria.cs" />
     <Compile Include="E_loggin_user.cs" />
     <Compile Include="E_moderador.cs" />
+    <Compile Include="E_subir_descargar.cs" />
     <Compile Include="E_tag.cs" />
     <Compile Include="E_usuario.cs" />
     <Compile Include="MAC.cs" />
@@ -56,6 +59,8 @@
     <Compile Include="U_master.cs" />
     <Compile Include="U_Registrar_moderador.cs" />
     <Compile Include="U_Registrar_usuario.cs" />
+    <Compile Include="U_Subir_archivos.cs" />
+    <Compile Include="U_Ver_categoria.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

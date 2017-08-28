@@ -6,14 +6,14 @@
             width: 50%;
             text-align: center;
         }
-        .auto-style16 {
-            color: #FF6600;
-        }
         .auto-style17 {
             text-align: center;
         }
         .auto-style18 {
             text-align: center;
+        }
+        .auto-style19 {
+            color: #FF6600;
         }
     </style>
 </asp:Content>
@@ -38,10 +38,10 @@
                             CATEGORIAS</div>
                     </HeaderTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("categoria") %>' style="color: #CCCCCC"></asp:Label>
+                        <asp:Label ID="Label2" runat="server" style="color: #CCCCCC" Text='<%# Eval("categoria") %>'></asp:Label>
                         <br />
-                        <span class="auto-style16">$ </span>
-                        <asp:Label ID="Label3" runat="server" style="color: #FF6600" Text='<%# Bind("precio") %>'></asp:Label>
+                        <span class="auto-style19">$ </span>
+                        <asp:Label ID="Label3" runat="server" CssClass="auto-style19" Text='<%# Eval("precio") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:DataList>
             </td>
@@ -53,7 +53,7 @@
                             TAGS</div>
                     </HeaderTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label4" runat="server" style="color: #669999" Text='<%# Bind("tag") %>'></asp:Label>
+                        <asp:Label ID="Label4" runat="server" style="color: #669999" Text='<%# Eval("tag") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:DataList>
             </td>
@@ -61,8 +61,8 @@
     </table>
     <br />
     <br />
-    <asp:ObjectDataSource ID="ODS_ver_categorias" runat="server" SelectMethod="mostrar_categoria_archivo" TypeName="Consultar"></asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="ODS_ver_tags" runat="server" SelectMethod="mostrar_tags" TypeName="Consultar"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ODS_ver_categorias" runat="server" SelectMethod="mostrar_categoria_archivo" TypeName="Data.Dao_Ver_categorias"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ODS_ver_tags" runat="server" SelectMethod="mostrar_tags" TypeName="Data.Dao_Ver_categorias"></asp:ObjectDataSource>
 &nbsp;
 </asp:Content>
 

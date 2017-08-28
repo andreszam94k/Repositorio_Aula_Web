@@ -60,7 +60,7 @@
         </tr>
         <tr>
             <td class="auto-style15">
-                <asp:ObjectDataSource ID="ODS_archivo_categoria" runat="server" SelectMethod="mostrar_categoria_archivo" TypeName="Consultar"></asp:ObjectDataSource>
+                <asp:ObjectDataSource ID="ODS_archivo_categoria" runat="server" SelectMethod="mostrar_categoria_archivo" TypeName="Data.Dao_Subir_archivos"></asp:ObjectDataSource>
             </td>
             <td class="auto-style16">
                 <asp:Label ID="L_archivo_categoria" runat="server" style="font-size: x-large; color: #CCCCCC" Text="Categoria: " Visible="False"></asp:Label>
@@ -72,7 +72,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style15">&nbsp;&nbsp;<asp:ObjectDataSource ID="ODS_archivo_autores" runat="server" SelectMethod="mostrar_autor" TypeName="Consultar"></asp:ObjectDataSource>
+            <td class="auto-style15">&nbsp;&nbsp;<asp:ObjectDataSource ID="ODS_archivo_autores" runat="server" SelectMethod="mostrar_autor" TypeName="Data.Dao_Subir_archivos"></asp:ObjectDataSource>
             </td>
             <td class="auto-style16">
                 <asp:Label ID="L_archivo_autores" runat="server" style="color: #CCCCCC; font-size: x-large" Text="Autor(es)"></asp:Label>
@@ -85,14 +85,14 @@
                     </div>
                 </HeaderTemplate>
                 <ItemTemplate>
-                    <asp:CheckBox ID="CB_autores" runat="server" style="color: #CCCCCC" Text='<%# Eval("nombre") %>' />
+                    <asp:CheckBox ID="CB_autores" runat="server" style="color: #CCCCCC; background-color: #333333" Text='<%# Eval("nombre") %>' />
                 </ItemTemplate>
                 </asp:DataList>
             </td>
         </tr>
         <tr>
             <td class="auto-style15">
-                <asp:ObjectDataSource ID="ODS_archivo_tags" runat="server" SelectMethod="mostrar_tags" TypeName="Consultar"></asp:ObjectDataSource>
+                <asp:ObjectDataSource ID="ODS_archivo_tags" runat="server" SelectMethod="mostrar_tags" TypeName="Data.Dao_Subir_archivos"></asp:ObjectDataSource>
             </td>
             <td class="auto-style16">
                 <asp:Label ID="L_archivo_tags" runat="server" style="color: #CCCCCC; font-size: x-large" Text="Tags"></asp:Label>

@@ -187,6 +187,7 @@ public class Insertar
 
     //------------------------------------------------------------------------
     //en este caso mandamos un objeto de tipo user que contiene los datos para la clase Encapsular
+    //ok
     public DataTable insertar_tag(Encapsular_tag tag)
     {
         DataTable usuarios = new DataTable();
@@ -224,6 +225,7 @@ public class Insertar
 
     //------------------------------------------------------------------------
     //en este caso mandamos un objeto de tipo user que contiene los datos para la clase Encapsular
+    //ok
     public DataTable insertar_archivo(Encapsular_archivo archivo)
     {
         DataTable usuarios = new DataTable();
@@ -270,6 +272,7 @@ public class Insertar
 
     //------------------------------------------------------------------------
     //en este caso mandamos un objeto de tipo user que contiene los datos para la clase Encapsular
+    //ok
     public DataTable insertar_archivo_autor(Encapsular_archivo_autor archivo_autor)
     {
         DataTable usuarios = new DataTable();
@@ -307,6 +310,7 @@ public class Insertar
 
     //------------------------------------------------------------------------
     //en este caso mandamos un objeto de tipo user que contiene los datos para la clase Encapsular
+    //0k
     public DataTable insertar_subir_descargar(Encapsular_subir_descargar subir_descargar)
     {
         DataTable usuarios = new DataTable();

@@ -24,7 +24,7 @@ public partial class Presentacion_Ingresar_autor : System.Web.UI.Page
             //enviar desde la logica un codigo scrip
             Response.Write(datos.Url_pag);
 
-            //ponemos valores por defecto sobre las cajas de texto
+            //ponemos valores por defecto sobre las cajas de texto de la fecha
             TB_autor_birth.Text = DateTime.Now.ToString("yyyy,MM,dd");
             TB_autor_death.Text = DateTime.Now.ToString("yyyy,MM,dd");
 
