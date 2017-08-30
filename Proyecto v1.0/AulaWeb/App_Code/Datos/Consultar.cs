@@ -465,6 +465,7 @@ public class Consultar
     }
 
     //------------------------------------------------------------------------
+    //ok
     public DataTable Consultar_archivo_datos(string id_rol)
     {
         DataTable usuarios = new DataTable();

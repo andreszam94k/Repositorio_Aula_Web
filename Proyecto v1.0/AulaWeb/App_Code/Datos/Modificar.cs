@@ -97,6 +97,7 @@ public class Modificar
 
     //------------------------------------------------------------------------
     //en este caso mandamos un objeto de tipo user que contiene los datos para la clase Encapsular
+    //ok
     public DataTable modificar_categoria(Encapsular_categoria categoria)
     {
         DataTable usuarios = new DataTable();

@@ -54,6 +54,7 @@
     <Compile Include="Dao_Registrar_moderador.cs" />
     <Compile Include="Dao_Registrar_usuario.cs" />
     <Compile Include="Dao_Subir_archivos.cs" />
+    <Compile Include="Dao_Validar_archivos.cs" />
     <Compile Include="Dao_Ver_categorias.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

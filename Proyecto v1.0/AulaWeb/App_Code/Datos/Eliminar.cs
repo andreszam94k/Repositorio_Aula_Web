@@ -90,6 +90,7 @@ public class Eliminar
     }
 
     //------------------------------------------------------------------------
+    //ok
     public DataTable eliminar_archivo(String id, String user_cambio)
     {
         DataTable usuarios = new DataTable();

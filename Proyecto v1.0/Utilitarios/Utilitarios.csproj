@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="E_Aprobar_archivo.cs" />
     <Compile Include="E_archivo.cs" />
     <Compile Include="E_archivo_autor.cs" />
     <Compile Include="E_autor.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="U_Registrar_moderador.cs" />
     <Compile Include="U_Registrar_usuario.cs" />
     <Compile Include="U_Subir_archivos.cs" />
+    <Compile Include="U_Validar_archivos.cs" />
     <Compile Include="U_Ver_categoria.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
