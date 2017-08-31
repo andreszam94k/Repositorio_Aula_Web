@@ -55,6 +55,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="U_Agregar_categoria.cs" />
     <Compile Include="U_Agregar_tag.cs" />
+    <Compile Include="U_Consultar_archivo.cs" />
+    <Compile Include="U_Consultar_autor.cs" />
     <Compile Include="U_Ingresar_autor.cs" />
     <Compile Include="U_inicio_sesion.cs" />
     <Compile Include="U_master.cs" />

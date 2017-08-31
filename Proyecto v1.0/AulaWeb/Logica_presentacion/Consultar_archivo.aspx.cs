@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Logica;
+using Utilitarios;
+using Data;
 
 public partial class Presentacion_Consultar_archivo : System.Web.UI.Page
 {
@@ -16,7 +19,7 @@ public partial class Presentacion_Consultar_archivo : System.Web.UI.Page
     protected void B_mostrar_archivos_Click(object sender, EventArgs e)
     {
         //mostramos todos los archivos que esten aprobados
-        Consultar datos = new Consultar();
+        L_Consultar_archivos datos = new L_Consultar_archivos();
         DataTable informacion = datos.mostrar_archivos();
         //llenamos el GV y salimos del estado de edicion por si acaso
         GV_consultar_archivo.EditIndex = -1;
@@ -30,7 +33,7 @@ public partial class Presentacion_Consultar_archivo : System.Web.UI.Page
         //obtenemos el parametro de la consulta
         string dato = TB_consultar_archivos.Text.ToString();
         //mostramos todos los archivos que esten aprobados
-        Consultar parametros = new Consultar();
+        L_Consultar_archivos parametros = new L_Consultar_archivos();
         DataTable info = parametros.consultar_archivos(dato);
         
         //preguntamos si la consulta trajo parametros

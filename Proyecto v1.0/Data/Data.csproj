@@ -49,6 +49,8 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Dao_Agregar_categoria.cs" />
     <Compile Include="Dao_Agregar_tag.cs" />
+    <Compile Include="Dao_Consultar_archivo.cs" />
+    <Compile Include="Dao_Consultar_autor.cs" />
     <Compile Include="Dao_Ingresar_autor.cs" />
     <Compile Include="Dao_loggin_user.cs" />
     <Compile Include="Dao_Registrar_moderador.cs" />

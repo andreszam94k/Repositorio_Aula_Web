@@ -495,6 +495,7 @@ public class Consultar
     }
 
     //------------------------------------------------------------------------
+    //ok
     public DataTable mostrar_archivos()
     {
         DataTable usuarios = new DataTable();
@@ -523,6 +524,7 @@ public class Consultar
     }
 
     //------------------------------------------------------------------------
+    //ok
     public DataTable consultar_archivos(string parametro)
     {
         DataTable usuarios = new DataTable();
@@ -610,6 +612,7 @@ public class Consultar
     }
 
     //------------------------------------------------------------------------
+    //ok
     public DataTable consultar_autor_datos(string id_autor)
     {
         DataTable usuarios = new DataTable();
@@ -639,6 +642,7 @@ public class Consultar
     }
 
     //------------------------------------------------------------------------
+    //ok
     public DataTable consultar_autor_archivos(string id)
     {
         DataTable usuarios = new DataTable();

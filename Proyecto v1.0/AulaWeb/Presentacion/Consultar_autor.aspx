@@ -21,7 +21,7 @@
             <td>
                 <asp:DropDownList ID="DDL_autor" runat="server" AutoPostBack="True" DataSourceID="ODS_elegir_autor" DataTextField="nombre" DataValueField="id_autor" style="font-size: large" OnSelectedIndexChanged="DDL_autor_SelectedIndexChanged">
                 </asp:DropDownList>
-&nbsp;<asp:ObjectDataSource ID="ODS_elegir_autor" runat="server" SelectMethod="mostrar_autor" TypeName="Consultar"></asp:ObjectDataSource>
+&nbsp;<asp:ObjectDataSource ID="ODS_elegir_autor" runat="server" SelectMethod="mostrar_autor" TypeName="Data.Dao_Consultar_autor"></asp:ObjectDataSource>
             </td>
         </tr>
         <tr>

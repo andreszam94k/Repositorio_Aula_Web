@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Logica;
+using Utilitarios;
+using Data;
 
 public partial class Presentacion_Consultar_autor : System.Web.UI.Page
 {
@@ -26,7 +29,7 @@ public partial class Presentacion_Consultar_autor : System.Web.UI.Page
         //obtenemos el id del autor
         string id = DDL_autor.SelectedValue.ToString();
         //consultamos todos los datos del autor
-        Consultar datos = new Consultar();
+        L_Consultar_autor datos = new L_Consultar_autor();
         DataTable informacion = datos.consultar_autor_datos(id);
 
         //llenamos los componentes con los datos
@@ -53,7 +56,7 @@ public partial class Presentacion_Consultar_autor : System.Web.UI.Page
     protected void llenar_grilla(string id) 
     {
         //obtenemos los archivos asociados al autor
-        Consultar archivos_autor = new Consultar();
+        L_Consultar_autor archivos_autor = new L_Consultar_autor();
         DataTable datos = archivos_autor.consultar_autor_archivos(id);
 
         GV_archivo_autor.DataSource = datos;
