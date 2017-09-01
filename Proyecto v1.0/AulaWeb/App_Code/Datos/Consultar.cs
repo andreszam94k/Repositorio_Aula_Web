@@ -554,6 +554,7 @@ public class Consultar
     }
 
     //------------------------------------------------------------------------
+    //ok
     public DataTable ver_archivo(string id_archivo)
     {
         DataTable usuarios = new DataTable();
@@ -583,6 +584,7 @@ public class Consultar
     }
 
     //------------------------------------------------------------------------
+    //ok
     public DataTable consultar_comentarios(string id_archivo)
     {
         DataTable usuarios = new DataTable();

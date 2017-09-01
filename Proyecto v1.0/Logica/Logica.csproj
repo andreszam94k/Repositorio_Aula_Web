@@ -44,6 +44,7 @@
     <Compile Include="L_Agregar_tag.cs" />
     <Compile Include="L_Consultar_archivos.cs" />
     <Compile Include="L_Consultar_autor.cs" />
+    <Compile Include="L_Descargar_archivo.cs" />
     <Compile Include="L_Ingresar_autor.cs" />
     <Compile Include="L_inicio_sesion.cs" />
     <Compile Include="L_loggin_user.cs" />
