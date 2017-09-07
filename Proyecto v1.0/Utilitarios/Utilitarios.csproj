@@ -65,6 +65,9 @@
     <Compile Include="U_master.cs" />
     <Compile Include="U_Registrar_moderador.cs" />
     <Compile Include="U_Registrar_usuario.cs" />
+    <Compile Include="U_Reporte_archivos.cs" />
+    <Compile Include="U_Reporte_autores.cs" />
+    <Compile Include="U_Reporte_usuarios.cs" />
     <Compile Include="U_Subir_archivos.cs" />
     <Compile Include="U_Validar_archivos.cs" />
     <Compile Include="U_Ver_categoria.cs" />

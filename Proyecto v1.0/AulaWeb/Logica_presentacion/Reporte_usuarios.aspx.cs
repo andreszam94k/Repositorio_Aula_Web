@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Logica;
+using Utilitarios;
+using Data;
 
 public partial class Presentacion_Reporte_usuarios : System.Web.UI.Page
 {
@@ -13,17 +16,13 @@ public partial class Presentacion_Reporte_usuarios : System.Web.UI.Page
         Response.Cache.SetNoStore();
         if (!IsPostBack)
         {
-            if (Session["user"] == null)
-            {
-                Response.Redirect("inicio.aspx");
-            }
-            else
-            {
-                if (int.Parse(Session["rolUser"].ToString()) != 1)
-                {
-                    Response.Redirect("inicio.aspx");
-                }
-            }
+            //llamamos la logica y el metodo
+            L_Reporte_usuarios operacion = new L_Reporte_usuarios();
+            U_Reporte_usuarios datos = new U_Reporte_usuarios();
+            datos = operacion.verificar(Session["user"], Session["rolUser"]);
+
+            //enviar desde la logica un codigo scrip
+            Response.Write(datos.Url_pag);
             poblar_reporte();
         }
     }//page_load
@@ -34,7 +33,7 @@ public partial class Presentacion_Reporte_usuarios : System.Web.UI.Page
         try
         {
             //llamamos los metodos para llenar los informes
-            Reportes reporte = ObtenerInforme();
+            Data_Reportes reporte = ObtenerInforme();
             CRS_usuarios.ReportDocument.SetDataSource(reporte);
             CRV_usuarios.ReportSource = CRS_usuarios;
 
@@ -49,19 +48,19 @@ public partial class Presentacion_Reporte_usuarios : System.Web.UI.Page
 
     //metodo para llenar informe principal
     //NOTA: el subinforme obtiene los datos de esta consulta, si falta alguno no lo muestra
-    protected Reportes ObtenerInforme()
+    protected Data_Reportes ObtenerInforme()
     {
         //definimos la fila la cual contendra los datos del datatable intermedio
         DataRow fila;  //dr
         //definimos un datatable principal y llamamos al dataset
         DataTable personaInformacion = new DataTable(); //dt
-        Reportes datos = new Reportes();
+        Data_Reportes datos = new Data_Reportes();
 
         //llenamos el datatable principal con la info del data set
-        personaInformacion = datos.Tables["usuarios"];
+        personaInformacion = datos.Tables["DT_usuarios"];
 
         //hacemos una consulta para obtener los datos en otro datatable que servira de intermedio
-        Consultar dao = new Consultar();
+        Dao_Ver_Reportes dao = new Dao_Ver_Reportes();
         DataTable Intermedio = dao.consultar_reporte_usuarios();
 
         //recorremos el datatable intermedio

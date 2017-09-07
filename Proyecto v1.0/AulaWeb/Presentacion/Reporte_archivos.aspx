@@ -8,7 +8,7 @@
     <h1 style="color: #CCCCCC">Formulario reporte archivos</h1>
     <CR:CrystalReportViewer ID="CRV_archivos" runat="server" AutoDataBind="true" ReportSourceID="CRS_archivos" />
     <CR:CrystalReportSource ID="CRS_archivos" runat="server">
-        <Report FileName="~\Presentacion\Reportes\CrystalReport_archivos.rpt">
+        <Report FileName="~\Presentacion\Reportes\Reporte_Archivos.rpt">
         </Report>
     </CR:CrystalReportSource>
     <br />

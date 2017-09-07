@@ -59,6 +59,12 @@
     <Compile Include="Dao_Subir_archivos.cs" />
     <Compile Include="Dao_Validar_archivos.cs" />
     <Compile Include="Dao_Ver_categorias.cs" />
+    <Compile Include="Dao_Ver_Reportes.cs" />
+    <Compile Include="Data_Reportes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Data_Reportes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +72,19 @@
       <Project>{6db67284-a38c-4526-ae89-9406a679be53}</Project>
       <Name>Utilitarios</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data_Reportes.xsc">
+      <DependentUpon>Data_Reportes.xsd</DependentUpon>
+    </None>
+    <None Include="Data_Reportes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Data_Reportes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Data_Reportes.xss">
+      <DependentUpon>Data_Reportes.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,5 +1,4 @@
 ﻿using Npgsql;
-using NpgsqlTypes;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -7,22 +6,20 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Utilitarios;
 
 namespace Data
 {
-    public class Dao_Ingresar_autor
+    public class Dao_Ver_Reportes
     {
         //------------------------------------------------------------------------
-        //ok
-        public DataTable mostrar_pais()
+        public DataTable consultar_reporte_usuarios()
         {
             DataTable usuarios = new DataTable();
             NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
 
             try
             {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_mostrar_pais", conection);
+                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_reporte_usuarios", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                 conection.Open();
@@ -43,16 +40,15 @@ namespace Data
         }
 
         //------------------------------------------------------------------------
-        public DataTable consultar_autor(string nom_autor)
+        public DataTable consultar_reporte_archivos()
         {
             DataTable usuarios = new DataTable();
             NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
 
             try
             {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_consulta_autor", conection);
+                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_reporte_archivos", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                dataAdapter.SelectCommand.Parameters.Add("_nom_autor", NpgsqlDbType.Varchar, 30).Value = nom_autor;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -72,29 +68,15 @@ namespace Data
         }
 
         //------------------------------------------------------------------------
-        //en este caso mandamos un objeto de tipo user que contiene los datos para la clase Encapsular
-        public DataTable insertar_autor(E_autor autor)
+        public DataTable consultar_reporte_autores()
         {
             DataTable usuarios = new DataTable();
             NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
 
             try
             {
-                //conexion y mandamos los parametros
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_insertar_autor", conection);
+                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_reporte_autores", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                dataAdapter.SelectCommand.Parameters.Add("_nombre", NpgsqlDbType.Varchar, 30).Value = autor.Nombre;
-                dataAdapter.SelectCommand.Parameters.Add("_fecha_birth", NpgsqlDbType.Varchar, 30).Value = autor.FechaBirth;
-                dataAdapter.SelectCommand.Parameters.Add("_fecha_death", NpgsqlDbType.Varchar, 30).Value = autor.FechaDeath;
-                dataAdapter.SelectCommand.Parameters.Add("_foto", NpgsqlDbType.Text).Value = autor.Foto;
-                dataAdapter.SelectCommand.Parameters.Add("_descripcion", NpgsqlDbType.Varchar, 200).Value = autor.Descripcion;
-                dataAdapter.SelectCommand.Parameters.Add("_nacionalidad", NpgsqlDbType.Integer).Value = autor.Nacionalidad;
-                dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = autor.UserCambio;
-
-                //dataAdapter.SelectCommand.Parameters.Add("_user", NpgsqlDbType.Varchar).Value = user.UserName;
-                //dataAdapter.SelectCommand.Parameters.Add("_clave", NpgsqlDbType.Varchar).Value = user.Clave;
-
-
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -113,7 +95,6 @@ namespace Data
             return usuarios;
         }
 
+    }//Dao_Ver_Reportes
 
-    }//Dao_Ingresar_autor
-
-}//Principal
+}//principal

@@ -52,7 +52,7 @@
             </td>
             <td>&nbsp;&nbsp;<asp:DropDownList ID="DDL_autor_nacionalidad" runat="server" DataSourceID="ObjectDataSource1" DataTextField="pais" DataValueField="id_nacionalidad" style="font-size: medium">
                 </asp:DropDownList>
-                <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="mostrar_pais" TypeName="Consultar"></asp:ObjectDataSource>
+                <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="mostrar_pais" TypeName="Data.Dao_Ingresar_autor"></asp:ObjectDataSource>
             </td>
         </tr>
         <tr>
