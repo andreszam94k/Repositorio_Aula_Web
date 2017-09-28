@@ -17,3 +17,4 @@ C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\pruebas\Proyecto v1.0
 C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\pruebas\Proyecto v1.0\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
 C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\pruebas\Proyecto v1.0\Data\obj\Debug\Data.dll
 C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\pruebas\Proyecto v1.0\Data\obj\Debug\Data.pdb
+C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\Proyecto v1.0\Data\bin\Debug\Data.dll.config

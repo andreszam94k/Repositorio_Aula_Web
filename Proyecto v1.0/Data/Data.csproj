@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Devart.Data, Version=5.0.1772.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Devart.Data.Linq, Version=4.7.1317.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Devart.Data.PostgreSql, Version=7.9.980.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Devart.Data.PostgreSql.Linq, Version=4.7.1317.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
     <Reference Include="Npgsql">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\PostgreSQL\Npgsql\bin\Npgsql.dll</HintPath>
     </Reference>
@@ -65,6 +69,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Data_Reportes.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Linq\BaseDatos_public.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaseDatos_public.lqml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +83,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Data_Reportes.xsc">
       <DependentUpon>Data_Reportes.xsd</DependentUpon>
     </None>
@@ -84,6 +94,16 @@
     </None>
     <None Include="Data_Reportes.xss">
       <DependentUpon>Data_Reportes.xsd</DependentUpon>
+    </None>
+    <None Include="Linq\BaseDatos_public.Diagram1.view">
+      <DependentUpon>BaseDatos_public.lqml</DependentUpon>
+    </None>
+    <None Include="Linq\BaseDatos_public.edps">
+      <DependentUpon>BaseDatos_public.lqml</DependentUpon>
+    </None>
+    <None Include="Linq\BaseDatos_public.lqml">
+      <Generator>DevartLinqToSqlGenerator</Generator>
+      <LastGenOutput>BaseDatos_public.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

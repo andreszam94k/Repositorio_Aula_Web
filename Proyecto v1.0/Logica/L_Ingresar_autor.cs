@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 using Data;
 using Utilitarios;
 using System.Data;
+using System.Reflection;
 
 namespace Logica
 {
     public class L_Ingresar_autor
     {
+        AulaWebContext_public.AulaWebDataContext_public operacion = new AulaWebContext_public.AulaWebDataContext_public();
+
         //----- verificar sesion .....
         public U_Ingresar_autor verificar(object user, object rol)
         {
@@ -139,8 +142,11 @@ namespace Logica
         {
 
             U_Ingresar_autor info_2 = new U_Ingresar_autor();
-            Dao_Ingresar_autor operacion = new Dao_Ingresar_autor();
-            DataTable informacion = operacion.consultar_autor(nombre);
+            //Dao_Ingresar_autor operacion = new Dao_Ingresar_autor();
+            //DataTable informacion = operacion.consultar_autor(nombre);
+
+            List<AulaWebContext_public.Autor> datos = operacion.SpConsultaAutor(nombre).ToList<AulaWebContext_public.Autor>();
+            DataTable informacion = ToDataTable(datos);
 
             //asignamos la session en caso que no pase el if
             info_2.Session_fotos = Sfotos;
@@ -178,7 +184,11 @@ namespace Logica
                     try
                     {
                         //mandamos datos de registro
-                        operacion.insertar_autor(datosAutor);
+                        //operacion.insertar_autor(datosAutor);
+
+                        operacion.SpInsertarAutor(datosAutor.Nombre, datosAutor.FechaBirth, datosAutor.FechaDeath, datosAutor.Foto, datosAutor.Descripcion, Int32.Parse(datosAutor.Nacionalidad), Int32.Parse(datosAutor.UserCambio));
+                        operacion.SubmitChanges();
+
                         //reiniciamos session
                         info_2.Session_fotos = null;
                         //confirmamos y redireccionamos
@@ -207,6 +217,35 @@ namespace Logica
 
             }
             
+        }
+
+
+        //convierte en datatable
+        private DataTable ToDataTable<T>(List<T> items)
+        {
+            DataTable dataTable = new DataTable(typeof(T).Name);
+
+            //Get all the properties
+            PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            foreach (PropertyInfo prop in Props)
+            {
+                //Defining type of data column gives proper data table 
+                var type = (prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>) ? Nullable.GetUnderlyingType(prop.PropertyType) : prop.PropertyType);
+                //Setting column names as Property names
+                dataTable.Columns.Add(prop.Name, type);
+            }
+            foreach (T item in items)
+            {
+                var values = new object[Props.Length];
+                for (int i = 0; i < Props.Length; i++)
+                {
+                    //inserting property values to datatable rows
+                    values[i] = Props[i].GetValue(item, null);
+                }
+                dataTable.Rows.Add(values);
+            }
+            //put a breakpoint here and check datatable
+            return dataTable;
         }
 
 

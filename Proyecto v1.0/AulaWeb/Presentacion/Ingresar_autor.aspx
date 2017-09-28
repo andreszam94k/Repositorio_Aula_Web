@@ -50,9 +50,10 @@
             <td class="auto-style17">
                 <asp:Label ID="L_autor_nacionalidad" runat="server" style="color: #CCCCCC; font-size: x-large" Text="Pais de origen: "></asp:Label>
             </td>
-            <td>&nbsp;&nbsp;<asp:DropDownList ID="DDL_autor_nacionalidad" runat="server" DataSourceID="ObjectDataSource1" DataTextField="pais" DataValueField="id_nacionalidad" style="font-size: medium">
+            <td>&nbsp;&nbsp;<asp:DropDownList ID="DDL_autor_nacionalidad" runat="server" DataSourceID="LinqDataSource1" DataTextField="Pais" DataValueField="IdNacionalidad" style="font-size: medium">
                 </asp:DropDownList>
-                <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="mostrar_pais" TypeName="Data.Dao_Ingresar_autor"></asp:ObjectDataSource>
+                <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="AulaWebContext_public.AulaWebDataContext_public" EntityTypeName="" Select="new (IdNacionalidad, Pais)" TableName="Pais">
+                </asp:LinqDataSource>
             </td>
         </tr>
         <tr>

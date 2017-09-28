@@ -45,52 +45,52 @@
                         <Columns>
                             <asp:TemplateField HeaderText="ID" Visible="False">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("id_usuario") %>' style="color: #CCCCCC"></asp:Label>
+                                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("IdUsuario") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="NOMBRE">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("nombre") %>' style="color: #CCCCCC"></asp:Label>
+                                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Nombre") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="APELLIDO">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("apellido") %>' style="color: #CCCCCC"></asp:Label>
+                                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("Apellido") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="DOCUMENTO">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label5" runat="server" Text='<%# Bind("documento") %>' style="color: #CCCCCC"></asp:Label>
+                                    <asp:Label ID="Label5" runat="server" Text='<%# Bind("Documento") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="TELEFONO">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label6" runat="server" Text='<%# Bind("telefono") %>' style="color: #CCCCCC"></asp:Label>
+                                    <asp:Label ID="Label6" runat="server" Text='<%# Bind("Telefono") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="CORREO">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label7" runat="server" Text='<%# Bind("correo") %>' style="color: #CCCCCC"></asp:Label>
+                                    <asp:Label ID="Label7" runat="server" Text='<%# Bind("Correo") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="USUARIO">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label8" runat="server" Text='<%# Bind("usuario") %>' style="color: #CCCCCC"></asp:Label>
+                                    <asp:Label ID="Label8" runat="server" Text='<%# Bind("Usuario1") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="CLAVE" Visible="False">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label9" runat="server" Text='<%# Bind("clave") %>' style="color: #CCCCCC"></asp:Label>
+                                    <asp:Label ID="Label9" runat="server" Text='<%# Bind("Clave") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="DINERO">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label10" runat="server" Text='<%# Bind("dinero") %>' style="color: #CCCCCC"></asp:Label>
+                                    <asp:Label ID="Label10" runat="server" Text='<%# Bind("Dinero") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="ID_ROL" Visible="False">
                                 <ItemTemplate>
-                                    <asp:Label ID="Label11" runat="server" Text='<%# Bind("id_rol") %>' style="color: #CCCCCC"></asp:Label>
+                                    <asp:Label ID="Label11" runat="server" Text='<%# Bind("IdRol") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField>
