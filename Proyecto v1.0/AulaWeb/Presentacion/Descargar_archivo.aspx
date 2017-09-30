@@ -58,7 +58,7 @@
                     <Columns>
                         <asp:TemplateField HeaderText="ID" Visible="False">
                             <ItemTemplate>
-                                <asp:Label ID="Label11" runat="server" Text='<%# Bind("id_comentario") %>'></asp:Label>
+                                <asp:Label ID="Label11" runat="server" Text='<%# Bind("IdComentario") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="COMENTARIOS">
@@ -66,15 +66,15 @@
                                 <table class="auto-style2">
                                     <tr>
                                         <td class="auto-style15" style="color: #FFFFFF; background-color: #333333">
-                                            <asp:Label ID="Label8" runat="server" Text='<%# Bind("usuario") %>' style="color: #CCCCCC; font-size: large;"></asp:Label>
+                                            <asp:Label ID="Label8" runat="server" Text='<%# Bind("Usuario") %>' style="color: #CCCCCC; font-size: large;"></asp:Label>
                                         </td>
                                         <td style="background-color: #666666">
-                                            <asp:Label ID="Label9" runat="server" style="color: #FFFF00; font-size: large;" Text='<%# Bind("fecha") %>'></asp:Label>
+                                            <asp:Label ID="Label9" runat="server" style="color: #FFFF00; font-size: large;" Text='<%# Bind("Fecha") %>'></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" style="background-color: #999999">
-                                            <asp:TextBox ID="TextBox2" runat="server" Height="50px" style="color: #669999; background-color: #333333; font-size: large;" TextMode="MultiLine" Width="90%" Enabled="False" Text='<%# Bind("comentario") %>'></asp:TextBox>
+                                            <asp:TextBox ID="TextBox2" runat="server" Height="50px" style="color: #669999; background-color: #333333; font-size: large;" TextMode="MultiLine" Width="90%" Enabled="False" Text='<%# Bind("Comentario") %>'></asp:TextBox>
                                         </td>
                                     </tr>
                                 </table>

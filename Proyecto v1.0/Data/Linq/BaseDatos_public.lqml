@@ -554,6 +554,19 @@
     <Column Name="modified_by" Member="ModifiedBy" Type="System.Int32" DbType="INT" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="0cb097c3-7d0e-45d9-84e4-50b81452f0f2" />
     <Column Name="categoria" Member="Categoria" Type="System.String" DbType="VARCHAR" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="4499a12f-6e55-4003-861f-41c7ab59996c" />
   </Type>
+  <Type Name="SpReporteUsuarioResult" ed:Guid="c38f98dd-b071-4cd8-9639-61ee2fa034d1">
+    <Column Name="id_usuario" Member="IdUsuario" Type="System.Int32" DbType="INT" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="bcad468f-1511-4a55-8ea9-9806b1c6c603" />
+    <Column Name="nombre" Member="Nombre" Type="System.String" DbType="VARCHAR" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="0ec50021-b42e-4eb7-8346-d79c1c29b164" />
+    <Column Name="apellido" Member="Apellido" Type="System.String" DbType="VARCHAR" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="1ad5b34e-1d64-4047-99e7-b88207a4f073" />
+    <Column Name="documento" Member="Documento" Type="System.Int64" DbType="BIGINT" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="a8f3a5d2-f6df-4aff-87b2-9d689d37fe2c" />
+    <Column Name="telefono" Member="Telefono" Type="System.String" DbType="VARCHAR" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="048fd68c-91ce-4371-bcd6-3a4236a86fd5" />
+    <Column Name="correo" Member="Correo" Type="System.String" DbType="VARCHAR" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="deca015b-0a72-4f65-940c-011a1b7ee5c5" />
+    <Column Name="usuario" Member="Usuario" Type="System.String" DbType="VARCHAR" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="7a1d78c5-cb3d-44d3-bd9d-4e50701b096e" />
+    <Column Name="clave" Member="Clave" Type="System.String" DbType="VARCHAR" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="66116747-bf40-440e-9afc-70e0c5ee2ff1" />
+    <Column Name="dinero" Member="Dinero" Type="System.Int32" DbType="INT" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="764aa65d-6059-44be-9c2a-85607a41b99d" />
+    <Column Name="id_rol" Member="IdRol" Type="System.Int32" DbType="INT" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="f7b1db38-e78b-4dc0-8f86-1a70313d8fb4" />
+    <Column Name="rol" Member="Rol" Type="System.String" DbType="VARCHAR" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="04edc7d0-7514-4b84-98cf-c58fcb6a6917" />
+  </Type>
   <Function Name="public.sp_ver_archivo" Method="SpVerArchivo" IsComposable="true" ed:Guid="4913e41a-de41-474c-9001-c7b516ccd9e6">
     <Documentation>
       <Summary>Funcion que retorna los datos del archivo, con categoria, precio y autores</Summary>
@@ -581,12 +594,6 @@
     </Documentation>
     <Parameter Name="_id_autor" Type="System.Int32" DbType="INTEGER" />
     <ElementType Type="SpVerArchivoAutorResult" />
-  </Function>
-  <Function Name="public.sp_reporte_usuarios" Method="SpReporteUsuario" IsComposable="true" ed:Guid="64560c59-3b77-4431-b851-b769b016dd9d">
-    <Documentation>
-      <Summary>Funcion que retorna los datos del usuario con el rol</Summary>
-    </Documentation>
-    <Return Type="System.Int32" />
   </Function>
   <Function Name="public.sp_reporte_archivos" Method="SpReporteArchivo" IsComposable="true" ed:Guid="fe7c7d2d-b39d-47dd-b9e9-d9d38f57ee6b">
     <Documentation>
@@ -910,5 +917,11 @@
     <Parameter Name="_dinero" Type="System.Int32" DbType="INTEGER" />
     <Parameter Name="_user_cambio" Type="System.Int32" DbType="INTEGER" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="public.sp_reporte_usuarios" Method="SpReporteUsuario" IsComposable="true" ed:Guid="22574b91-7a75-4015-bb66-8c3e9afd7e12">
+    <Documentation>
+      <Summary>Funcion que retorna los datos del usuario con el rol</Summary>
+    </Documentation>
+    <ElementType Type="SpReporteUsuarioResult" />
   </Function>
 </Database>

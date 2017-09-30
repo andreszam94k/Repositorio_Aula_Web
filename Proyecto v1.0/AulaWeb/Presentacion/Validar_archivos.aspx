@@ -12,55 +12,57 @@
         <Columns>
             <asp:TemplateField HeaderText="ID" Visible="False">
                 <ItemTemplate>
-                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("id_archivo") %>' style="color: #CCCCCC"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("IdArchivo") %>' style="color: #CCCCCC"></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="USUARIO">
                 <ItemTemplate>
-                    <asp:Label ID="Label8" runat="server" Text='<%# Bind("usuario") %>' style="color: #CCCCCC"></asp:Label>
+                    <asp:Label ID="Label8" runat="server" Text='<%# Bind("Usuario") %>' style="color: #CCCCCC"></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="ARCHIVO">
                 <ItemTemplate>
-                    <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl='<%# Eval("imagen_portada") %>' Width="100px" />
+                    <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl='<%# Eval("ImagenPortada") %>' Width="100px" />
                     <br />
-                    <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl='<%# Eval("url") %>' style="color: #FF0000" Target="_blank" Text='<%# Bind("nombre") %>'></asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl='<%# Eval("url") %>' style="color: #FF0000" Target="_blank" Text='<%# Bind("Nombre") %>'></asp:HyperLink>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="DESCRIPCION">
                 <ItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Enabled="False" Height="55px" Text='<%# Eval("sinopsis") %>' TextMode="MultiLine" Width="197px" style="color: #000000"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" Enabled="False" Height="55px" Text='<%# Eval("Sinopsis") %>' TextMode="MultiLine" Width="197px" style="color: #000000"></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="CATEGORIA">
                 <EditItemTemplate>
-                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="ObjectDataSource1" DataTextField="categoria" DataValueField="id_categoria" SelectedValue='<%# Eval("id_categoria") %>' style="color: #000000">
+                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="LinqDataSource1" DataTextField="Categoria1" DataValueField="IdCategoria" SelectedValue='<%# Eval("IdCategoria") %>' style="color: #000000">
                     </asp:DropDownList>
                     <br />
-                    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="mostrar_categoria_archivo" TypeName="Consultar"></asp:ObjectDataSource>
+                    <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="AulaWebContext_public.AulaWebDataContext_public" EntityTypeName="" TableName="Categorias">
+                    </asp:LinqDataSource>
+                    <br />
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("categoria") %>' style="color: #CCCCCC"></asp:Label>
+                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("Categoria") %>' style="color: #CCCCCC"></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="TAGS">
                 <ItemTemplate>
-                    <asp:Label ID="Label4" runat="server" Text='<%# Eval("tags") %>' style="color: #CCCCCC"></asp:Label>
+                    <asp:Label ID="Label4" runat="server" Text='<%# Eval("Tags") %>' style="color: #CCCCCC"></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="ID_USUARIO" Visible="False">
                 <ItemTemplate>
-                    <asp:Label ID="Label5" runat="server" Text='<%# Eval("id_usuario") %>' style="color: #CCCCCC"></asp:Label>
+                    <asp:Label ID="Label5" runat="server" Text='<%# Eval("IdUsuario") %>' style="color: #CCCCCC"></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="ID_ESTADO" Visible="False">
                 <ItemTemplate>
-                    <asp:Label ID="Label6" runat="server" Text='<%# Eval("id_estado") %>' style="color: #CCCCCC"></asp:Label>
+                    <asp:Label ID="Label6" runat="server" Text='<%# Eval("IdEstado") %>' style="color: #CCCCCC"></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="ID_CATEGORIA" Visible="False">
                 <ItemTemplate>
-                    <asp:Label ID="Label7" runat="server" Text='<%# Eval("id_categoria") %>' style="color: #CCCCCC"></asp:Label>
+                    <asp:Label ID="Label7" runat="server" Text='<%# Eval("IdCategoria") %>' style="color: #CCCCCC"></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField>

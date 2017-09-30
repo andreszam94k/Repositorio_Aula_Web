@@ -46,20 +46,20 @@ public partial class Presentacion_Descargar_archivo : System.Web.UI.Page
             DataTable info_archivo = operacion.archivo_datos(id_archivo);
 
             //----------------------llenamos los componentes con los datos......................................
-            Image1_archivo.ImageUrl = info_archivo.Rows[0]["imagen_portada"].ToString();
-            L_nombre_archivo.Text = info_archivo.Rows[0]["nombre"].ToString();
-            L_fecha_archivo.Text = info_archivo.Rows[0]["anio"].ToString();
-            L_paginas_archivo.Text = info_archivo.Rows[0]["num_pag"].ToString();
-            L_categoria_archivo.Text = info_archivo.Rows[0]["categoria"].ToString();
-            L_precio_archivo.Text = "$ " + info_archivo.Rows[0]["precio"].ToString();
-            TB_sinopsis_archivo.Text = info_archivo.Rows[0]["sinopsis"].ToString();
-            L_tags_archivo.Text = info_archivo.Rows[0]["tags"].ToString();
+            Image1_archivo.ImageUrl = info_archivo.Rows[0]["ImagenPortada"].ToString();
+            L_nombre_archivo.Text = info_archivo.Rows[0]["Nombre"].ToString();
+            L_fecha_archivo.Text = info_archivo.Rows[0]["Anio"].ToString();
+            L_paginas_archivo.Text = info_archivo.Rows[0]["NumPag"].ToString();
+            L_categoria_archivo.Text = info_archivo.Rows[0]["Categoria"].ToString();
+            L_precio_archivo.Text = "$ " + info_archivo.Rows[0]["Precio"].ToString();
+            TB_sinopsis_archivo.Text = info_archivo.Rows[0]["Sinopsis"].ToString();
+            L_tags_archivo.Text = info_archivo.Rows[0]["Tags"].ToString();
 
             //foreach es un ciclo, Sintaxis: (var objeto, in coleccion(componente))
             // Todas las filas del datatable' rows
             foreach (DataRow dtRow in info_archivo.Rows)
             {
-                autores += dtRow["nombre_autor"].ToString() + " | ";
+                autores += dtRow["NombreAutor"].ToString() + " | ";
             }//foreach filas
 
             //agregamos los autores

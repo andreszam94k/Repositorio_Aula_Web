@@ -54,25 +54,25 @@
                     <Columns>
                         <asp:TemplateField HeaderText="ID" Visible="False">
                             <ItemTemplate>
-                                <asp:Label ID="Label2" runat="server" Text='<%# Bind("id_categoria") %>' style="color: #CCCCCC"></asp:Label>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Bind("IdCategoria") %>' style="color: #CCCCCC"></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="CATEGORIA">
                             <EditItemTemplate>
-                                <asp:TextBox ID="TextBox1" runat="server" Enabled="False" MaxLength="30" Text='<%# Eval("categoria") %>'></asp:TextBox>
+                                <asp:TextBox ID="TextBox1" runat="server" Enabled="False" MaxLength="30" Text='<%# Eval("Categoria1") %>'></asp:TextBox>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("categoria") %>' style="color: #CCCCCC"></asp:Label>
+                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("Categoria1") %>' style="color: #CCCCCC"></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="PRECIO">
                             <EditItemTemplate>
                                 <asp:RequiredFieldValidator ID="RFV_gv_costo" runat="server" ControlToValidate="TextBox2" ErrorMessage="¿?" style="color: #FF0000" ValidationGroup="LinkButton2"></asp:RequiredFieldValidator>
-                                <asp:TextBox ID="TextBox2" runat="server" MaxLength="5" Text='<%# Eval("precio") %>'></asp:TextBox>
+                                <asp:TextBox ID="TextBox2" runat="server" MaxLength="5" Text='<%# Eval("Precio") %>'></asp:TextBox>
                                 &nbsp;<asp:RegularExpressionValidator ID="REV_gv_costo" runat="server" ControlToValidate="TextBox2" ErrorMessage="*" ValidationExpression="^[1234567890]*$" style="color: #FF0000" ValidationGroup="LinkButton2"></asp:RegularExpressionValidator>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Label ID="Label4" runat="server" Text='<%# Eval("precio") %>' style="color: #CCCCCC"></asp:Label>
+                                <asp:Label ID="Label4" runat="server" Text='<%# Eval("Precio") %>' style="color: #CCCCCC"></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>

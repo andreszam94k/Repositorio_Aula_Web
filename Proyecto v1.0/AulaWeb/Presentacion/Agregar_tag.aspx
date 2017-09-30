@@ -39,12 +39,12 @@
                     <Columns>
                         <asp:TemplateField HeaderText="ID" Visible="False">
                             <ItemTemplate>
-                                <asp:Label ID="Label2" runat="server" Text='<%# Bind("id_tags") %>' style="color: #CCCCCC"></asp:Label>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Bind("IdTags") %>' style="color: #CCCCCC"></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="TAG">
                             <ItemTemplate>
-                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("tag") %>' style="color: #CCCCCC"></asp:Label>
+                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("Tag1") %>' style="color: #CCCCCC"></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>

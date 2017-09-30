@@ -311,7 +311,7 @@ public partial class Presentacion_Subir_archivos : System.Web.UI.Page
         //Consultar datos = new Consultar();
         DataTable info = operacion.precio(identificacion);
 
-        TB_archivo_precio.Text = "$ " + info.Rows[0]["precio"].ToString();
+        TB_archivo_precio.Text = "$ " + info.Rows[0]["Precio"].ToString();
     }
 
 }//principal

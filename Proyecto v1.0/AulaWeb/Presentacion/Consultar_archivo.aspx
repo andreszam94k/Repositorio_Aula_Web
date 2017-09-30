@@ -44,29 +44,29 @@
         <Columns>
             <asp:TemplateField HeaderText="ID" Visible="False">
                 <ItemTemplate>
-                    <asp:Label ID="Label2" runat="server" style="color: #CCCCCC" Text='<%# Eval("id_archivo") %>'></asp:Label>
+                    <asp:Label ID="Label2" runat="server" style="color: #CCCCCC" Text='<%# Eval("IdArchivo") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="ARCHIVO">
                 <ItemTemplate>
-                    <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl='<%# Eval("imagen_portada") %>' Width="100px" />
+                    <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl='<%# Eval("ImagenPortada") %>' Width="100px" />
                     <br />
-                    <asp:Label ID="Label3" runat="server" style="color: #FF0000" Text='<%# Bind("nombre") %>'></asp:Label>
+                    <asp:Label ID="Label3" runat="server" style="color: #FF0000" Text='<%# Bind("Nombre") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="DESCRIPCION">
                 <ItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Enabled="False" Height="68px" Text='<%# Bind("sinopsis") %>' TextMode="MultiLine" Width="207px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" Enabled="False" Height="68px" Text='<%# Bind("Sinopsis") %>' TextMode="MultiLine" Width="207px"></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="TAGS">
                 <ItemTemplate>
-                    <asp:Label ID="Label4" runat="server" style="color: #CCCCCC" Text='<%# Eval("tags") %>'></asp:Label>
+                    <asp:Label ID="Label4" runat="server" style="color: #CCCCCC" Text='<%# Eval("Tags") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="CATEGORIA">
                 <ItemTemplate>
-                    <asp:Label ID="Label5" runat="server" style="color: #CCCCCC" Text='<%# Eval("categoria") %>'></asp:Label>
+                    <asp:Label ID="Label5" runat="server" style="color: #CCCCCC" Text='<%# Eval("Categoria") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField>

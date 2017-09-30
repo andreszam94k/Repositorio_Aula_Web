@@ -19,9 +19,10 @@
                 <asp:Label ID="L_elegir_autor" runat="server" style="font-size: x-large; color: #CCCCCC" Text="Elegir autor: "></asp:Label>
             </td>
             <td>
-                <asp:DropDownList ID="DDL_autor" runat="server" AutoPostBack="True" DataSourceID="ODS_elegir_autor" DataTextField="nombre" DataValueField="id_autor" style="font-size: large" OnSelectedIndexChanged="DDL_autor_SelectedIndexChanged">
+                <asp:DropDownList ID="DDL_autor" runat="server" AutoPostBack="True" DataSourceID="LinqDataSource1" DataTextField="Nombre" DataValueField="IdAutor" style="font-size: large" OnSelectedIndexChanged="DDL_autor_SelectedIndexChanged">
                 </asp:DropDownList>
-&nbsp;<asp:ObjectDataSource ID="ODS_elegir_autor" runat="server" SelectMethod="mostrar_autor" TypeName="Data.Dao_Consultar_autor"></asp:ObjectDataSource>
+&nbsp;<asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="AulaWebContext_public.AulaWebDataContext_public" EntityTypeName="" TableName="Autors">
+                </asp:LinqDataSource>
             </td>
         </tr>
         <tr>
@@ -52,19 +53,19 @@
         <Columns>
             <asp:TemplateField HeaderText="ID" Visible="False">
                 <ItemTemplate>
-                    <asp:Label ID="Label6" runat="server" style="color: #CCCCCC" Text='<%# Eval("id_archivo") %>'></asp:Label>
+                    <asp:Label ID="Label6" runat="server" style="color: #CCCCCC" Text='<%# Eval("IdArchivo") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="ARCHIVO">
                 <ItemTemplate>
-                    <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl='<%# Eval("imagen_portada") %>' Width="100px" />
+                    <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl='<%# Eval("ImagenPortada") %>' Width="100px" />
                     <br />
-                    <asp:Label ID="Label7" runat="server" style="color: #FF0000" Text='<%# Eval("nombre_archivo") %>'></asp:Label>
+                    <asp:Label ID="Label7" runat="server" style="color: #FF0000" Text='<%# Eval("NombreArchivo") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="DESCRIPCION">
                 <ItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Enabled="False" Height="80px" style="font-size: medium" Text='<%# Eval("sinopsis") %>' Width="300px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" Enabled="False" Height="80px" style="font-size: medium" Text='<%# Eval("Sinopsis") %>' Width="300px"></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField>
