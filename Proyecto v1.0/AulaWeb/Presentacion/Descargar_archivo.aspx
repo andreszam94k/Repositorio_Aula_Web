@@ -8,7 +8,9 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <h1 style="color: #CCCCCC">Formulario descargar archivo</h1>
+    <h1 style="color: #CCCCCC">
+        <asp:Label ID="L_MDA_1" runat="server">aaa</asp:Label>
+    </h1>
     <table align="center" class="auto-style2">
         <tr>
             <td style="text-align: center">
@@ -20,26 +22,26 @@
         <tr>
             <td style="text-align: center">
                 <br />
-                <asp:Label ID="Label2" runat="server" style="color: #CCCCCC; font-size: x-large; font-weight: 700;" Text="Autor/es: "></asp:Label>
+                <asp:Label ID="Label2" runat="server" style="color: #CCCCCC; font-size: x-large; font-weight: 700;">aaa</asp:Label>
 &nbsp;<asp:Label ID="L_autor_archivo" runat="server" style="font-size: x-large; font-style: italic; color: #00CC99;"></asp:Label>
                 <br />
-                <asp:Label ID="Label3" runat="server" style="color: #CCCCCC; font-size: x-large; font-weight: 700;" Text="Año de publicacion: "></asp:Label>
+                <asp:Label ID="Label3" runat="server" style="color: #CCCCCC; font-size: x-large; font-weight: 700;">aaa</asp:Label>
 &nbsp;<asp:Label ID="L_fecha_archivo" runat="server" style="font-size: x-large; color: #999999; font-weight: 700;"></asp:Label>
 &nbsp;
-                <asp:Label ID="Label4" runat="server" style="color: #CCCCCC; font-size: x-large; font-weight: 700;" Text="# Paginas: "></asp:Label>
+                <asp:Label ID="Label4" runat="server" style="color: #CCCCCC; font-size: x-large; font-weight: 700;">aaa</asp:Label>
                 <asp:Label ID="L_paginas_archivo" runat="server" style="font-size: x-large; color: #999999; font-weight: 700;"></asp:Label>
                 <br />
-                <asp:Label ID="Label5" runat="server" style="font-size: x-large; color: #CCCCCC; font-weight: 700;" Text="Categoria: "></asp:Label>
+                <asp:Label ID="Label5" runat="server" style="font-size: x-large; color: #CCCCCC; font-weight: 700;">aaa</asp:Label>
                 <asp:Label ID="L_categoria_archivo" runat="server" style="font-size: x-large; color: #999999; font-weight: 700;"></asp:Label>
 &nbsp;&nbsp;
-                <asp:Label ID="Label10" runat="server" style="font-size: x-large; color: #CCCCCC; font-weight: 700;" Text="Precio: "></asp:Label>
+                <asp:Label ID="Label10" runat="server" style="font-size: x-large; color: #CCCCCC; font-weight: 700;">aaa</asp:Label>
 &nbsp;<asp:Label ID="L_precio_archivo" runat="server" style="color: #009933; font-size: x-large; font-weight: 700;"></asp:Label>
                 <br />
-                <asp:Label ID="Label6" runat="server" style="color: #CCCCCC; font-size: x-large; font-weight: 700;" Text="Sinopsis"></asp:Label>
+                <asp:Label ID="Label6" runat="server" style="color: #CCCCCC; font-size: x-large; font-weight: 700;">aaa</asp:Label>
                 <br />
                 <asp:TextBox ID="TB_sinopsis_archivo" runat="server" Enabled="False" Height="80px" style="font-size: large" TextMode="MultiLine" Width="500px"></asp:TextBox>
                 <br />
-                <asp:Label ID="Label7" runat="server" style="font-size: x-large; color: #CCCCCC; font-weight: 700;" Text="Tags: "></asp:Label>
+                <asp:Label ID="Label7" runat="server" style="font-size: x-large; color: #CCCCCC; font-weight: 700;">aaa</asp:Label>
 &nbsp;<asp:Label ID="L_tags_archivo" runat="server" style="font-style: italic; font-size: x-large; color: #00CC99;"></asp:Label>
             </td>
         </tr>
@@ -56,12 +58,12 @@
                 <br />
                 <asp:GridView ID="GV_comentarios" runat="server" HorizontalAlign="Center" AutoGenerateColumns="False" style="background-color: #999999" Width="597px">
                     <Columns>
-                        <asp:TemplateField HeaderText="ID" Visible="False">
+                        <asp:TemplateField Visible="False">
                             <ItemTemplate>
                                 <asp:Label ID="Label11" runat="server" Text='<%# Bind("IdComentario") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="COMENTARIOS">
+                        <asp:TemplateField>
                             <ItemTemplate>
                                 <table class="auto-style2">
                                     <tr>
@@ -87,11 +89,11 @@
         <tr>
             <td style="text-align: center">
                 <br />
-                <asp:RequiredFieldValidator ID="RFV_comentario_archivo" runat="server" ControlToValidate="TB_comentario" ErrorMessage="Digite comentario " style="color: #FF6600; font-size: large" ValidationGroup="B_comentar"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RFV_comentario_archivo" runat="server" ControlToValidate="TB_comentario" style="color: #FF6600; font-size: large" ValidationGroup="B_comentar" ErrorMessage="aaa"></asp:RequiredFieldValidator>
                 <asp:TextBox ID="TB_comentario" runat="server" Height="93px" style="font-size: medium" TextMode="MultiLine" Width="405px" MaxLength="200"></asp:TextBox>
-                &nbsp;<asp:RegularExpressionValidator ID="REV_comentario_archivo" runat="server" ControlToValidate="TB_comentario" ErrorMessage="* Caracter invalido" style="color: #FF6600; font-size: large" ValidationExpression="^[1234567890a-zA-Z ]*$" ValidationGroup="B_comentar"></asp:RegularExpressionValidator>
+                &nbsp;<asp:RegularExpressionValidator ID="REV_comentario_archivo" runat="server" ControlToValidate="TB_comentario" style="color: #FF6600; font-size: large" ValidationExpression="^[1234567890a-zA-Z ]*$" ValidationGroup="B_comentar" ErrorMessage="aaa"></asp:RegularExpressionValidator>
                 <br />
-                <asp:Button ID="B_comentar" runat="server" style="color: #CCCCCC; font-size: medium; background-color: #660066" Text="COMENTAR" OnClick="B_comentar_Click" ValidationGroup="B_comentar" />
+                <asp:Button ID="B_comentar" runat="server" style="color: #CCCCCC; font-size: medium; background-color: #660066" OnClick="B_comentar_Click" ValidationGroup="B_comentar" Text="aaa" />
                 <br />
             </td>
         </tr>

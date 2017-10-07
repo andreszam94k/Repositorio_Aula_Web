@@ -8,13 +8,27 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <h1 class="auto-style15">Sobre Nosotros</h1>
-        <h2 class="auto-style15">¿Qué es la plataforma?</h2>
-    <p class="auto-style15">Somos una plataforma, de contenidos compartidos que tiene como fin generar un espacio abierto donde las personas puedan compartir sus archivos con otros y de esta manera estimular la inteligencia colectiva dentro de la plataforma, compartiendo archivos y alimentando la base de datos del sistema agregando nuevo contenido a la página.</p>
+    <h1 class="auto-style15">
+        <asp:Label ID="L_MNos_1" runat="server">aaa</asp:Label>
+    </h1>
+        <h2 class="auto-style15">
+            <asp:Label ID="L_MNos_2" runat="server">aaa</asp:Label>
+    </h2>
+    <p class="auto-style15">
+        <asp:Label ID="L_MNos_3" runat="server">aaa</asp:Label>
+    </p>
     <br />
-    <h2 class="auto-style15">Mision</h2>
-        <p class="auto-style15">El Aula de investigacion web es una plataforma, que tiene como fin ofrecer un sitio web que permita al usuario compartir y descargar archivos en formato pdf (libros, ensayos, artículos, etc.), a través una interfaz que sea sencilla y fácil de utilizar.</p>
-        <h2 class="auto-style15">Vision</h2>
-        <p class="auto-style15">El Aula de investigacion web será un sitio de referencia, que camina con el cambio de la tecnología y la sociedad, aprovechando el uso de los contenidos compartidos en la web, dando a conocer las posibilidades que traera esto en la forma en que se gestiona el contendio en la web en el futuro .</p>
+    <h2 class="auto-style15">
+        <asp:Label ID="L_MNos_4" runat="server">aaa</asp:Label>
+    </h2>
+        <p class="auto-style15">
+            <asp:Label ID="L_MNos_5" runat="server">aaa</asp:Label>
+    </p>
+        <h2 class="auto-style15">
+            <asp:Label ID="L_MNos_6" runat="server">aaa</asp:Label>
+    </h2>
+        <p class="auto-style15">
+            <asp:Label ID="L_MNos_7" runat="server">aaa</asp:Label>
+    </p>
 </asp:Content>
 

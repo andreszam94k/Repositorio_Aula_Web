@@ -11,11 +11,15 @@
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <h1 class="auto-style15">Informaciòn y Contacto</h1>
+    <h1 class="auto-style15">
+        <asp:Label ID="L_MC_1" runat="server">aaa</asp:Label>
+    </h1>
     <table align="center" class="auto-style2" style="border-color: #000000; color: #CCCCCC; font-size: large" border="0">
         <tr>
             <td style="text-align: center">
-                <h2>DESARROLLADOR</h2>
+                <h2>
+                    <asp:Label ID="L_MC_2" runat="server">aaa</asp:Label>
+                </h2>
             </td>
         </tr>
         <tr>
@@ -23,12 +27,14 @@
                 <p>
                     Andres Felipe Zambrano Romero<br />
                     Ingenieria de sistemas<br />
-                    Universidad de cundinamrca</p>
+                    Universidad de cundinamarca</p>
             </td>
         </tr>
         <tr>
             <td>
-                <h2 style="text-align: center">CORREO</h2>
+                <h2 style="text-align: center">
+                    <asp:Label ID="L_MC_3" runat="server">aaa</asp:Label>
+                </h2>
             </td>
         </tr>
         <tr>
@@ -39,7 +45,9 @@
         </tr>
         <tr>
             <td>
-                <h2 style="text-align: center">DIRECCION </h2>
+                <h2 style="text-align: center">
+                    <asp:Label ID="L_MC_4" runat="server">aaa</asp:Label>
+                </h2>
             </td>
         </tr>
         <tr>
@@ -50,13 +58,15 @@
         </tr>
         <tr>
             <td>
-                <h2 style="text-align: center">TELEFONO</h2>
+                <h2 style="text-align: center">
+                    <asp:Label ID="L_MC_5" runat="server">aaa</asp:Label>
+                </h2>
             </td>
         </tr>
         <tr>
             <td style="text-align: center">
                 <p>
-                    CELULAR: 3111111111<br />
+                    CEL: 3111111111<br />
                     FIJO: 8255555<br />
                     FAX: 1-8732554</p>
             </td>

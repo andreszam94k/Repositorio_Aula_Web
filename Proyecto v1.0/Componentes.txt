@@ -1,193 +1,567 @@
 /* */
 Componentes por formulario
 -----------------------------------------
-Master_page
+Master_page => id 1 
 
-L_Bienvenido
-Img_user
-L_NomUser
-L_rol
-Img_money
-L_Dinero
-LB_cerrarSession
-Menu1
-Menu2
-Menu3
-Menu4
+hyperlink -> HL_inicio = INICIO / HOME
+hyperlink -> HL_Nosotros = NOSOTROS / WE
+hyperlink -> HL_Reglas = REGLAS DEL SITIO / SITE RULES
+hyperlink -> HL_Contacto = CONTACTO / CONTACT
+label -> L_Bienvenido
+image -> Img_user
+label -> L_NomUser
+label -> L_rol
+image -> Img_money
+label -> L_Dinero
+linkbutton -> LB_cerrarSession = Cerrar sesion / Log out
+
+Menu1_fila0 = REGISTRAR MODERADOR / REGISTER MODERATOR
+Menu1_fila1 = CONSULTAR / CONSULT
+Menu1_fila1_1 = Autor / Author
+Menu1_fila1_2 = Archivo / File
+Menu1_fila2 = AGREGAR / ADD
+Menu1_fila2_1 = Autor / Author
+Menu1_fila2_2 = Categoria / Category
+Menu1_fila2_3 = Tag / Tag
+Menu1_fila3 = CARGAR ARCHIVOS / UPLOAD FILES
+Menu1_fila4 = VALIDAR ARCHIVOS / VALIDATE FILES
+Menu1_fila5 = REPORTES / REPORTS
+Menu1_fila5_1 = Usuarios/ Users
+Menu1_fila5_2 = Archivos / Files
+Menu1_fila5_3 = Autores / Authors
+
+Menu2_fila0 = CONSULTAR / CONSULT
+Menu2_fila0_1 = Autor / Author
+Menu2_fila0_2 = Archivo / File
+Menu2_fila1 = AGREGAR AUTORES / ADD AUTHORS
+Menu2_fila2 = CARGAR ARCHIVOS / UPLOAD FILES
+Menu2_fila3 = VALIDAR ARCHIVOS / VALIDATE FILES
+Menu2_fila4 = REPORTES / REPORTS
+Menu2_fila4_1 = Autores / Authors
+Menu2_fila4_2 = Archivos / Files
+
+Menu3_fila0 = CONSULTAR ARCHIVOS / CONSULT FILES
+Menu3_fila1 = CONSULTAR AUTORES / CONSULT AUTHORS
+Menu3_fila2 = CARGAR ARCHIVOS / UPLOAD FILES
+
+Menu4_fila0 = INICIAR SESION / LOGIN
+Menu4_fila1 = REGISTRARSE / SIGNIN
+Menu4_fila2 = CONSULTAR ARCHIVOS / CONSULT FILES
+Menu4_fila3 = CONSULTAR AUTORES / CONSULT AUTHORS
+
+label -> L_Derechos
 
 -----------------------------------------
-inicio_session
+Contacto => id 2
 
-L_inicio_usuario
-TB_inicio_usuario
-L_inicio_clave
-TB_inicio_clave
-B_iniciarSession
-B_cancelarSession
-
------------------------------------------
-Registrar_usuario
-
-L_registro_nombre
-TB_registro_nombre
-L_registro_apellido
-TB_registro_apellido
-L_registro_documento
-TB_registro_documento
-L_registro_telefono
-TB_registro_telefono
-L_registro_correo
-TB_registro_correo
-L_registro_user
-TB_registro_user
-L_registro_clave
-TB_registro_clave
-L_registro_confirmar
-TB_registro_confirmar
-B_registrar
+Formulario:
+label -> L_MC_1 = Informacion y Contacto / Information and Contact
+label -> L_MC_2 = DESARROLLADOR / DEVELOPER
+label -> L_MC_3 = CORREO / EMAIL
+label -> L_MC_4 = DIRECCION / ADDRESS
+label -> L_MC_5 = TELEFONO / PHONE
 
 -----------------------------------------
-Registrar_moderador
+Inicio => id 3
 
-L_registro_mod
+Formulario:
+label -> L_MI_1 = Pagina Inicio / Home Page
+label -> L_MI_2 = BIENVENIDO AL AULA DE INVESTIGACION WEB / WELCOME TO AULA DE INVESTIGACION WEB
+label -> L_MI_3 = La pagina esta dedicada especialmente al uso de contenido compartido, y orientada a la intelegiencia colectiva entre sus usuarios.
+ / The page is dedicated especially to the use of shared content, and oriented to the collective understanding among its users.
+
+label -> L_MI_4 = Explora nuestro sitio, en el encontraras gran variedad de archivos que han sido recopilados por el grupo de trabajo de la pagina, ademas de ser alimentado por los mismos usuarios del sistema, lo cual lo hace un sitio ideal si deseas encontrar o compartir informacion. Aqui encontraras contenido util y a tu alcance con solo un click... 
+/ Explore our site, you will find a great variety of files that have been compiled by the workgroup of the page, besides being fed by the same users of the system, which makes it an ideal site if you want to find or share information. Here you will find useful content and at your fingertips with just a click ...
+
+label -> L_MI_5 =  ¡¡ QUE ESPERAS, AYUDANOS A HACER MAS GRANDE NUESTRA WEB !!
+ / WHAT YOU EXPECT, HELP US TO MAKE MORE GREAT OUR WEB !!
+
+-----------------------------------------
+Normas => id 4
+
+Formulario:
+label -> L_MN_1 = Normas del sitio / Site Rules
+label -> L_MN_2 = Terminos y Condiciones / Terms and Conditions
+label -> L_MN_3 = El usuario ó visitante de la página web tienen la obligación de leer las condiciones de prestación del servicio que se detallan en este texto, de manera que asume éstas como válidas en la prestación del servicio.
+ / The user or visitor of the website have the obligation to read the conditions of service provided in this text, so that it assumes these as valid in the provision of the service.
+
+label -> L_MN_4 = En esta página web no se recoge ningún tipo de información privada del visitante. únicamente se recogen datos, puntualmente, para registrar el usuario y para el buen funcionamiento del sistema.
+ / This website does not collect any kind of private visitor information. only data is collected, punctually, to register the user and for the proper functioning of the system.
+
+label -> L_MN_5 = El autor de esta web no se hace responsable del mal uso que se haga del contenido expuesto en esta página web.
+ / The author of this website is not responsible for the misuse of the content displayed on this website.
+
+label -> L_MN_6 = En esta página web NO existen contenidos ilegales (pornografía infantil, apología del terrorismo, o cualquier otro tipo de contenido ilegal).
+ / There is no illegal content on this website (child pornography, terrorism advocacy, or any other illegal content).
+
+label -> L_MN_7 = La página web no es responsable de las opiniones vertidas en los comentarios, y es responsabilidad total de los usuarios del sistema.
+ / The website is not responsible for the opinions expressed in the comments, and is the responsibility of the users of the system.
+
+label -> L_MN_8 =  La administracion de la página se reserva el derecho cancelar, borrar o eliminar el acceso a algún usuario que incumpla cualquier regla legal y/o moral.
+ / The administration of the page reserves the right to cancel, delete or remove access to any user that breaches any legal and / or moral rule.
+
+label -> L_MN_9 = Sobre el registro / About the registry
+label -> L_MN_10 = El nombre de usuario es único e inmodificable.
+ / The username is unique and unmodifiable.
+label -> L_MN_11 = Cada usuario al registrarse recibe un dinero base de $500 en su cuenta, para que pueda realizar transacciones en la pagina, si este se le agota o desea tener mas dinero debe participar subiendo archivos a la plataforma.
+ / Each user upon registration receives a base money of $ 500 in his account, so that he can carry out transactions on the page, if he is exhausted or wants to have more money he must participate by uploading files to the platform.
+
+label -> L_MN_12 = La página web no es responsable del robo de cuentas por descuidos, cada usuario es responsable de proteger su cuenta eligiendo una contraseña segura, email personal y sin dejar cuentas abiertas en lugares de acceso público.
+ / The website is not responsible for theft of accounts by carelessness, each user is responsible for protecting his account by choosing a secure password, personal email and without leaving accounts open in publicly accessible places.
+
+label -> L_MN_13 = Los usuarios, al registrarse, aceptan estos terminos de uso junto a las
+ / Users, upon registering, accept these terms of use together with the
+
+linkbuton -> HyperLink1 = Reglas del sitio. / Site Rules.
+buton -> B_normas = ACEPTAR / ACCEPT
+
+-----------------------------------------
+Nosotros => id 5
+
+label -> L_MNos_1 = Sobre nosotros / About us
+label -> L_MNos_2 = ¿Qué es la plataforma? / What is the platform?
+label -> L_MNos_3 = Somos una plataforma, de contenidos compartidos que tiene como fin generar un espacio abierto donde las personas puedan compartir sus archivos con otros y de esta manera estimular la inteligencia colectiva dentro de la plataforma, compartiendo archivos y alimentando la base de datos del sistema agregando nuevo contenido a la página.
+ / We are a platform of shared contents that has the purpose of generating an open space where people can share their files with others and in this way stimulate collective intelligence within the platform, sharing files and feeding the database of the system adding new content to the page.
+
+label -> L_MNos_4 = Mision / Mission
+label -> L_MNos_5 = El Aula de investigacion web es una plataforma, que tiene como fin ofrecer un sitio web que permita al usuario compartir y descargar archivos en formato pdf (libros, ensayos, artículos, etc.), a través una interfaz que sea sencilla y fácil de utilizar.
+ / The Web Research Room is a platform, which aims to offer a website that allows the user to share and download files in pdf format (books, essays, articles, etc.), through an interface that is simple and easy to use.
+
+label -> L_MNos_6 = Vision / Vision
+label -> L_MNos_7 = El Aula de investigacion web será un sitio de referencia, que camina con el cambio de la tecnología y la sociedad, aprovechando el uso de los contenidos compartidos en la web, dando a conocer las posibilidades que traera esto en la forma en que se gestiona el contendio en la web en el futuro.
+ / The Web Research Room will be a reference site, which walks with the change of technology and society, taking advantage of the use of shared contents on the web, giving the possibilities that this will bring in the way in which the contendio on the web in the future.
+
+-----------------------------------------
+Reglas => id 6
+
+Formulario:
+label -> Label1 = Reglas de la pagina / Page Rules
+label -> Label2 = El fin de la pagina es ser un espacio de contenidos compartidos donde las personas puedan compartir sus archivos con otros y de esta manera estimular la inteligencia colectiva dentro de la plataforma, compartiendo archivos y alimentando la base de datos del sistema agregando nuevo contenido a la página. 
+/ The end of the page is to be a shared content space where people can share their files with others and in this way stimulate collective intelligence within the platform, sharing files and feeding the system database by adding new content to the page.
+
+label -> Label3 = Por esta razon se maneja una serie de reglas a fin de ofrecer el mejor servicio, y mantener la pagina web libre de cualquier contenido no apto, que dañe o perjudique la imagen de la misma, las cuales detallaremos a continuación: 
+/ For this reason a series of rules are handled in order to offer the best service, and to keep the web page free of any content that is not suitable, that damages or damages the image of the same, which we will detail below: 
+
+label -> Label4 = Sobre archivos/contenido / About files/content
+label -> Label5 = El sitio web maneja archivos que son subidos por los usuarios del sistema y que posteriormente son publicados en la pagina por el moderador del sitio, estos archivos pueden ser de cualquier tema o tipo (libros, ensayos, artículos, etc.), siempre y cuando sea un archivo PDF y que no infrinja las normas de moralidad y etica del sitio como: 
+/ The website manages files that are uploaded by users of the system and are subsequently published on the site by the moderator of the site, these files can be of any subject or type (books, essays, articles, etc.), as long as is a PDF file and does not violate the ethical and ethical standards of the site such as:
+
+label -> Label6 = Vocabulario vulgar o que se base solamente en agredir verbalmente a personal del sitio o terceros.
+/ Vocabulary vulgar or based solely on verbally assaulting site personnel or third parties. 
+
+label -> Label7 = Que contengan material morboso tales como cadáveres, sangre, vómitos, heridas, enfermedades, etc. o material Gore en su efecto.
+/ Containing morbid material such as corpses, blood, vomiting, wounds, diseases, etc. or Gore material in its effect.
+
+label -> Label8 = Contenidos que inciten, provoquen, acepten o promuevan hechos o actos violentos, ilegales y/o peligrosos.
+/ Contents that incite, provoke, accept or promote violent, illegal and / or dangerous acts or acts.
+
+label -> Label9 = Contenido ilegal o de material adulto como pornografía, pedofilia, discriminación, xenofobia, el acoso (sexual o moral), racismo y/o sembren el odio.
+/ Contents that incite, provoke, accept or promote violent, illegal and / or dangerous acts or acts.
+
+label -> Label10 = Que hagan referencia a delitos como matar, robar, corromper o dañar a otras personas o a cualquier hecho punible que esté contemplado en el Código Penal de Cada Nación.
+/ That they refer to crimes such as killing, stealing, corrupting or damaging other persons or to any punishable act that is contemplated in the Criminal Code of each Nation. 
+
+label -> Label11 = Sobre publicacion de archivos / About Publishing Files
+label -> Label12 = A fin de evitar inconvenientes con los archivos subidos, primero deberan ser revisados para su aprobación y posterior publicación. Los moderadores son los encargados de filtrar, eliminar o editar la información que los usuarios comparten, de esta forma se evita la publicacion de contenido no apto o que el contenido se transforme en una gran cantidad de "nada" y siempre se mantenga con la mejor calidad posible.
+/ In order to avoid inconveniences with uploaded files, they should first be reviewed for approval and subsequent publication. The moderators are responsible for filtering, deleting or editing the information that users share, in this way it prevents the publication of inappropriate content or that the content becomes a lot of "nothing" and always stays with the best possible quality.
+
+label -> Label13 = Sobre Transacciones en la pagina / About Transactions on page
+label -> Label14 = La plataforma manejara dinero virtual para las transacciones dentro del sitio. / The platform will handle virtual money for transactions within the site.
+label -> Label15 = Para poder descargar un archivo del sitio el usuario debe contar con el dinero suficiente para poder “comprarlo”.
+/ In order to download a file from the site the user must have enough money to be able to "buy" it.
+
+label -> Label16 = Cada archivo contara con un “precio” diferente el cual esta asignado según la categoría que el moderador le dé al validarlo.
+/ Each file will have a different "price" which is assigned according to the category that the moderator gives when validating it.
+
+label -> Label17 = El archivo subido por el usuario, puede ser de cualquier tema o tipo (libros, ensayos, artículos, etc.), siempre y cuando sea un archivo PDF y cumpla con las normas del sitio.
+/ The file uploaded by the user, can be of any subject or type (books, essays, articles, etc.), as long as it is a PDF file and complies with the rules of the site.
+
+label -> Label18 = Cada usuario contara con un dinero base a la hora de registrarse en la página.
+ / Each user will have a base money at the time of registering on the page.
+
+label -> Label19 = Por cada archivo subido y publicado el usuario recibirá una bonificación en su cuenta de dinero virtual. 
+/ For each uploaded and posted file the user will receive a bonus on their virtual money account.
+
+label -> Label20 = Cada bonificación será juzgada según un listado de categorías, la cual es asignada y clasificada por el Moderador a la hora de validar los archivos. 
+/ Each bonus will be judged according to a list of categories, which is assigned and classified by the Moderator when validating the files.
+
+label -> Label21 = Sobre Usuarios / About Users
+label -> Label22 = Cada usuario poseera un usuario y contraseña dentro del sitio, que lo identifica y le permite compartir contenido dentro de la misma.
+/ Each user has a user and password inside the site, which identifies and allows you to share content within the site.
+
+label -> Label23 = Los usuarios podrán comentar el contenido de la página (archivos publicados) y dar su opinión o valoración sobre estos. 
+/ Users can comment on the content of the page (published files) and give their opinion or assessment on these.
+
+label -> Label24 = La administracion de la pagina esta en la potestad de eliminar la cuenta de los usuarios que infrinjan las reglas de uso o que no acaten las normas de moralidad y etica del sitio, ademas de cometer infracciones como: 
+/ The administration of the page is in the power to eliminate the account of users who violate the rules of use or who do not abide by the morality and ethics norms of the site, besides committing infractions such as:
+
+label -> Label25 = Comentar con insultos, ofensas, discriminación, comentarios peyorativos, etc. (hacia otro usuario o de forma general). 
+/ Discuss with insults, offenses, discrimination, pejorative comments, etc. (to another user or in general).
+
+label -> Label26 = Hagan SPAM por cualquier medio (nombre de usuario, comentarios) y/o promocionen otras paginas o comunidades. 
+/ Make SPAM by any means (username, comments) and / or promote other pages or communities.
+
+label -> Label27 = Busquen generar polémica por medio de comentarios desafiantes o descalificantes. 
+/ They seek to generate controversy through challenging or disqualifying comments.
+
+label -> Label28 = Re-enviar contenido que ha sido rechazado por moderación en forma reiterada. 
+/ Resubmit content that has been repeatedly rejected for moderation.
+
+label -> Label29 = Generar flood (repetición de mensajes o saturación) de cualquier tipo. 
+/ Generate flood (repetition of messages or saturation) of any type.
+
+-----------------------------------------
+Ver_categorias => id 7
+
+Formulario:
+label -> L_MC_1 = Formulario categorias y tags / Forms Category and Tags
+buton -> B_ver_categorias = CERRAR / CLOSE
+
+-----------------------------------------
+inicio_session => id 8
+
+Formulario:
+label -> L_MIS_1 = Iniciar sesion / Loggin
+label -> L_MIS_2 = ¿No tienes cuenta? registrate / You do not have an account? Sign up
+hyperlink -> HL_CrearUser = Crear cuenta / Create account
+
+Componentes:
+label -> L_inicio_usuario = Usuario / User
+textbox -> TB_inicio_usuario
+label -> L_inicio_clave = Contraseña / Password
+textbox -> TB_inicio_clave
+boton -> B_iniciarSession = Ingresar / Login
+boton -> B_cancelarSession = Cancelar / Cancel
+
+error:
+RFV_usuario = Ingrese usuario / Enter user
+REV_usuario = Caracter invalido / Invalid character
+RFV_contraseña = Ingrese contraseña / Enter password
+REV_contraseña = Caracter invalido / Invalid character
+
+-----------------------------------------
+Registrar_usuario => id 9
+
+Formulario:
+label -> L_MRU_1 = Formulario de registro / Registration Form
+label -> L_MRU_2 = Datos de registro / Registration Data
+
+Componentes:
+label -> L_registro_nombre = Nombre / First name
+textbox -> TB_registro_nombre 
+label -> L_registro_apellido = Apellido / Last name
+textbox -> TB_registro_apellido
+label -> L_registro_documento = Documento / Document
+textbox -> TB_registro_documento
+label -> L_registro_telefono = Telefono / Phone
+textbox -> TB_registro_telefono
+label -> L_registro_correo = Correo / Email
+textbox -> TB_registro_correo
+label -> L_registro_user = Usuario / User
+textbox -> TB_registro_user
+label -> L_registro_clave = Contraseña / Password
+textbox -> TB_registro_clave
+label -> L_registro_confirmar = Comfirmar contraseña / Confirm password
+textbox -> TB_registro_confirmar
+boton -> B_registrar = REGISTRAR / REGISTER NOW
+checkbox -> CB_terminos = Acepto los / I accept the
+hyperlink -> HL_terminos = Terminos y Condiciones / Terms and Conditions
+
+error:
+RFV_nombre = Completar Campo / Complete field
+REV_nombre = Caracter invalido / Invalid character
+RFV_apellido = Completar Campo / Complete field
+REV_apellido = Caracter invalido / Invalid character
+RFV_documento = Completar Campo / Complete field
+REV_documento = Caracter invalido / Invalid character
+RFV_telefono = Completar Campo / Complete field
+REV_telefono = Caracter invalido / Invalid character
+RFV_correo = Completar Campo / Complete field
+REV_correo = abc@email.com / abc@email.com
+
+RFV_user = Completar Campo / Complete field
+REV_user = Caracter invalido / Invalid character
+RFV_clave = Completar Campo / Complete field
+REV_clave = Caracter invalido / Invalid character
+RFV_confirmar = Completar Campo / Complete field
+REV_confirmar = Caracter invalido / Invalid character
+CV_confirmar = No coinciden / Do not match
+
+-----------------------------------------
+Registrar_moderador => id 10
+
+Formulario:
+label -> L_MRM_1 = Formulario Registro MOD / Registration form MOD 
+label -> L_registro_mod = Odernar Por / Order by
+
+Componentes:
 DDL_rol
-GV_registro_mod
+GV_registro_mod_columna0 = ID / ID
+GV_registro_mod_columna1 = NOMBRE / FIRST NAME
+GV_registro_mod_columna2 = APELLIDO / LAST NAME
+GV_registro_mod_columna3 = DOCUMENTO / DOCUMENT
+GV_registro_mod_columna4 = TELEFONO / PHONE
+GV_registro_mod_columna5 = CORREO / EMAIL
+GV_registro_mod_columna6 = USUARIO / USER
+GV_registro_mod_columna7 = CLAVE / PASSWORD
+GV_registro_mod_columna8 = DINERO / MONEY
+GV_registro_mod_columna9 = ID_ROL / ID_ROL
+GV_linkbuton -> LinkButton1 = Editar / Edit
+GV_linkbuton -> LinkButton2 = Cambiar rol / Change rol
+GV_linkbuton -> LinkButton3 = Cancelar / Cancel
 
 -----------------------------------------
-Ingresar_autor
+Ingresar_autor => id 11
 
-L_autor_nombre
-TB_autor_nombre
-L_autor_birth
-TB_autor_birth
-L_autor_death
-TB_autor_death
-CheckBox1
-L_autor_nacionalidad
+Formulario:
+label -> L_MIA_1 = Formulario ingresar autor / Form add author
+label -> L_MIA_2 =  Datos autor / Author data
+
+Componentes:
+label -> L_autor_nombre = Nombre / Full Name
+textbox -> TB_autor_nombre
+label -> L_autor_birth = Fecha nacimiento / Birth date
+textbox -> TB_autor_birth
+label -> L_autor_death = Fecha muerte / Date of death
+textbox -> TB_autor_death
+checkbox -> CheckBox1
+label -> L_autor_nacionalidad = Pais de origen / Country of origin
 DDL_autor_nacionalidad
-L_autor_descripcion
-TB_autor_descripcion
-L_autor_foto
-B_cargar_foto
-GV_autor_foto
-B_ingresar_autor
+label -> L_autor_descripcion = Descripcion / Description
+textbox -> TB_autor_descripcion
+label -> L_autor_foto = Foto / Photo
+buton -> B_cargar_foto = Cargar / load
+GV_autor_foto_columna0 = IMAGEN / IMAGE
+GV_Image1
+GV_Label2
+GV_Label3
+GV_LinkButton1 = Eliminar / Delete
+buton -> B_ingresar_autor = INGRESAR AUTOR / ADD AUTHOR
+
+error:
+RFV_nombre_autor = Completar Campo / Complete field
+REV_nombre_autor = Caracter invalido / Invalid character
+RFV_nacimiento_autor = Completar Campo / Complete field
+RFV_descripcion_autor = Completar Campo / Complete field
+REV_descripcion_autor = Caracter invalido / Invalid character
 
 -----------------------------------------
-Agregar_categoria
+Agregar_categoria => id 12
 
-L_categoria
-TB_categoria
-L_costo
-TB_costo
-B_agregar_categoria
-GV_categoria
+Formulario:
+label -> L_MAC_1 = Formulario agregar categoria / Form add category
+label -> L_MAC_2 = Ingresar categoria / Add category
+
+Componentes:
+label -> L_categoria = Categoria / Category
+textbox -> TB_categoria 
+label -> L_costo = Asignar costo / Assign cost
+textbox -> TB_costo
+buton -> B_agregar_categoria = Agregar / Add
+GV_categoria_columna0 = ID / ID
+GV_categoria_columna1 = CATEGORIA / CATEGORY
+GV_categoria_columna2 = PRECIO / PRICE
+GV_LinkButton1 = Editar / Edit
+GV_LinkButton2 = Cambiar / Change
+GV_LinkButton3 = Cancelar / Cancel
+GV_LinkButton4 = Eliminar / Delete
+
+error:
+RFV_categoria = Completar Campo / Complete field
+REV_categoria = Caracter invalido / Invalid character
+RFV_costo = Completar Campo / Complete field
+REV_costo = Caracter invalido / Invalid character
 
 -----------------------------------------
-Agregar_tag
+Agregar_tag => id 13
 
-L_tag
-TB_tag
-B_agregar_tag
-GV_tags
+Formulario:
+label -> L_MAT_1 = Formulario agregar tag / Form add tag
+label -> L_MAT_2 = Ingresar Tags / Add Tags
+
+Componentes:
+label-> L_tag = Tag / Tag
+textbox -> TB_tag
+buton -> B_agregar_tag = Agregar / Add
+GV_tags_columna0 = ID / ID
+GV_tags_columna1 = TAG / TAG
+GV_LinkButton1 = Eliminar / Delete
+
+error:
+RFV_tag = Completar Campo / Complete field
+REV_tag = Caracter invalido / Invalid character
 
 -----------------------------------------
-Subir_archivos
+Subir_archivos => id 14
 
-L_archivo_nombre
-TB_archivo_nombre
-L_archivo_fecha
-TB_archivo_fecha
-L_archivo_sinopsis
-TB_archivo_sinopsis
-L_archivo_paginas
-TB_archivo_paginas
-L_archivo_categoria
+Formulario:
+label -> L_MSA_1 = Formulario subir archivos / Form upload files
+label -> L_MSA_2 = Datos de registro / Registration data
+
+Componentes:
+label -> L_archivo_nombre = Nombre / Name
+textbox -> TB_archivo_nombre
+label -> L_archivo_fecha = Año publicacion / Year of publication
+textbox -> TB_archivo_fecha
+label -> L_archivo_sinopsis = Sinopsis / Synopsis
+textbox -> TB_archivo_sinopsis
+label -> L_archivo_paginas = Numero paginas / Number of pages
+textbox -> TB_archivo_paginas
+label -> L_archivo_categoria = Categoria / Category
 DDL_archivo_categoria
-TB_archivo_precio
-L_archivo_autores
+textbox -> TB_archivo_precio
+label -> L_archivo_autores = Autor(es) / Author(s)
 DL_archivo_autores
-L_archivo_tags
+label -> L_archivo_tags = Tags / Tags
 DL_archivo_tags
-L_archivo_foto
+label -> L_archivo_foto = Foto portada / Photo cover
 FU_archivo_foto
-B_cargar_foto
-GV_archivo_foto
-L_archivo_file
+buton -> B_cargar_foto = Cargar / Load
+GV_archivo_foto_columna0 = IMAGEN / IMAGE
+GV_Image1
+GV_Label2
+GV_Label3
+GV_LinkButton1 = Eliminar / Delete
+label -> L_archivo_file = Archivo / File
 FU_archivo_file
-B_cargar_file
-GV_archivo_file
-B_archivo_subir
+buton -> B_cargar_file = Cargar / Load
+GV_archivo_file_columna0 = ARCHIVO / FILE
+GV_LinkButton2 = Eliminar / Delete
+GV_Label4
+buton -> B_archivo_subir = Subir Archivo / Upload file
+
+error:
+RFV_archivo_nombre = Completar Campo / Complete field
+REV_archivo_nombre = Caracter invalido / Invalid character
+RFV_archivo_fecha = Completar Campo / Complete field
+RFV_archivo_sinopsis = Completar Campo / Complete field
+REV_archivo_sinopsis = Caracter invalido / Invalid character
+RFV_archivo_paginas = Completar Campo / Complete field
+REV_archivo_paginas = Caracter invalido / Invalid character
 
 -----------------------------------------
-Validar_archivos
+Validar_archivos => id 15
 
-HyperLink3
-GV_validar_archivos
+Formulario:
+label -> L_MVA_1 = Formulario moderar archivos / Form moderate files
+label -> L_MVA_2 = Archivos subidos / uploaded files
+label -> L_MVA_3 = ¿Desea ver las categorias? / Do you want to see the categories?
+hyperlink -> HyperLink3 = Click aqui / Click here
+
+Componentes:
+GV_validar_archivos_columna0 = ID / ID
+GV_validar_archivos_columna1 = USUARIO / USER
+GV_validar_archivos_columna2 = ARCHIVO / FILE
+GV_validar_archivos_columna3 = DESCRIPCION / DESCRIPTION
+GV_validar_archivos_columna4 = CATEGORIA / CATEGORY
+GV_validar_archivos_columna5 = TAGS / TAGS
+GV_validar_archivos_columna6 = ID_USUARIO / ID_USUARIO
+GV_validar_archivos_columna7 = ID_ESTADO / ID_ESTADO
+GV_validar_archivos_columna8 = ID_CATEGORIA / ID_CATEGORIA
+GV_Image1
+GV_HyperLink2
+GV_LinkButton1 = Moderar / Moderate
+GV_LinkButton2 = Aprobar / Approve
+GV_LinkButton3 = Rechazar / Reject
+GV_LinkButton4 = Cancelar / Cancel
 
 -----------------------------------------
-Consultar_archivo
+Consultar_archivo => id 16
 
-L_consultar_archivos
-TB_consultar_archivos
-B_mostrar_archivos
-B_consultar_archivos
-GV_consultar_archivo
+Formulario:
+label -> L_MCA_1 = Formulario consultar archivo / Form browse files
+
+Componentes:
+label -> L_consultar_archivos = Busqueda avanzada / Advanced search
+textbox -> TB_consultar_archivos
+buton -> B_mostrar_archivos = Mostrar archivos / Show files
+buton -> B_consultar_archivos = Buscar / Search
+GV_consultar_archivo_columna0 = ID / ID
+GV_consultar_archivo_columna1 = ARCHIVO / FILE
+GV_consultar_archivo_columna2 = DESCRIPCION / DESCRIPTION
+GV_consultar_archivo_columna3 = TAGS / TAGS
+GV_consultar_archivo_columna4 = CATEGORIA / CATEGORY
+GV_Image1
+GV_Label3
+GV_LinkButton1 = Ver detalles / See details
+
+error:
+RFV_consultar_archivos = Ingrese parametros / Enter parameters
+REV_consultar_archivos = Caracter invalido / Invalid character
 
 -----------------------------------------
-Consultar_autor
+Consultar_autor => id 17
 
-L_elegir_autor
+Formulario:
+label -> L_MCAU_1 = Formulario consultar autor / Form search author
+
+Componentes:
+label -> L_elegir_autor = Elegir autor / Choose author
 DDL_autor
 Image1_autor
 L_nombre_autor
-Label5
+label -> Label5 = Pais Natal / Native country
 L_pais_autor
-Label2
+label -> Label2 = Fecha Nacimiento / Birth date
 L_birth_autor
-Label3
+label -> Label3 = Fecha Muerte / Date Death
 L_death_autor
-Label4
+label -> Label4 = Descripcion / Description
 TB_descripcion_autor
-GV_archivo_autor
+GV_archivo_autor_columna0 = ID / ID
+GV_archivo_autor_columna1 = ARCHIVO / FILE
+GV_archivo_autor_columna2 = DESCRIPCION / DESCRIPTION
+GV_Image1
+GV_Label7
+GV_LinkButton1 = Ver detalles / See details
 
 -----------------------------------------
-Descargar_archivo
+Descargar_archivo => id 18
 
+Formulario:
+label -> L_MDA_1 = Formulario descargar archivo / Form download file
+
+Componentes:
 Image1_archivo
 L_nombre_archivo
-Label2
+label -> Label2 = Autor(es) / Author(s)
 L_autor_archivo
-Label3
+label -> Label3 = Año de publicacion / Year of publication 
 L_fecha_archivo
-Label4
+label -> Label4 = # Paginas / # Pages
 L_paginas_archivo
-Label5
+label -> Label5 = Categoria / Category
 L_categoria_archivo
-Label10
+label -> Label10 = Precio / Cost
 L_precio_archivo
-Label6
+label -> Label6 = Sinopsis / Synopsis 
 TB_sinopsis_archivo
-Label7
+label -> Label7 = Tags / Tags
 L_tags_archivo
 IB_descargar_archivo
-GV_comentarios
+GV_comentarios_columna0 = ID / ID
+GV_comentarios_columna1 = COMENTARIOS / COMMENTS
 TB_comentario
-B_comentar
+Buton -> B_comentar = COMENTAR / COMMENT
+
+error:
+RFV_comentario_archivo = Digite comentario / Enter Comment
+REV_comentario_archivo = Caracter invalido / Invalid character
 
 -----------------------------------------
-Reporte_archivos
+Reporte_archivos => id 19
 
 CRV_archivos
 CRS_archivos
 
 -----------------------------------------
-Reporte_autores
+Reporte_autores => id 20
 
 CRV_autores
 CRS_autores
 
 -----------------------------------------
-Reporte_usuarios
+Reporte_usuarios => id 21
 
 CRV_usuarios
 CRS_usuarios

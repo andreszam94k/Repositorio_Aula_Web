@@ -16,7 +16,9 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <h1 style="color: #CCCCCC">Formulario registro MOD</h1>
+    <h1 style="color: #CCCCCC">
+        <asp:Label ID="L_MRM_1" runat="server">aaa</asp:Label>
+    </h1>
     
         <br />
         <table class="auto-style2">
@@ -26,13 +28,13 @@
                     &nbsp;</td>
                 <td class="auto-style16">
     
-                    <asp:Label ID="L_registro_mod" runat="server" ForeColor="#CCCCCC" style="font-size: x-large; text-align: right" Text="Ordenar por: "></asp:Label>
+                    <asp:Label ID="L_registro_mod" runat="server" ForeColor="#CCCCCC" style="font-size: x-large; text-align: right">aaa</asp:Label>
                 </td>
                 <td>
                     <asp:DropDownList ID="DDL_rol" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DDL_rol_SelectedIndexChanged" style="font-size: large">
-                        <asp:ListItem Value="0">--Seleccione Rol--</asp:ListItem>
-                        <asp:ListItem Value="3">Usuario</asp:ListItem>
-                        <asp:ListItem Value="2">Moderador</asp:ListItem>
+                        <asp:ListItem Value="0">--Rol--</asp:ListItem>
+                        <asp:ListItem Value="3">Usuario / User</asp:ListItem>
+                        <asp:ListItem Value="2">Moderador / Moderator</asp:ListItem>
                     </asp:DropDownList>
                 </td>
             </tr>
@@ -43,64 +45,64 @@
                     <br />
                     <asp:GridView ID="GV_registro_mod" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnRowCancelingEdit="GV_registro_mod_RowCancelingEdit" OnRowEditing="GV_registro_mod_RowEditing" OnRowUpdating="GV_registro_mod_RowUpdating" style="text-align: left; background-color: #333333;" HorizontalAlign="Center">
                         <Columns>
-                            <asp:TemplateField HeaderText="ID" Visible="False">
+                            <asp:TemplateField Visible="False">
                                 <ItemTemplate>
                                     <asp:Label ID="Label2" runat="server" Text='<%# Bind("IdUsuario") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="NOMBRE">
+                            <asp:TemplateField>
                                 <ItemTemplate>
                                     <asp:Label ID="Label3" runat="server" Text='<%# Bind("Nombre") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="APELLIDO">
+                            <asp:TemplateField>
                                 <ItemTemplate>
                                     <asp:Label ID="Label4" runat="server" Text='<%# Bind("Apellido") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="DOCUMENTO">
+                            <asp:TemplateField>
                                 <ItemTemplate>
                                     <asp:Label ID="Label5" runat="server" Text='<%# Bind("Documento") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="TELEFONO">
+                            <asp:TemplateField>
                                 <ItemTemplate>
                                     <asp:Label ID="Label6" runat="server" Text='<%# Bind("Telefono") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="CORREO">
+                            <asp:TemplateField>
                                 <ItemTemplate>
                                     <asp:Label ID="Label7" runat="server" Text='<%# Bind("Correo") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="USUARIO">
+                            <asp:TemplateField>
                                 <ItemTemplate>
                                     <asp:Label ID="Label8" runat="server" Text='<%# Bind("Usuario1") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="CLAVE" Visible="False">
+                            <asp:TemplateField Visible="False">
                                 <ItemTemplate>
                                     <asp:Label ID="Label9" runat="server" Text='<%# Bind("Clave") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="DINERO">
+                            <asp:TemplateField>
                                 <ItemTemplate>
                                     <asp:Label ID="Label10" runat="server" Text='<%# Bind("Dinero") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="ID_ROL" Visible="False">
+                            <asp:TemplateField Visible="False">
                                 <ItemTemplate>
                                     <asp:Label ID="Label11" runat="server" Text='<%# Bind("IdRol") %>' style="color: #CCCCCC"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField>
                                 <EditItemTemplate>
-                                    <asp:LinkButton ID="LinkButton2" runat="server" CommandName="Update" style="color: #00CC00">Cambiar Rol</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton2" runat="server" CommandName="Update" style="color: #00CC00">b</asp:LinkButton>
                                     &nbsp;
-                                    <asp:LinkButton ID="LinkButton3" runat="server" CommandName="Cancel">Cancelar</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton3" runat="server" CommandName="Cancel">c</asp:LinkButton>
                                 </EditItemTemplate>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="LinkButton1" runat="server" CommandName="Edit" style="color: #3333FF">Editar</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton1" runat="server" CommandName="Edit" style="color: #3333FF">a</asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

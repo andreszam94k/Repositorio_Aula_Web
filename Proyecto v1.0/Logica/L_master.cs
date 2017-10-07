@@ -38,12 +38,12 @@ namespace Logica
             else
             {
                 //mostramos componentes y llenamos valores
-                datos.Bienvenido = "¡Bienvenido! " + var1;
+                datos.Bienvenido = "-- " + var1 + " --";
                 datos.LBienvenido = true;
                 datos.NomUser = "Nickname: " + var2;
                 datos.LNomUser = true;
                 datos.ImgMoney = true;
-                datos.Dinero = "Saldo: $ " + var3;
+                datos.Dinero = "$ " + var3;
                 datos.LDinero = true;
                 datos.LbCerrarSession = true;
 
@@ -55,7 +55,7 @@ namespace Logica
                     datos.Menu_1 = true;
                     datos.Menu_2 = false;
                     datos.Menu_3 = false;
-                    datos.RolUser = "Rol: Administrador";
+                    datos.RolUser = "Rol: Administrador/Administrator";
                     datos.LRolUser = true;
                     datos.UImgUser = "~/Imagenes/admin.png";
                     datos.ImgUser = true;
@@ -68,7 +68,7 @@ namespace Logica
                         datos.Menu_1 = false;
                         datos.Menu_2 = true;
                         datos.Menu_3 = false;
-                        datos.RolUser = "Rol: Moderador";
+                        datos.RolUser = "Rol: Moderador/Moderator";
                         datos.LRolUser = true;
                         datos.UImgUser = "~/Imagenes/mod.png";
                         datos.ImgUser = true;
@@ -81,7 +81,7 @@ namespace Logica
                             datos.Menu_1 = false;
                             datos.Menu_2 = false;
                             datos.Menu_3 = true;
-                            datos.RolUser = "Rol: Usuario";
+                            datos.RolUser = "Rol: Usuario/User";
                             datos.LRolUser = true;
                             datos.UImgUser = "~/Imagenes/user.png";
                             datos.ImgUser = true;

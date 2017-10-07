@@ -18,9 +18,11 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <h1 style="color: #CCCCCC">Formulario categorias y tags</h1>
+    <h1 style="color: #CCCCCC">
+        <asp:Label ID="L_MVC_1" runat="server">aaa</asp:Label>
+    </h1>
     <h2 style="color: #CCCCCC; text-align: center;">
-        <asp:Button ID="B_ver_categorias" runat="server" OnClick="B_ver_categorias_Click" style="font-size: large" Text="CERRAR" />
+        <asp:Button ID="B_ver_categorias" runat="server" OnClick="B_ver_categorias_Click" style="font-size: large" Text="aaa" />
     </h2>
     <table class="auto-style2">
         <tr>

@@ -12,11 +12,13 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <h1 style="color: #CCCCCC">Formulario consultar autor</h1>
+    <h1 style="color: #CCCCCC">
+        <asp:Label ID="L_MCAU_1" runat="server" Text="aaa"></asp:Label>
+    </h1>
     <table class="auto-style2">
         <tr>
             <td class="auto-style16">
-                <asp:Label ID="L_elegir_autor" runat="server" style="font-size: x-large; color: #CCCCCC" Text="Elegir autor: "></asp:Label>
+                <asp:Label ID="L_elegir_autor" runat="server" style="font-size: x-large; color: #CCCCCC">aaa</asp:Label>
             </td>
             <td>
                 <asp:DropDownList ID="DDL_autor" runat="server" AutoPostBack="True" DataSourceID="LinqDataSource1" DataTextField="Nombre" DataValueField="IdAutor" style="font-size: large" OnSelectedIndexChanged="DDL_autor_SelectedIndexChanged">
@@ -32,17 +34,17 @@
                 <br />
                 <asp:Label ID="L_nombre_autor" runat="server" style="color: #00CC99; font-size: x-large" Visible="False"></asp:Label>
                 <br />
-                <asp:Label ID="Label5" runat="server" style="color: #CCCCCC; font-size: x-large" Text="Pais Natal: "></asp:Label>
+                <asp:Label ID="Label5" runat="server" style="color: #CCCCCC; font-size: x-large">aaa</asp:Label>
 &nbsp;<asp:Label ID="L_pais_autor" runat="server" style="color: #999999; font-size: x-large"></asp:Label>
                 <br />
-                <asp:Label ID="Label2" runat="server" style="color: #CCCCCC; font-size: x-large" Text="Fecha Nacimiento: " Visible="False"></asp:Label>
+                <asp:Label ID="Label2" runat="server" style="color: #CCCCCC; font-size: x-large" Visible="False">aaa</asp:Label>
                 <asp:Label ID="L_birth_autor" runat="server" style="font-size: x-large; color: #999999" Visible="False"></asp:Label>
 &nbsp;
-                <asp:Label ID="Label3" runat="server" style="font-size: x-large; color: #CCCCCC" Text="Fecha Muerte: " Visible="False"></asp:Label>
+                <asp:Label ID="Label3" runat="server" style="font-size: x-large; color: #CCCCCC" Visible="False">aaa</asp:Label>
 &nbsp;<asp:Label ID="L_death_autor" runat="server" style="color: #999999; font-size: x-large" Visible="False"></asp:Label>
                 <br />
                 <br />
-                <asp:Label ID="Label4" runat="server" style="color: #CCCCCC; font-size: x-large" Text="Descripcion" Visible="False"></asp:Label>
+                <asp:Label ID="Label4" runat="server" style="color: #CCCCCC; font-size: x-large" Visible="False">aaa</asp:Label>
                 <br />
                 <asp:TextBox ID="TB_descripcion_autor" runat="server" Enabled="False" Height="80px" style="font-size: large" TextMode="MultiLine" Visible="False" Width="500px"></asp:TextBox>
             </td>
@@ -51,26 +53,26 @@
     <br />
     <asp:GridView ID="GV_archivo_autor" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" HorizontalAlign="Center" AutoGenerateColumns="False" OnRowEditing="GV_archivo_autor_RowEditing" style="text-align: center; background-color: #333333">
         <Columns>
-            <asp:TemplateField HeaderText="ID" Visible="False">
+            <asp:TemplateField Visible="False">
                 <ItemTemplate>
                     <asp:Label ID="Label6" runat="server" style="color: #CCCCCC" Text='<%# Eval("IdArchivo") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:TemplateField HeaderText="ARCHIVO">
+            <asp:TemplateField>
                 <ItemTemplate>
                     <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl='<%# Eval("ImagenPortada") %>' Width="100px" />
                     <br />
                     <asp:Label ID="Label7" runat="server" style="color: #FF0000" Text='<%# Eval("NombreArchivo") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:TemplateField HeaderText="DESCRIPCION">
+            <asp:TemplateField>
                 <ItemTemplate>
                     <asp:TextBox ID="TextBox1" runat="server" Enabled="False" Height="80px" style="font-size: medium" Text='<%# Eval("Sinopsis") %>' Width="300px"></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField>
                 <ItemTemplate>
-                    <asp:LinkButton ID="LinkButton1" runat="server" CommandName="Edit" style="color: #3333FF">Ver Detalles</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton1" runat="server" CommandName="Edit" style="color: #3333FF">a</asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
