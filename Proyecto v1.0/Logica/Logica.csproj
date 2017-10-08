@@ -48,19 +48,24 @@
     <Compile Include="L_Agregar_tag.cs" />
     <Compile Include="L_Consultar_archivos.cs" />
     <Compile Include="L_Consultar_autor.cs" />
+    <Compile Include="L_Contacto.cs" />
     <Compile Include="L_Descargar_archivo.cs" />
     <Compile Include="L_Ingresar_autor.cs" />
+    <Compile Include="L_Inicio.cs" />
     <Compile Include="L_inicio_sesion.cs" />
     <Compile Include="L_loggin_user.cs" />
     <Compile Include="L_master.cs" />
+    <Compile Include="L_Nosotros.cs" />
     <Compile Include="L_Registrar_moderador.cs" />
     <Compile Include="L_Registrar_usuario.cs" />
+    <Compile Include="L_Reglas.cs" />
     <Compile Include="L_Reporte_archivos.cs" />
     <Compile Include="L_Reporte_autores.cs" />
     <Compile Include="L_Reporte_usuarios.cs" />
     <Compile Include="L_Subir_archivos.cs" />
     <Compile Include="L_Validar_archivos.cs" />
     <Compile Include="L_Ver_categorias.cs" />
+    <Compile Include="L_Normas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +77,9 @@
       <Project>{6db67284-a38c-4526-ae89-9406a679be53}</Project>
       <Name>Utilitarios</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -43,7 +43,7 @@
                     &nbsp;</td>
                 <td colspan="3" style="text-align: center">
                     <br />
-                    <asp:GridView ID="GV_registro_mod" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnRowCancelingEdit="GV_registro_mod_RowCancelingEdit" OnRowEditing="GV_registro_mod_RowEditing" OnRowUpdating="GV_registro_mod_RowUpdating" style="text-align: left; background-color: #333333;" HorizontalAlign="Center">
+                    <asp:GridView ID="GV_registro_mod" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnRowCancelingEdit="GV_registro_mod_RowCancelingEdit" OnRowEditing="GV_registro_mod_RowEditing" OnRowUpdating="GV_registro_mod_RowUpdating" style="text-align: left; background-color: #333333;" HorizontalAlign="Center" OnRowDataBound="GV_registro_mod_RowDataBound">
                         <Columns>
                             <asp:TemplateField Visible="False">
                                 <ItemTemplate>

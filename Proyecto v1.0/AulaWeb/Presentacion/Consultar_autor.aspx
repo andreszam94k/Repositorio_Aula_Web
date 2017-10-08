@@ -51,7 +51,7 @@
         </tr>
     </table>
     <br />
-    <asp:GridView ID="GV_archivo_autor" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" HorizontalAlign="Center" AutoGenerateColumns="False" OnRowEditing="GV_archivo_autor_RowEditing" style="text-align: center; background-color: #333333">
+    <asp:GridView ID="GV_archivo_autor" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" HorizontalAlign="Center" AutoGenerateColumns="False" OnRowEditing="GV_archivo_autor_RowEditing" style="text-align: center; background-color: #333333" OnRowDataBound="GV_archivo_autor_RowDataBound">
         <Columns>
             <asp:TemplateField Visible="False">
                 <ItemTemplate>

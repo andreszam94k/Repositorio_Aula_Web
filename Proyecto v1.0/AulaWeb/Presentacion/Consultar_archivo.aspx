@@ -42,7 +42,7 @@
     </table>
     <br />
     <br />
-    <asp:GridView ID="GV_consultar_archivo" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" style="background-color: #333333; text-align: center;" HorizontalAlign="Center" AutoGenerateColumns="False" OnRowEditing="GV_consultar_archivo_RowEditing">
+    <asp:GridView ID="GV_consultar_archivo" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" style="background-color: #333333; text-align: center;" HorizontalAlign="Center" AutoGenerateColumns="False" OnRowEditing="GV_consultar_archivo_RowEditing" OnRowDataBound="GV_consultar_archivo_RowDataBound">
         <Columns>
             <asp:TemplateField Visible="False">
                 <ItemTemplate>

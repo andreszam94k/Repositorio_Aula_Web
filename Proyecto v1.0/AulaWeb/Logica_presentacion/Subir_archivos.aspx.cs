@@ -12,14 +12,35 @@ using Data;
 
 public partial class Presentacion_Subir_archivos : System.Web.UI.Page
 {
+    DataTable datos_idioma = new DataTable();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         Response.Cache.SetNoStore();
+        //llamamos la logica y el metodo
+        L_Subir_archivos operacion = new L_Subir_archivos();
+        U_Subir_archivos datos = new U_Subir_archivos();
+
+        Int64 idioma;
+
+        //preguntamos si la session idioma viene vacio
+        if (Session["idioma"] == null)
+        {
+            //idioma por defecto 
+            idioma = Int64.Parse("1");
+            datos_idioma = operacion.idioma(idioma, 14);
+            llenar_componentes(datos_idioma);
+        }
+        else if (Session["idioma"] != null)
+        {
+            //idioma seleccionado
+            idioma = Int64.Parse(Session["idioma"].ToString());
+            datos_idioma = operacion.idioma(idioma, 14);
+            llenar_componentes(datos_idioma);
+        }
+
         if(!IsPostBack)
         {
-            //llamamos la logica y el metodo
-            L_Subir_archivos operacion = new L_Subir_archivos();
-            U_Subir_archivos datos = new U_Subir_archivos();
             datos = operacion.verificar(Session["user"], Session["rolUser"]);
 
             //enviar desde la logica un codigo scrip
@@ -32,7 +53,41 @@ public partial class Presentacion_Subir_archivos : System.Web.UI.Page
             TB_archivo_fecha.Text = DateTime.Now.ToString("yyyy,MM,dd");
             llenar_grillas();
         }
+
     }//page_load
+
+    protected void llenar_componentes(DataTable idioma_data)
+    {
+        //componentes
+        L_MSA_1.Text = idioma_data.Rows[0]["Texto"].ToString();
+        L_MSA_2.Text = idioma_data.Rows[1]["Texto"].ToString();
+        L_archivo_nombre.Text = idioma_data.Rows[2]["Texto"].ToString();
+        L_archivo_fecha.Text = idioma_data.Rows[3]["Texto"].ToString();
+        L_archivo_sinopsis.Text = idioma_data.Rows[4]["Texto"].ToString();
+        L_archivo_paginas.Text = idioma_data.Rows[5]["Texto"].ToString();
+        L_archivo_categoria.Text = idioma_data.Rows[6]["Texto"].ToString();
+        L_archivo_autores.Text = idioma_data.Rows[7]["Texto"].ToString();
+        L_archivo_tags.Text = idioma_data.Rows[8]["Texto"].ToString();
+        L_archivo_foto.Text = idioma_data.Rows[9]["Texto"].ToString();
+        B_cargar_foto.Text = idioma_data.Rows[10]["Texto"].ToString();
+        //Gridview
+        GV_archivo_foto.Columns[0].HeaderText = idioma_data.Rows[11]["Texto"].ToString();
+        L_archivo_file.Text = idioma_data.Rows[13]["Texto"].ToString();
+        B_cargar_file.Text = idioma_data.Rows[14]["Texto"].ToString();
+        //Gridview
+        GV_archivo_file.Columns[0].HeaderText = idioma_data.Rows[15]["Texto"].ToString();
+        B_archivo_subir.Text = idioma_data.Rows[17]["Texto"].ToString();
+
+        //errores
+        RFV_archivo_nombre.ErrorMessage = idioma_data.Rows[18]["Texto"].ToString();
+        REV_archivo_nombre.ErrorMessage = idioma_data.Rows[19]["Texto"].ToString();
+        RFV_archivo_fecha.ErrorMessage = idioma_data.Rows[20]["Texto"].ToString();
+        RFV_archivo_sinopsis.ErrorMessage = idioma_data.Rows[21]["Texto"].ToString();
+        REV_archivo_sinopsis.ErrorMessage = idioma_data.Rows[22]["Texto"].ToString();
+        RFV_archivo_paginas.ErrorMessage = idioma_data.Rows[23]["Texto"].ToString();
+        REV_archivo_paginas.ErrorMessage = idioma_data.Rows[24]["Texto"].ToString();
+
+    }
 
     protected void llenar_grillas() 
     {
@@ -314,4 +369,29 @@ public partial class Presentacion_Subir_archivos : System.Web.UI.Page
         TB_archivo_precio.Text = "$ " + info.Rows[0]["Precio"].ToString();
     }
 
+    protected void GV_archivo_foto_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        //definimos fila
+        GridViewRow fila = e.Row;
+
+        //Buscamos controles
+        if (fila.FindControl("LinkButton1") != null)
+        {
+            ((LinkButton)fila.FindControl("LinkButton1")).Text = datos_idioma.Rows[12]["Texto"].ToString();
+        }
+
+    }
+
+    protected void GV_archivo_file_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        //definimos fila
+        GridViewRow fila = e.Row;
+
+        //Buscamos controles
+        if (fila.FindControl("LinkButton3") != null)
+        {
+            ((LinkButton)fila.FindControl("LinkButton3")).Text = datos_idioma.Rows[16]["Texto"].ToString();
+        }
+
+    }
 }//principal

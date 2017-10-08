@@ -11,14 +11,35 @@ using Data;
 
 public partial class Presentacion_Ingresar_autor : System.Web.UI.Page
 {
+    DataTable datos_idioma = new DataTable();
+    
     protected void Page_Load(object sender, EventArgs e)
     {
         Response.Cache.SetNoStore();
+        //llamamos la logica y el metodo
+        L_Ingresar_autor operacion = new L_Ingresar_autor();
+        U_Ingresar_autor datos = new U_Ingresar_autor();
+
+        Int64 idioma;
+
+        //preguntamos si la session idioma viene vacio
+        if (Session["idioma"] == null)
+        {
+            //idioma por defecto 
+            idioma = Int64.Parse("1");
+            datos_idioma = operacion.idioma(idioma, 11);
+            llenar_componentes(datos_idioma);
+        }
+        else if (Session["idioma"] != null)
+        {
+            //idioma seleccionado
+            idioma = Int64.Parse(Session["idioma"].ToString());
+            datos_idioma = operacion.idioma(idioma, 11);
+            llenar_componentes(datos_idioma);
+        }
+        
         if (!IsPostBack) 
         {
-            //llamamos la logica y el metodo
-            L_Ingresar_autor operacion = new L_Ingresar_autor();
-            U_Ingresar_autor datos = new U_Ingresar_autor();
             datos = operacion.verificar(Session["user"], Session["rolUser"]);
 
             //enviar desde la logica un codigo scrip
@@ -29,8 +50,32 @@ public partial class Presentacion_Ingresar_autor : System.Web.UI.Page
             TB_autor_death.Text = DateTime.Now.ToString("yyyy,MM,dd");
 
             llenar_grilla();
-
         }
+
+    }//page_load
+
+    protected void llenar_componentes(DataTable idioma_data)
+    {
+        //componentes
+        L_MIA_1.Text = idioma_data.Rows[0]["Texto"].ToString();
+        L_MIA_2.Text = idioma_data.Rows[1]["Texto"].ToString();
+        L_autor_nombre.Text = idioma_data.Rows[2]["Texto"].ToString();
+        L_autor_birth.Text = idioma_data.Rows[3]["Texto"].ToString();
+        L_autor_death.Text = idioma_data.Rows[4]["Texto"].ToString();
+        L_autor_nacionalidad.Text = idioma_data.Rows[5]["Texto"].ToString();
+        L_autor_descripcion.Text = idioma_data.Rows[6]["Texto"].ToString();
+        L_autor_foto.Text = idioma_data.Rows[7]["Texto"].ToString();
+        B_cargar_foto.Text = idioma_data.Rows[8]["Texto"].ToString();
+        //Gridview
+        GV_autor_foto.Columns[0].HeaderText = idioma_data.Rows[9]["Texto"].ToString();
+        B_ingresar_autor.Text = idioma_data.Rows[11]["Texto"].ToString();
+        
+        //errores
+        RFV_nombre_autor.ErrorMessage = idioma_data.Rows[12]["Texto"].ToString();
+        REV_nombre_autor.ErrorMessage = idioma_data.Rows[13]["Texto"].ToString();
+        RFV_nacimiento_autor.ErrorMessage = idioma_data.Rows[14]["Texto"].ToString();
+        RFV_descripcion_autor.ErrorMessage = idioma_data.Rows[15]["Texto"].ToString();
+        REV_descripcion_autor.ErrorMessage = idioma_data.Rows[16]["Texto"].ToString();
 
     }
 
@@ -144,4 +189,17 @@ public partial class Presentacion_Ingresar_autor : System.Web.UI.Page
         cm.RegisterClientScriptBlock(this.GetType(), "", datos_registro.Mensajes);
         
     }
-}
+
+    protected void GV_autor_foto_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        //definimos fila
+        GridViewRow fila = e.Row;
+
+        //Buscamos controles
+        if (fila.FindControl("LinkButton1") != null)
+        {
+            ((LinkButton)fila.FindControl("LinkButton1")).Text = datos_idioma.Rows[10]["Texto"].ToString();
+        }
+    }
+
+}//principal

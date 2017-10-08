@@ -14,12 +14,33 @@ public partial class Presentacion_Descargar_archivo : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        DataTable datos_idioma = new DataTable();
+
         Response.Cache.SetNoStore();
+        //llamamos la logica y el metodo
+        L_Descargar_archivo operacion = new L_Descargar_archivo();
+        U_Descargar_archivo datos = new U_Descargar_archivo();
+
+        Int64 idioma;
+
+        //preguntamos si la session idioma viene vacio
+        if (Session["idioma"] == null)
+        {
+            //idioma por defecto 
+            idioma = Int64.Parse("1");
+            datos_idioma = operacion.idioma(idioma, 18);
+            llenar_componentes(datos_idioma);
+        }
+        else if (Session["idioma"] != null)
+        {
+            //idioma seleccionado
+            idioma = Int64.Parse(Session["idioma"].ToString());
+            datos_idioma = operacion.idioma(idioma, 18);
+            llenar_componentes(datos_idioma);
+        }
+
         if (!IsPostBack)
         {
-            //llamamos la logica y el metodo
-            L_Descargar_archivo operacion = new L_Descargar_archivo();
-            U_Descargar_archivo datos = new U_Descargar_archivo();
             datos = operacion.verificar(Session["archivoID"], Session["user"]);
 
             //enviar desde la logica un codigo scrip
@@ -33,7 +54,29 @@ public partial class Presentacion_Descargar_archivo : System.Web.UI.Page
             //llenamos los componentes con valores del archivo
             llenar_componentes();
         }
+
     }//page_load
+
+    protected void llenar_componentes(DataTable idioma_data)
+    {
+        //componentes
+        L_MDA_1.Text = idioma_data.Rows[0]["Texto"].ToString();
+        Label2.Text = idioma_data.Rows[1]["Texto"].ToString();
+        Label3.Text = idioma_data.Rows[2]["Texto"].ToString();
+        Label4.Text = idioma_data.Rows[3]["Texto"].ToString();
+        Label5.Text = idioma_data.Rows[4]["Texto"].ToString();
+        Label10.Text = idioma_data.Rows[5]["Texto"].ToString();
+        Label6.Text = idioma_data.Rows[6]["Texto"].ToString();
+        Label7.Text = idioma_data.Rows[7]["Texto"].ToString();
+        //Gridview
+        GV_comentarios.Columns[0].HeaderText = idioma_data.Rows[8]["Texto"].ToString();
+        GV_comentarios.Columns[1].HeaderText = idioma_data.Rows[9]["Texto"].ToString();
+        B_comentar.Text = idioma_data.Rows[10]["Texto"].ToString();
+        //errores
+        RFV_comentario_archivo.ErrorMessage = idioma_data.Rows[11]["Texto"].ToString();
+        REV_comentario_archivo.ErrorMessage = idioma_data.Rows[12]["Texto"].ToString();
+    }
+
 
     protected void llenar_componentes() 
     {

@@ -39,7 +39,7 @@
             <td class="auto-style15">&nbsp;</td>
             <td colspan="2" style="text-align: center">
                 <br />
-                <asp:GridView ID="GV_tags" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" HorizontalAlign="Center" AutoGenerateColumns="False" OnRowDeleting="GV_tags_RowDeleting" style="background-color: #333333">
+                <asp:GridView ID="GV_tags" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" HorizontalAlign="Center" AutoGenerateColumns="False" OnRowDeleting="GV_tags_RowDeleting" style="background-color: #333333" OnRowDataBound="GV_tags_RowDataBound">
                     <Columns>
                         <asp:TemplateField Visible="False">
                             <ItemTemplate>

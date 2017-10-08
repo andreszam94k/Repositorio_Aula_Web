@@ -14,7 +14,7 @@
     &nbsp;
     <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Presentacion/Ver_categorias.aspx" style="color: #FF0000" Target="_blank">aaa</asp:HyperLink>
 </h2>
-    <asp:GridView ID="GV_validar_archivos" runat="server" HorizontalAlign="Center" AutoGenerateColumns="False" BackColor="#333333" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" style="text-align: center; margin-top: 0px" OnRowCancelingEdit="GV_validar_archivos_RowCancelingEdit" OnRowDeleting="GV_validar_archivos_RowDeleting" OnRowEditing="GV_validar_archivos_RowEditing" OnRowUpdating="GV_validar_archivos_RowUpdating">
+    <asp:GridView ID="GV_validar_archivos" runat="server" HorizontalAlign="Center" AutoGenerateColumns="False" BackColor="#333333" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" style="text-align: center; margin-top: 0px" OnRowCancelingEdit="GV_validar_archivos_RowCancelingEdit" OnRowDeleting="GV_validar_archivos_RowDeleting" OnRowEditing="GV_validar_archivos_RowEditing" OnRowUpdating="GV_validar_archivos_RowUpdating" OnRowDataBound="GV_validar_archivos_RowDataBound">
         <Columns>
             <asp:TemplateField Visible="False">
                 <ItemTemplate>

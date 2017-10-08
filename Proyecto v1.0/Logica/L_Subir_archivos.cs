@@ -12,6 +12,8 @@ namespace Logica
 {
     public class L_Subir_archivos
     {
+        //objeto de persistencia
+        AulaWebContext_idioma.AulaWebDataContext_idioma operacion2 = new AulaWebContext_idioma.AulaWebDataContext_idioma();
         AulaWebContext_public.AulaWebDataContext_public operacion = new AulaWebContext_public.AulaWebDataContext_public();
 
         //----- verificar sesion .....
@@ -37,6 +39,17 @@ namespace Logica
             }
 
             return datos;
+        }
+
+        //-----Idioma...............
+        public DataTable idioma(Int64 idiomaId, Int64 formularioId)
+        {
+            DataTable idioma = new DataTable();
+
+            List<AulaWebContext_idioma.SpConsultarIdiomaResult> datos_idioma = operacion2.SpConsultarIdioma(idiomaId, formularioId).ToList<AulaWebContext_idioma.SpConsultarIdiomaResult>();
+            idioma = ToDataTable(datos_idioma);
+
+            return idioma;
         }
 
         //----- verificar seleccion de foto .....

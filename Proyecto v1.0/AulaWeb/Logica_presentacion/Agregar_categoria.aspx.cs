@@ -11,14 +11,35 @@ using Data;
 
 public partial class Presentacion_Agregar_categoria : System.Web.UI.Page
 {
+    DataTable datos_idioma = new DataTable();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         Response.Cache.SetNoStore();
+        //llamamos la logica y el metodo
+        L_Agregar_categoria operacion = new L_Agregar_categoria();
+        U_Agregar_categoria datos = new U_Agregar_categoria();
+
+        Int64 idioma;
+
+        //preguntamos si la session idioma viene vacio
+        if (Session["idioma"] == null)
+        {
+            //idioma por defecto 
+            idioma = Int64.Parse("1");
+            datos_idioma = operacion.idioma(idioma, 12);
+            llenar_componentes(datos_idioma);
+        }
+        else if (Session["idioma"] != null)
+        {
+            //idioma seleccionado
+            idioma = Int64.Parse(Session["idioma"].ToString());
+            datos_idioma = operacion.idioma(idioma, 12);
+            llenar_componentes(datos_idioma);
+        }
+
         if(!IsPostBack)
         {
-            //llamamos la logica y el metodo
-            L_Agregar_categoria operacion = new L_Agregar_categoria();
-            U_Agregar_categoria datos = new U_Agregar_categoria();
             datos = operacion.verificar(Session["user"], Session["rolUser"]);
 
             //enviar desde la logica un codigo scrip
@@ -26,6 +47,27 @@ public partial class Presentacion_Agregar_categoria : System.Web.UI.Page
 
             llenar_grilla();
         }
+
+    }//page_load
+
+    protected void llenar_componentes(DataTable idioma_data)
+    {
+        //componentes
+        L_MAC_1.Text = idioma_data.Rows[0]["Texto"].ToString();
+        L_MAC_2.Text = idioma_data.Rows[1]["Texto"].ToString();
+        L_categoria.Text = idioma_data.Rows[2]["Texto"].ToString();
+        L_costo.Text = idioma_data.Rows[3]["Texto"].ToString();
+        B_agregar_categoria.Text = idioma_data.Rows[4]["Texto"].ToString();
+        //Gridview
+        GV_categoria.Columns[0].HeaderText = idioma_data.Rows[5]["Texto"].ToString();
+        GV_categoria.Columns[1].HeaderText = idioma_data.Rows[6]["Texto"].ToString();
+        GV_categoria.Columns[2].HeaderText = idioma_data.Rows[7]["Texto"].ToString();
+
+        //errores
+        RFV_categoria.ErrorMessage = idioma_data.Rows[12]["Texto"].ToString();
+        REV_categoria.ErrorMessage = idioma_data.Rows[13]["Texto"].ToString();
+        RFV_costo.ErrorMessage = idioma_data.Rows[14]["Texto"].ToString();
+        REV_costo.ErrorMessage = idioma_data.Rows[15]["Texto"].ToString();
     }
 
     protected void B_agregar_categoria_Click(object sender, EventArgs e)
@@ -120,5 +162,28 @@ public partial class Presentacion_Agregar_categoria : System.Web.UI.Page
 
         //pintamos nuevamente la grilla
         llenar_grilla();
+    }
+
+    protected void GV_categoria_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        //definimos fila
+        GridViewRow fila = e.Row;
+
+        //Buscamos controles
+        if (fila.FindControl("LinkButton1") != null)
+        {
+            ((LinkButton)fila.FindControl("LinkButton1")).Text = datos_idioma.Rows[8]["Texto"].ToString();
+        }
+
+        if (fila.FindControl("LinkButton4") != null)
+        {
+            ((LinkButton)fila.FindControl("LinkButton4")).Text = datos_idioma.Rows[11]["Texto"].ToString();
+        }
+
+        if (fila.FindControl("LinkButton2") != null)
+        {
+            ((LinkButton)fila.FindControl("LinkButton2")).Text = datos_idioma.Rows[9]["Texto"].ToString();
+            ((LinkButton)fila.FindControl("LinkButton3")).Text = datos_idioma.Rows[10]["Texto"].ToString();
+        }
     }
 }//principal

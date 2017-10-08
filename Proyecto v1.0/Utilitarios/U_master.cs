@@ -140,6 +140,21 @@ namespace Utilitarios
             set { menu_4 = value; }
         }
 
+        private Boolean ddl_idiomas;
+
+        public Boolean Ddl_idiomas
+        {
+            get { return ddl_idiomas; }
+            set { ddl_idiomas = value; }
+        }
+
+        private Boolean b_idiomas;
+
+        public Boolean B_idiomas
+        {
+            get { return b_idiomas; }
+            set { b_idiomas = value; }
+        }
 
     }//U_master
 }//principal

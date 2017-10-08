@@ -10,13 +10,11 @@ using System.Reflection;
 
 namespace Logica
 {
-    public class L_Consultar_autor
+    public class L_Inicio
     {
         //objeto de persistencia
         AulaWebContext_idioma.AulaWebDataContext_idioma operacion2 = new AulaWebContext_idioma.AulaWebDataContext_idioma();
-        AulaWebContext_public.AulaWebDataContext_public operacion = new AulaWebContext_public.AulaWebDataContext_public();
 
-        //-----Idioma...............
         public DataTable idioma(Int64 idiomaId, Int64 formularioId)
         {
             DataTable idioma = new DataTable();
@@ -27,29 +25,6 @@ namespace Logica
             return idioma;
         }
 
-        //----- mostrar datos autor .....
-        public DataTable consultar_autor_datos(string id_autor) 
-        {
-            //Dao_Consultar_autor operacion = new Dao_Consultar_autor();
-            //DataTable informacion = operacion.consultar_autor_datos(id_autor);
-
-            List<AulaWebContext_public.SpVerAutorResult> datos = operacion.SpVerAutor(Int32.Parse(id_autor)).ToList<AulaWebContext_public.SpVerAutorResult>();
-            DataTable informacion = ToDataTable(datos);
-
-            return informacion;
-        }
-
-        //----- grilla archivos del autor .....
-        public DataTable consultar_autor_archivos(string id) 
-        {
-            //Dao_Consultar_autor operacion = new Dao_Consultar_autor();
-            //DataTable info = operacion.consultar_autor_archivos(id);
-
-            List<AulaWebContext_public.SpVerArchivoAutorResult> datos = operacion.SpVerArchivoAutor(Int32.Parse(id)).ToList<AulaWebContext_public.SpVerArchivoAutorResult>();
-            DataTable info = ToDataTable(datos);
-
-            return info;
-        }
 
         //convierte en datatable
         private DataTable ToDataTable<T>(List<T> items)
@@ -79,6 +54,6 @@ namespace Logica
             return dataTable;
         }
 
-    }//L_Consultar_autor
+    }//clase
 
 }//principal

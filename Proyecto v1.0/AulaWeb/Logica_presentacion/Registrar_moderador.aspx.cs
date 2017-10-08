@@ -11,22 +11,63 @@ using Data;
 
 public partial class Presentacion_Registrar_moderador : System.Web.UI.Page
 {
+    DataTable datos_idioma = new DataTable();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         Response.Cache.SetNoStore();
-        if (!IsPostBack) {
+        //llamamos la logica y el metodo
+        L_Registrar_moderador operacion = new L_Registrar_moderador();
+        U_Registrar_moderador datos = new U_Registrar_moderador();
 
-            //llamamos la logica y el metodo
-            L_Registrar_moderador operacion = new L_Registrar_moderador();
-            U_Registrar_moderador datos = new U_Registrar_moderador();
+        Int64 idioma;
+
+        //preguntamos si la session idioma viene vacio
+        if (Session["idioma"] == null)
+        {
+            //idioma por defecto 
+            idioma = Int64.Parse("1");
+            datos_idioma = operacion.idioma(idioma, 10);
+            llenar_componentes(datos_idioma);
+        }
+        else if (Session["idioma"] != null)
+        {
+            //idioma seleccionado
+            idioma = Int64.Parse(Session["idioma"].ToString());
+            datos_idioma = operacion.idioma(idioma, 10);
+            llenar_componentes(datos_idioma);
+        }
+
+        if (!IsPostBack) 
+        {
             datos = operacion.verificar(Session["user"], Session["rolUser"]);
 
             //enviar desde la logica un codigo scrip
             Response.Write(datos.Url_pag);
 
-
             llenar_grilla(DDL_rol.SelectedValue.ToString());
         }
+
+    }//page_load
+
+    protected void llenar_componentes(DataTable idioma_data)
+    {
+        //componentes
+        L_MRM_1.Text = idioma_data.Rows[0]["Texto"].ToString();
+        L_registro_mod.Text = idioma_data.Rows[1]["Texto"].ToString();
+
+        //Gridview
+        GV_registro_mod.Columns[0].HeaderText = idioma_data.Rows[2]["Texto"].ToString();
+        GV_registro_mod.Columns[1].HeaderText = idioma_data.Rows[3]["Texto"].ToString();
+        GV_registro_mod.Columns[2].HeaderText = idioma_data.Rows[4]["Texto"].ToString();
+        GV_registro_mod.Columns[3].HeaderText = idioma_data.Rows[5]["Texto"].ToString();
+        GV_registro_mod.Columns[4].HeaderText = idioma_data.Rows[6]["Texto"].ToString();
+        GV_registro_mod.Columns[5].HeaderText = idioma_data.Rows[7]["Texto"].ToString();
+        GV_registro_mod.Columns[6].HeaderText = idioma_data.Rows[8]["Texto"].ToString();
+        GV_registro_mod.Columns[7].HeaderText = idioma_data.Rows[9]["Texto"].ToString();
+        GV_registro_mod.Columns[8].HeaderText = idioma_data.Rows[10]["Texto"].ToString();
+        GV_registro_mod.Columns[9].HeaderText = idioma_data.Rows[11]["Texto"].ToString();
+
     }
 
     protected void DDL_rol_SelectedIndexChanged(object sender, EventArgs e)
@@ -109,4 +150,21 @@ public partial class Presentacion_Registrar_moderador : System.Web.UI.Page
         }
     }
 
+    protected void GV_registro_mod_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        //definimos fila
+        GridViewRow fila = e.Row;
+        
+        //Buscamos controles
+        if (fila.FindControl("LinkButton1") != null)
+        {
+            ((LinkButton)fila.FindControl("LinkButton1")).Text = datos_idioma.Rows[12]["Texto"].ToString();
+        }
+
+        if (fila.FindControl("LinkButton2") != null)
+        {
+            ((LinkButton)fila.FindControl("LinkButton2")).Text = datos_idioma.Rows[13]["Texto"].ToString();
+            ((LinkButton)fila.FindControl("LinkButton3")).Text = datos_idioma.Rows[14]["Texto"].ToString();
+        }
+    }
 }//principal

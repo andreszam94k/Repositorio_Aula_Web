@@ -84,7 +84,7 @@
             <td class="auto-style15">&nbsp;</td>
             <td class="auto-style17">
                 &nbsp;</td>
-            <td>&nbsp;&nbsp;<asp:GridView ID="GV_autor_foto" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnRowDeleting="GV_autor_foto_RowDeleting">
+            <td>&nbsp;&nbsp;<asp:GridView ID="GV_autor_foto" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnRowDeleting="GV_autor_foto_RowDeleting" OnRowDataBound="GV_autor_foto_RowDataBound">
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>

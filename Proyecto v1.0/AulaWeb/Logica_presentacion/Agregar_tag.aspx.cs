@@ -11,14 +11,35 @@ using Data;
 
 public partial class Presentacion_Agregar_tag : System.Web.UI.Page
 {
+    DataTable datos_idioma = new DataTable();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         Response.Cache.SetNoStore();
+        //llamamos la logica y el metodo
+        L_Agregar_tag operacion = new L_Agregar_tag();
+        U_Agregar_tag datos = new U_Agregar_tag();
+
+        Int64 idioma;
+
+        //preguntamos si la session idioma viene vacio
+        if (Session["idioma"] == null)
+        {
+            //idioma por defecto 
+            idioma = Int64.Parse("1");
+            datos_idioma = operacion.idioma(idioma, 13);
+            llenar_componentes(datos_idioma);
+        }
+        else if (Session["idioma"] != null)
+        {
+            //idioma seleccionado
+            idioma = Int64.Parse(Session["idioma"].ToString());
+            datos_idioma = operacion.idioma(idioma, 13);
+            llenar_componentes(datos_idioma);
+        }
+
         if(!IsPostBack)
         {
-            //llamamos la logica y el metodo
-            L_Agregar_tag operacion = new L_Agregar_tag();
-            U_Agregar_tag datos = new U_Agregar_tag();
             datos = operacion.verificar(Session["user"], Session["rolUser"]);
 
             //enviar desde la logica un codigo scrip
@@ -26,6 +47,23 @@ public partial class Presentacion_Agregar_tag : System.Web.UI.Page
 
             llenar_grilla();
         }
+    
+    }//page_load
+
+    protected void llenar_componentes(DataTable idioma_data)
+    {
+        //componentes
+        L_MAT_1.Text = idioma_data.Rows[0]["Texto"].ToString();
+        L_MAT_2.Text = idioma_data.Rows[1]["Texto"].ToString();
+        L_tag.Text = idioma_data.Rows[2]["Texto"].ToString();
+        B_agregar_tag.Text = idioma_data.Rows[3]["Texto"].ToString();
+        //Gridview
+        GV_tags.Columns[0].HeaderText = idioma_data.Rows[4]["Texto"].ToString();
+        GV_tags.Columns[1].HeaderText = idioma_data.Rows[5]["Texto"].ToString();
+
+        //errores
+        RFV_tag.ErrorMessage = idioma_data.Rows[7]["Texto"].ToString();
+        REV_tag.ErrorMessage = idioma_data.Rows[8]["Texto"].ToString();
     }
 
     protected void B_agregar_tag_Click(object sender, EventArgs e)
@@ -70,6 +108,18 @@ public partial class Presentacion_Agregar_tag : System.Web.UI.Page
         catch(Exception exc)
         {
             throw exc;
+        }
+    }
+
+    protected void GV_tags_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        //definimos fila
+        GridViewRow fila = e.Row;
+
+        //Buscamos controles
+        if (fila.FindControl("LinkButton1") != null)
+        {
+            ((LinkButton)fila.FindControl("LinkButton1")).Text = datos_idioma.Rows[6]["Texto"].ToString();
         }
     }
 

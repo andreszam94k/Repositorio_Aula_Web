@@ -5,7 +5,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <h1 style="color: #CCCCCC">Formulario reporte autores</h1>
 <CR:CrystalReportViewer ID="CRV_autores" runat="server" AutoDataBind="true" ReportSourceID="CRS_autores" />
 <CR:CrystalReportSource ID="CRS_autores" runat="server">
     <Report FileName="~\Presentacion\Reportes\Reporte_Autores.rpt">

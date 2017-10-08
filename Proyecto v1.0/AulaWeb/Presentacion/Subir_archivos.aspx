@@ -10,7 +10,7 @@
             text-align: right;
         }
         .auto-style17 {
-            color: #000000;
+            color: #999999;
             text-align: center;
         }
     </style>
@@ -88,8 +88,7 @@
                 <HeaderStyle BackColor="#999999" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                 <HeaderTemplate>
                     <div class="auto-style3">
-                        <span class="auto-style17">Autor </span>
-                    </div>
+                        <span class="auto-style17">Autor</span></div>
                 </HeaderTemplate>
                 <ItemTemplate>
                     <asp:CheckBox ID="CB_autores" runat="server" style="color: #CCCCCC; background-color: #333333" Text='<%# Eval("Nombre") %>' />
@@ -109,7 +108,7 @@
             <td>&nbsp;&nbsp;<asp:DataList ID="DL_archivo_tags" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" CellPadding="3" DataSourceID="LinqDataSource3" RepeatColumns="3" RepeatDirection="Horizontal" style="text-align: left; color: #000000; background-color: #333333" Width="100%">
                 <HeaderStyle BackColor="#999999" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                 <HeaderTemplate>
-                    <div class="auto-style3">
+                    <div class="auto-style17">
                         Tag</div>
                 </HeaderTemplate>
                 <ItemTemplate>
@@ -132,7 +131,7 @@
         <tr>
             <td class="auto-style15">&nbsp;</td>
             <td class="auto-style16">&nbsp;</td>
-            <td>&nbsp;&nbsp;<asp:GridView ID="GV_archivo_foto" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" AutoGenerateColumns="False" OnRowDeleting="GV_archivo_foto_RowDeleting">
+            <td>&nbsp;&nbsp;<asp:GridView ID="GV_archivo_foto" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" AutoGenerateColumns="False" OnRowDeleting="GV_archivo_foto_RowDeleting" OnRowDataBound="GV_archivo_foto_RowDataBound">
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
@@ -174,7 +173,7 @@
         <tr>
             <td class="auto-style15">&nbsp;</td>
             <td class="auto-style16">&nbsp;</td>
-            <td>&nbsp;&nbsp;<asp:GridView ID="GV_archivo_file" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" AutoGenerateColumns="False" OnRowCommand="GV_archivo_file_RowCommand" OnRowDeleting="GV_archivo_file_RowDeleting">
+            <td>&nbsp;&nbsp;<asp:GridView ID="GV_archivo_file" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" AutoGenerateColumns="False" OnRowCommand="GV_archivo_file_RowCommand" OnRowDeleting="GV_archivo_file_RowDeleting" OnRowDataBound="GV_archivo_file_RowDataBound">
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>

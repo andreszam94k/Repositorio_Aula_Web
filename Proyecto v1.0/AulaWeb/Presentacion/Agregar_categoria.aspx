@@ -54,7 +54,7 @@
             <td class="auto-style18">&nbsp;</td>
             <td class="auto-style16" colspan="2" style="text-align:center; align-content:center; align-items:center">
                 <br />
-                <asp:GridView ID="GV_categoria" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" HorizontalAlign="Center" AutoGenerateColumns="False" OnRowCancelingEdit="GV_categoria_RowCancelingEdit" OnRowDeleting="GV_categoria_RowDeleting" OnRowEditing="GV_categoria_RowEditing" OnRowUpdating="GV_categoria_RowUpdating" style="color: #333333; background-color: #333333">
+                <asp:GridView ID="GV_categoria" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" HorizontalAlign="Center" AutoGenerateColumns="False" OnRowCancelingEdit="GV_categoria_RowCancelingEdit" OnRowDeleting="GV_categoria_RowDeleting" OnRowEditing="GV_categoria_RowEditing" OnRowUpdating="GV_categoria_RowUpdating" style="color: #333333; background-color: #333333" OnRowDataBound="GV_categoria_RowDataBound">
                     <Columns>
                         <asp:TemplateField Visible="False">
                             <ItemTemplate>

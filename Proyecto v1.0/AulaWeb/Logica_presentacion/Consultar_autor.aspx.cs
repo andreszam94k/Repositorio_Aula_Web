@@ -11,9 +11,30 @@ using Data;
 
 public partial class Presentacion_Consultar_autor : System.Web.UI.Page
 {
+    DataTable datos_idioma = new DataTable();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         Response.Cache.SetNoStore();
+        L_Consultar_autor oper = new L_Consultar_autor();
+        Int64 idioma;
+
+        //preguntamos si la session idioma viene vacio
+        if (Session["idioma"] == null)
+        {
+            //idioma por defecto 
+            idioma = Int64.Parse("1");
+            datos_idioma = oper.idioma(idioma, 17);
+            llenar_componentes(datos_idioma);
+        }
+        else if (Session["idioma"] != null)
+        {
+            //idioma seleccionado
+            idioma = Int64.Parse(Session["idioma"].ToString());
+            datos_idioma = oper.idioma(idioma, 17);
+            llenar_componentes(datos_idioma);
+        }
+
         //ocultamos los componentes
         Image1_autor.Visible = false;
         L_nombre_autor.Visible = false;
@@ -23,6 +44,21 @@ public partial class Presentacion_Consultar_autor : System.Web.UI.Page
         TB_descripcion_autor.Visible = false; Label4.Visible = false;
 
     }//page_load
+
+    protected void llenar_componentes(DataTable idioma_data)
+    {
+        //componentes
+        L_MCAU_1.Text = idioma_data.Rows[0]["Texto"].ToString();
+        L_elegir_autor.Text = idioma_data.Rows[1]["Texto"].ToString();
+        Label5.Text = idioma_data.Rows[2]["Texto"].ToString();
+        Label2.Text = idioma_data.Rows[3]["Texto"].ToString();
+        Label3.Text = idioma_data.Rows[4]["Texto"].ToString();
+        Label4.Text = idioma_data.Rows[5]["Texto"].ToString();
+        //Gridview
+        GV_archivo_autor.Columns[0].HeaderText = idioma_data.Rows[6]["Texto"].ToString();
+        GV_archivo_autor.Columns[1].HeaderText = idioma_data.Rows[7]["Texto"].ToString();
+        GV_archivo_autor.Columns[2].HeaderText = idioma_data.Rows[8]["Texto"].ToString();
+    }
 
     protected void DDL_autor_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -76,4 +112,17 @@ public partial class Presentacion_Consultar_autor : System.Web.UI.Page
         Session["archivoID"] = id_archivo;
         Response.Redirect("Descargar_archivo.aspx");
     }
+
+    protected void GV_archivo_autor_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        //definimos fila
+        GridViewRow fila = e.Row;
+
+        //Buscamos controles
+        if (fila.FindControl("LinkButton1") != null)
+        {
+            ((LinkButton)fila.FindControl("LinkButton1")).Text = datos_idioma.Rows[9]["Texto"].ToString();
+        }
+    }
+
 }//principal

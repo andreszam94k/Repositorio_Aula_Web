@@ -2,4 +2,3 @@ C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\Proyecto v1.0\Utilita
 C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\Proyecto v1.0\Utilitarios\bin\Debug\Utilitarios.pdb
 C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\Proyecto v1.0\Utilitarios\obj\Debug\Utilitarios.dll
 C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\Proyecto v1.0\Utilitarios\obj\Debug\Utilitarios.pdb
-C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\Proyecto v1.0\Utilitarios\obj\Debug\Utilitarios.csprojResolveAssemblyReference.cache

@@ -11,14 +11,35 @@ using Data;
 
 public partial class Presentacion_Validar_archivos : System.Web.UI.Page
 {
+    DataTable datos_idioma = new DataTable();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         Response.Cache.SetNoStore();
+        //llamamos la logica y el metodo
+        L_Validar_archivos operacion = new L_Validar_archivos();
+        U_Validar_archivos datos = new U_Validar_archivos();
+
+        Int64 idioma;
+
+        //preguntamos si la session idioma viene vacio
+        if (Session["idioma"] == null)
+        {
+            //idioma por defecto 
+            idioma = Int64.Parse("1");
+            datos_idioma = operacion.idioma(idioma, 15);
+            llenar_componentes(datos_idioma);
+        }
+        else if (Session["idioma"] != null)
+        {
+            //idioma seleccionado
+            idioma = Int64.Parse(Session["idioma"].ToString());
+            datos_idioma = operacion.idioma(idioma, 15);
+            llenar_componentes(datos_idioma);
+        }
+
         if(!IsPostBack)
         {
-            //llamamos la logica y el metodo
-            L_Validar_archivos operacion = new L_Validar_archivos();
-            U_Validar_archivos datos = new U_Validar_archivos();
             datos = operacion.verificar(Session["user"], Session["rolUser"]);
 
             //enviar desde la logica un codigo scrip
@@ -28,6 +49,26 @@ public partial class Presentacion_Validar_archivos : System.Web.UI.Page
         }
 
     }//page_load
+
+    protected void llenar_componentes(DataTable idioma_data)
+    {
+        //componentes
+        L_MVA_1.Text = idioma_data.Rows[0]["Texto"].ToString();
+        L_MVA_2.Text = idioma_data.Rows[1]["Texto"].ToString();
+        L_MVA_3.Text = idioma_data.Rows[2]["Texto"].ToString();
+        HyperLink3.Text = idioma_data.Rows[3]["Texto"].ToString();
+        //Gridview
+        GV_validar_archivos.Columns[0].HeaderText = idioma_data.Rows[4]["Texto"].ToString();
+        GV_validar_archivos.Columns[1].HeaderText = idioma_data.Rows[5]["Texto"].ToString();
+        GV_validar_archivos.Columns[2].HeaderText = idioma_data.Rows[6]["Texto"].ToString();
+        GV_validar_archivos.Columns[3].HeaderText = idioma_data.Rows[7]["Texto"].ToString();
+        GV_validar_archivos.Columns[4].HeaderText = idioma_data.Rows[8]["Texto"].ToString();
+        GV_validar_archivos.Columns[5].HeaderText = idioma_data.Rows[9]["Texto"].ToString();
+        GV_validar_archivos.Columns[6].HeaderText = idioma_data.Rows[10]["Texto"].ToString();
+        GV_validar_archivos.Columns[7].HeaderText = idioma_data.Rows[11]["Texto"].ToString();
+        GV_validar_archivos.Columns[8].HeaderText = idioma_data.Rows[12]["Texto"].ToString();
+
+    }
 
     protected void llenar_grilla(object rol_user)
     {
@@ -120,6 +161,25 @@ public partial class Presentacion_Validar_archivos : System.Web.UI.Page
         //lenamos grilla
         llenar_grilla(Session["rolUser"]);
 
+    }
+
+    protected void GV_validar_archivos_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        //definimos fila
+        GridViewRow fila = e.Row;
+
+        //Buscamos controles
+        if (fila.FindControl("LinkButton1") != null)
+        {
+            ((LinkButton)fila.FindControl("LinkButton1")).Text = datos_idioma.Rows[13]["Texto"].ToString();
+        }
+
+        if (fila.FindControl("LinkButton2") != null)
+        {
+            ((LinkButton)fila.FindControl("LinkButton2")).Text = datos_idioma.Rows[14]["Texto"].ToString();
+            ((LinkButton)fila.FindControl("LinkButton3")).Text = datos_idioma.Rows[15]["Texto"].ToString();
+            ((LinkButton)fila.FindControl("LinkButton4")).Text = datos_idioma.Rows[16]["Texto"].ToString();
+        }
     }
 
 }//principal

@@ -69,6 +69,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Data_Reportes.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Linq\BaseDatos_idioma.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaseDatos_idioma.lqml</DependentUpon>
+    </Compile>
     <Compile Include="Linq\BaseDatos_public.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -94,6 +99,16 @@
     </None>
     <None Include="Data_Reportes.xss">
       <DependentUpon>Data_Reportes.xsd</DependentUpon>
+    </None>
+    <None Include="Linq\BaseDatos_idioma.Diagram1.view">
+      <DependentUpon>BaseDatos_idioma.lqml</DependentUpon>
+    </None>
+    <None Include="Linq\BaseDatos_idioma.edps">
+      <DependentUpon>BaseDatos_idioma.lqml</DependentUpon>
+    </None>
+    <None Include="Linq\BaseDatos_idioma.lqml">
+      <Generator>DevartLinqToSqlGenerator</Generator>
+      <LastGenOutput>BaseDatos_idioma.Designer.cs</LastGenOutput>
     </None>
     <None Include="Linq\BaseDatos_public.Diagram1.view">
       <DependentUpon>BaseDatos_public.lqml</DependentUpon>

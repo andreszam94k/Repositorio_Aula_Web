@@ -37,7 +37,7 @@
                     <HeaderStyle BackColor="Silver" />
                     <HeaderTemplate>
                         <div class="auto-style17">
-                            CATEGORIAS</div>
+                            </div>
                     </HeaderTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label2" runat="server" style="color: #CCCCCC" Text='<%# Eval("Categoria1") %>'></asp:Label>
@@ -52,7 +52,7 @@
                     <HeaderStyle BackColor="Silver" />
                     <HeaderTemplate>
                         <div class="auto-style18">
-                            TAGS</div>
+                            </div>
                     </HeaderTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label4" runat="server" style="color: #669999" Text='<%# Eval("Tag1") %>'></asp:Label>
