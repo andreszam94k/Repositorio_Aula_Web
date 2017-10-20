@@ -69,12 +69,12 @@ public partial class Presentacion_Consultar_autor : System.Web.UI.Page
         DataTable informacion = datos.consultar_autor_datos(id);
 
         //llenamos los componentes con los datos
-        Image1_autor.ImageUrl = informacion.Rows[0]["Foto"].ToString();
-        L_nombre_autor.Text = informacion.Rows[0]["Nombre"].ToString();
-        L_pais_autor.Text = informacion.Rows[0]["Nacionalidad"].ToString();
-        L_birth_autor.Text = informacion.Rows[0]["FechaNacimiento"].ToString();
-        L_death_autor.Text = informacion.Rows[0]["FechaMuerte"].ToString();
-        TB_descripcion_autor.Text = informacion.Rows[0]["Descripcion"].ToString();
+        Image1_autor.ImageUrl = informacion.Rows[0]["foto"].ToString();
+        L_nombre_autor.Text = informacion.Rows[0]["nombre"].ToString();
+        L_pais_autor.Text = informacion.Rows[0]["nacionalidad"].ToString();
+        L_birth_autor.Text = informacion.Rows[0]["fecha_nacimiento"].ToString();
+        L_death_autor.Text = informacion.Rows[0]["fecha_muerte"].ToString();
+        TB_descripcion_autor.Text = informacion.Rows[0]["descripcion"].ToString();
 
         //mostramos los componentes
         Image1_autor.Visible = true;    

@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 using Data;
 using Utilitarios;
 using System.Data;
-using System.Reflection;
 
 namespace Logica
 {
     public class L_Reporte_archivos
     {
-        AulaWebContext_public.AulaWebDataContext_public operacion = new AulaWebContext_public.AulaWebDataContext_public();
-
         //----- verificar sesion .....
         public U_Reporte_archivos verificar(object user, object rol)
         {
@@ -48,11 +45,8 @@ namespace Logica
             personaInformacion = datos.Tables["DT_archivos"];
 
             //hacemos una consulta para obtener los datos en otro datatable que servira de intermedio
-            //Dao_Ver_Reportes dao = new Dao_Ver_Reportes();
-            //DataTable Intermedio = dao.consultar_reporte_archivos();
-
-            List<AulaWebContext_public.SpReporteArchivoResult> datos2 = operacion.SpReporteArchivo().ToList<AulaWebContext_public.SpReporteArchivoResult>();
-            DataTable Intermedio = ToDataTable(datos2);
+            Dao_Ver_Reportes dao = new Dao_Ver_Reportes();
+            DataTable Intermedio = dao.consultar_reporte_archivos();
 
             //recorremos el datatable intermedio
             for (int i = 0; i < Intermedio.Rows.Count; i++)
@@ -61,23 +55,23 @@ namespace Logica
                 fila = personaInformacion.NewRow();
 
                 //agregamos las campos y los llenamos con los datos del datatable intermedio
-                fila["id_archivo"] = int.Parse(Intermedio.Rows[i]["IdArchivo"].ToString());
-                fila["nombre"] = Intermedio.Rows[i]["Nombre"].ToString();
-                fila["anio"] = Intermedio.Rows[i]["Anio"].ToString();
-                fila["sinopsis"] = Intermedio.Rows[i]["Sinopsis"].ToString();
-                fila["num_pag"] = int.Parse(Intermedio.Rows[i]["NumPag"].ToString());
-                fila["url"] = Intermedio.Rows[i]["Url"].ToString();
-                fila["id_usuario"] = int.Parse(Intermedio.Rows[i]["IdUsuario"].ToString());
-                fila["id_estado"] = int.Parse(Intermedio.Rows[i]["IdEstado"].ToString());
-                fila["id_categoria"] = int.Parse(Intermedio.Rows[i]["IdCategoria"].ToString());
-                fila["tags"] = Intermedio.Rows[i]["Tags"].ToString();
-                fila["id_moderador"] = int.Parse(Intermedio.Rows[i]["IdModerador"].ToString());
-                fila["estado_mod"] = int.Parse(Intermedio.Rows[i]["EstadoMod"].ToString());
-                fila["user_name"] = Intermedio.Rows[i]["UserName"].ToString();
-                fila["categoria"] = Intermedio.Rows[i]["Categoria"].ToString();
-                fila["precio"] = int.Parse(Intermedio.Rows[i]["Precio"].ToString());
+                fila["id_archivo"] = int.Parse(Intermedio.Rows[i]["id_archivo"].ToString());
+                fila["nombre"] = Intermedio.Rows[i]["nombre"].ToString();
+                fila["anio"] = Intermedio.Rows[i]["anio"].ToString();
+                fila["sinopsis"] = Intermedio.Rows[i]["sinopsis"].ToString();
+                fila["num_pag"] = int.Parse(Intermedio.Rows[i]["num_pag"].ToString());
+                fila["url"] = Intermedio.Rows[i]["url"].ToString();
+                fila["id_usuario"] = int.Parse(Intermedio.Rows[i]["id_usuario"].ToString());
+                fila["id_estado"] = int.Parse(Intermedio.Rows[i]["id_estado"].ToString());
+                fila["id_categoria"] = int.Parse(Intermedio.Rows[i]["id_categoria"].ToString());
+                fila["tags"] = Intermedio.Rows[i]["tags"].ToString();
+                fila["id_moderador"] = int.Parse(Intermedio.Rows[i]["id_moderador"].ToString());
+                fila["estado_mod"] = int.Parse(Intermedio.Rows[i]["estado_mod"].ToString());
+                fila["user_name"] = Intermedio.Rows[i]["user_name"].ToString();
+                fila["categoria"] = Intermedio.Rows[i]["categoria"].ToString();
+                fila["precio"] = int.Parse(Intermedio.Rows[i]["precio"].ToString());
                 //para la imagen se utiliza un metodo
-                fila["imagen_portada"] = obtenerImagen(Intermedio.Rows[i]["ImagenPortada"].ToString(), saveLocation, url_defecto);
+                fila["imagen_portada"] = obtenerImagen(Intermedio.Rows[i]["imagen_portada"].ToString(), saveLocation, url_defecto);
 
                 //finalmente ya con los datos, agregamos la fila al datatable principal
                 personaInformacion.Rows.Add(fila);
@@ -110,34 +104,6 @@ namespace Logica
 
             return fileBytes;
 
-        }
-
-        //convierte en datatable
-        private DataTable ToDataTable<T>(List<T> items)
-        {
-            DataTable dataTable = new DataTable(typeof(T).Name);
-
-            //Get all the properties
-            PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
-            foreach (PropertyInfo prop in Props)
-            {
-                //Defining type of data column gives proper data table 
-                var type = (prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>) ? Nullable.GetUnderlyingType(prop.PropertyType) : prop.PropertyType);
-                //Setting column names as Property names
-                dataTable.Columns.Add(prop.Name, type);
-            }
-            foreach (T item in items)
-            {
-                var values = new object[Props.Length];
-                for (int i = 0; i < Props.Length; i++)
-                {
-                    //inserting property values to datatable rows
-                    values[i] = Props[i].GetValue(item, null);
-                }
-                dataTable.Rows.Add(values);
-            }
-            //put a breakpoint here and check datatable
-            return dataTable;
         }
 
 

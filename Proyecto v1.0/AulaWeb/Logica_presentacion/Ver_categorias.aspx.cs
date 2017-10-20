@@ -47,7 +47,6 @@ public partial class Presentacion_Ver_categorias : System.Web.UI.Page
 
     }//page_load
 
-
     protected void llenar_componentes(DataTable idioma_data)
     {
         //componentes

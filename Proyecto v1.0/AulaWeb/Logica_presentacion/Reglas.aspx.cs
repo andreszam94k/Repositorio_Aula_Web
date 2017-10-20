@@ -71,4 +71,4 @@ public partial class Presentacion_Reglas : System.Web.UI.Page
 
     }
 
-}//principal
+}//Principal

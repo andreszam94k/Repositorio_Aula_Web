@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Devart.Data, Version=5.0.1772.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
-    <Reference Include="Devart.Data.Linq, Version=4.7.1317.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
-    <Reference Include="Devart.Data.PostgreSql, Version=7.9.980.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
-    <Reference Include="Devart.Data.PostgreSql.Linq, Version=4.7.1317.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,6 +51,7 @@
     <Compile Include="L_inicio_sesion.cs" />
     <Compile Include="L_loggin_user.cs" />
     <Compile Include="L_master.cs" />
+    <Compile Include="L_Normas.cs" />
     <Compile Include="L_Nosotros.cs" />
     <Compile Include="L_Registrar_moderador.cs" />
     <Compile Include="L_Registrar_usuario.cs" />
@@ -65,7 +62,6 @@
     <Compile Include="L_Subir_archivos.cs" />
     <Compile Include="L_Validar_archivos.cs" />
     <Compile Include="L_Ver_categorias.cs" />
-    <Compile Include="L_Normas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -77,9 +73,6 @@
       <Project>{6db67284-a38c-4526-ae89-9406a679be53}</Project>
       <Name>Utilitarios</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

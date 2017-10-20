@@ -44,7 +44,7 @@ public partial class Presentacion_inicio_sesion : System.Web.UI.Page
             datos_idioma = operacion.idioma(idioma, 8);
             llenar_componentes(datos_idioma);
         }
-
+       
     }//page_load
 
     protected void llenar_componentes(DataTable idioma_data)
@@ -94,9 +94,11 @@ public partial class Presentacion_inicio_sesion : System.Web.UI.Page
         Response.Write(datos1.Mensajes);
 
     }
+
     protected void B_cancelarSession_Click(object sender, EventArgs e)
     {
         TB_inicio_usuario.Text = " ";
         TB_inicio_clave.Text = " ";       
     }
-}
+
+}//principal

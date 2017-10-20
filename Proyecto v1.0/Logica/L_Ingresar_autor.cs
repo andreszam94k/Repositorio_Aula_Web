@@ -6,16 +6,11 @@ using System.Threading.Tasks;
 using Data;
 using Utilitarios;
 using System.Data;
-using System.Reflection;
 
 namespace Logica
 {
     public class L_Ingresar_autor
     {
-        //objeto de persistencia
-        AulaWebContext_idioma.AulaWebDataContext_idioma operacion2 = new AulaWebContext_idioma.AulaWebDataContext_idioma();
-        AulaWebContext_public.AulaWebDataContext_public operacion = new AulaWebContext_public.AulaWebDataContext_public();
-
         //----- verificar sesion .....
         public U_Ingresar_autor verificar(object user, object rol)
         {
@@ -41,8 +36,8 @@ namespace Logica
         {
             DataTable idioma = new DataTable();
 
-            List<AulaWebContext_idioma.SpConsultarIdiomaResult> datos_idioma = operacion2.SpConsultarIdioma(idiomaId, formularioId).ToList<AulaWebContext_idioma.SpConsultarIdiomaResult>();
-            idioma = ToDataTable(datos_idioma);
+            Dao_idioma operacion = new Dao_idioma();
+            idioma = operacion.idioma(idiomaId, formularioId);
 
             return idioma;
         }
@@ -155,11 +150,8 @@ namespace Logica
         {
 
             U_Ingresar_autor info_2 = new U_Ingresar_autor();
-            //Dao_Ingresar_autor operacion = new Dao_Ingresar_autor();
-            //DataTable informacion = operacion.consultar_autor(nombre);
-
-            List<AulaWebContext_public.Autor> datos = operacion.SpConsultaAutor(nombre).ToList<AulaWebContext_public.Autor>();
-            DataTable informacion = ToDataTable(datos);
+            Dao_Ingresar_autor operacion = new Dao_Ingresar_autor();
+            DataTable informacion = operacion.consultar_autor(nombre);
 
             //asignamos la session en caso que no pase el if
             info_2.Session_fotos = Sfotos;
@@ -197,11 +189,7 @@ namespace Logica
                     try
                     {
                         //mandamos datos de registro
-                        //operacion.insertar_autor(datosAutor);
-
-                        operacion.SpInsertarAutor(datosAutor.Nombre, datosAutor.FechaBirth, datosAutor.FechaDeath, datosAutor.Foto, datosAutor.Descripcion, Int32.Parse(datosAutor.Nacionalidad), Int32.Parse(datosAutor.UserCambio));
-                        operacion.SubmitChanges();
-
+                        operacion.insertar_autor(datosAutor);
                         //reiniciamos session
                         info_2.Session_fotos = null;
                         //confirmamos y redireccionamos
@@ -230,35 +218,6 @@ namespace Logica
 
             }
             
-        }
-
-
-        //convierte en datatable
-        private DataTable ToDataTable<T>(List<T> items)
-        {
-            DataTable dataTable = new DataTable(typeof(T).Name);
-
-            //Get all the properties
-            PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
-            foreach (PropertyInfo prop in Props)
-            {
-                //Defining type of data column gives proper data table 
-                var type = (prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>) ? Nullable.GetUnderlyingType(prop.PropertyType) : prop.PropertyType);
-                //Setting column names as Property names
-                dataTable.Columns.Add(prop.Name, type);
-            }
-            foreach (T item in items)
-            {
-                var values = new object[Props.Length];
-                for (int i = 0; i < Props.Length; i++)
-                {
-                    //inserting property values to datatable rows
-                    values[i] = Props[i].GetValue(item, null);
-                }
-                dataTable.Rows.Add(values);
-            }
-            //put a breakpoint here and check datatable
-            return dataTable;
         }
 
 

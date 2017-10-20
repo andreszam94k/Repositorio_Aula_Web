@@ -6,16 +6,11 @@ using System.Threading.Tasks;
 using System.Data;
 using Data;
 using Utilitarios;
-using System.Reflection;
 
 namespace Logica
 {
     public class L_Registrar_moderador
     {
-        //objeto de persistencia
-        AulaWebContext_idioma.AulaWebDataContext_idioma operacion2 = new AulaWebContext_idioma.AulaWebDataContext_idioma();
-        AulaWebContext_public.AulaWebDataContext_public operacion = new AulaWebContext_public.AulaWebDataContext_public();
-
         //----- verificar sesion .....
         public U_Registrar_moderador verificar(object user, object rol)
         {
@@ -41,8 +36,8 @@ namespace Logica
         {
             DataTable idioma = new DataTable();
 
-            List<AulaWebContext_idioma.SpConsultarIdiomaResult> datos_idioma = operacion2.SpConsultarIdioma(idiomaId, formularioId).ToList<AulaWebContext_idioma.SpConsultarIdiomaResult>();
-            idioma = ToDataTable(datos_idioma);
+            Dao_idioma operacion = new Dao_idioma();
+            idioma = operacion.idioma(idiomaId, formularioId);
 
             return idioma;
         }
@@ -60,10 +55,8 @@ namespace Logica
             }
             else
             {
-                //Dao_Registrar_moderador operacion = new Dao_Registrar_moderador();
-                //operacion.consultar_rol(valor_rol);
-
-                operacion.SpConsultaRol(Int32.Parse(valor_rol)).ToList<AulaWebContext_public.Usuario>();
+                Dao_Registrar_moderador operacion = new Dao_Registrar_moderador();
+                operacion.consultar_rol(valor_rol);
                 
             }
 
@@ -74,11 +67,8 @@ namespace Logica
         //----- Actuaizar grillas .....
         public DataTable actualizar_grillas(string rol) 
         { 
-            //Dao_Registrar_moderador operacion = new Dao_Registrar_moderador();
-            //DataTable informacion_rol = operacion.consultar_rol(rol);
-
-            List<AulaWebContext_public.Usuario> datos = operacion.SpConsultaRol(Int32.Parse(rol)).ToList<AulaWebContext_public.Usuario>();
-            DataTable informacion_rol = ToDataTable(datos);
+            Dao_Registrar_moderador operacion = new Dao_Registrar_moderador();
+            DataTable informacion_rol = operacion.consultar_rol(rol);
 
             return informacion_rol;
         }
@@ -86,39 +76,8 @@ namespace Logica
         //----- Registrar moderador .....
         public void registra_mod(E_moderador datos)
         {
-            //Dao_Registrar_moderador operacion = new Dao_Registrar_moderador();
-            //operacion.modificar_rol(datos);
-
-            operacion.SpCambiarRol(Int32.Parse(datos.IdUser), datos.Nombre, datos.Apellido, Int64.Parse(datos.Documento), datos.Telefono, datos.Correo, datos.UserName, datos.Clave, Int32.Parse(datos.Dinero), Int32.Parse(datos.IdRol), Int32.Parse(datos.UserCambio)).ToList<AulaWebContext_public.Usuario>();
-        }
-
-
-        //convierte en datatable
-        private DataTable ToDataTable<T>(List<T> items)
-        {
-            DataTable dataTable = new DataTable(typeof(T).Name);
-
-            //Get all the properties
-            PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
-            foreach (PropertyInfo prop in Props)
-            {
-                //Defining type of data column gives proper data table 
-                var type = (prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>) ? Nullable.GetUnderlyingType(prop.PropertyType) : prop.PropertyType);
-                //Setting column names as Property names
-                dataTable.Columns.Add(prop.Name, type);
-            }
-            foreach (T item in items)
-            {
-                var values = new object[Props.Length];
-                for (int i = 0; i < Props.Length; i++)
-                {
-                    //inserting property values to datatable rows
-                    values[i] = Props[i].GetValue(item, null);
-                }
-                dataTable.Rows.Add(values);
-            }
-            //put a breakpoint here and check datatable
-            return dataTable;
+            Dao_Registrar_moderador operacion = new Dao_Registrar_moderador();
+            operacion.modificar_rol(datos);
         }
 
 

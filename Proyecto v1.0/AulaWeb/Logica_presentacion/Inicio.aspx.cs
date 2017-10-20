@@ -9,13 +9,14 @@ using System.Data;
 
 public partial class Presentacion_Inicio : System.Web.UI.Page
 {
+    DataTable datos_idioma = new DataTable();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         Response.Cache.SetNoStore();
 
         L_Inicio inicio = new L_Inicio();
 
-        DataTable datos_idioma = new DataTable();
         Int64 idioma;
 
         //preguntamos si la session idioma viene vacio
@@ -33,7 +34,7 @@ public partial class Presentacion_Inicio : System.Web.UI.Page
             datos_idioma = inicio.idioma(idioma, 3);
             llenar_componentes(datos_idioma);
         }
-
+    
     }//page_load
 
     protected void llenar_componentes(DataTable idioma_data)

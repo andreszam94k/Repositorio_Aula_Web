@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 using Utilitarios;
 using Data;
 using System.Data;
-using System.Reflection;
 
 namespace Logica
 {
     public class L_Reporte_autores
     {
-        AulaWebContext_public.AulaWebDataContext_public operacion = new AulaWebContext_public.AulaWebDataContext_public();
-
         //----- verificar sesion .....
         public U_Reporte_autores verificar(object user, object rol)
         {
@@ -48,11 +45,8 @@ namespace Logica
             personaInformacion = datos.Tables["DT_autores"];
 
             //hacemos una consulta para obtener los datos en otro datatable que servira de intermedio
-            //Dao_Ver_Reportes dao = new Dao_Ver_Reportes();
-            //DataTable Intermedio = dao.consultar_reporte_autores();
-
-            List<AulaWebContext_public.SpReporteAutoreResult> datos2 = operacion.SpReporteAutore().ToList<AulaWebContext_public.SpReporteAutoreResult>();
-            DataTable Intermedio = ToDataTable(datos2);
+            Dao_Ver_Reportes dao = new Dao_Ver_Reportes();
+            DataTable Intermedio = dao.consultar_reporte_autores();
 
             //recorremos el datatable intermedio
             for (int i = 0; i < Intermedio.Rows.Count; i++)
@@ -61,15 +55,15 @@ namespace Logica
                 fila = personaInformacion.NewRow();
 
                 //agregamos las campos y los llenamos con los datos del datatable intermedio
-                fila["id_autor"] = int.Parse(Intermedio.Rows[i]["IdAutor"].ToString());
-                fila["nombre"] = Intermedio.Rows[i]["Nombre"].ToString();
-                fila["fecha_birth"] = Intermedio.Rows[i]["FechaBirth"].ToString();
-                fila["fecha_death"] = Intermedio.Rows[i]["FechaDeath"].ToString();
-                fila["descripcion"] = Intermedio.Rows[i]["Descripcion"].ToString();
-                fila["id_nacionalidad"] = int.Parse(Intermedio.Rows[i]["IdNacionalidad"].ToString());
-                fila["pais"] = Intermedio.Rows[i]["Pais"].ToString();
+                fila["id_autor"] = int.Parse(Intermedio.Rows[i]["id_autor"].ToString());
+                fila["nombre"] = Intermedio.Rows[i]["nombre"].ToString();
+                fila["fecha_birth"] = Intermedio.Rows[i]["fecha_birth"].ToString();
+                fila["fecha_death"] = Intermedio.Rows[i]["fecha_death"].ToString();
+                fila["descripcion"] = Intermedio.Rows[i]["descripcion"].ToString();
+                fila["id_nacionalidad"] = int.Parse(Intermedio.Rows[i]["id_nacionalidad"].ToString());
+                fila["pais"] = Intermedio.Rows[i]["pais"].ToString();
                 //para la imagen se utiliza un metodo
-                fila["foto"] = obtenerImagen(Intermedio.Rows[i]["Foto"].ToString(), saveLocation, url_defecto);
+                fila["foto"] = obtenerImagen(Intermedio.Rows[i]["foto"].ToString(), saveLocation, url_defecto);
 
                 //finalmente ya con los datos, agregamos la fila al datatable principal
                 personaInformacion.Rows.Add(fila);
@@ -101,34 +95,6 @@ namespace Logica
 
             return fileBytes;
 
-        }
-
-        //convierte en datatable
-        private DataTable ToDataTable<T>(List<T> items)
-        {
-            DataTable dataTable = new DataTable(typeof(T).Name);
-
-            //Get all the properties
-            PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
-            foreach (PropertyInfo prop in Props)
-            {
-                //Defining type of data column gives proper data table 
-                var type = (prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>) ? Nullable.GetUnderlyingType(prop.PropertyType) : prop.PropertyType);
-                //Setting column names as Property names
-                dataTable.Columns.Add(prop.Name, type);
-            }
-            foreach (T item in items)
-            {
-                var values = new object[Props.Length];
-                for (int i = 0; i < Props.Length; i++)
-                {
-                    //inserting property values to datatable rows
-                    values[i] = Props[i].GetValue(item, null);
-                }
-                dataTable.Rows.Add(values);
-            }
-            //put a breakpoint here and check datatable
-            return dataTable;
         }
 
     }//L_Reporte_autores

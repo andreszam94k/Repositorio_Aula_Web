@@ -38,7 +38,7 @@ public partial class Presentacion_Agregar_categoria : System.Web.UI.Page
             llenar_componentes(datos_idioma);
         }
 
-        if(!IsPostBack)
+        if (!IsPostBack)
         {
             datos = operacion.verificar(Session["user"], Session["rolUser"]);
 
@@ -186,4 +186,5 @@ public partial class Presentacion_Agregar_categoria : System.Web.UI.Page
             ((LinkButton)fila.FindControl("LinkButton3")).Text = datos_idioma.Rows[10]["Texto"].ToString();
         }
     }
+
 }//principal

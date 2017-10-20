@@ -156,5 +156,6 @@ namespace Utilitarios
             set { b_idiomas = value; }
         }
 
+
     }//U_master
 }//principal

@@ -38,7 +38,7 @@ public partial class Presentacion_Validar_archivos : System.Web.UI.Page
             llenar_componentes(datos_idioma);
         }
 
-        if(!IsPostBack)
+        if (!IsPostBack)
         {
             datos = operacion.verificar(Session["user"], Session["rolUser"]);
 
@@ -180,6 +180,7 @@ public partial class Presentacion_Validar_archivos : System.Web.UI.Page
             ((LinkButton)fila.FindControl("LinkButton3")).Text = datos_idioma.Rows[15]["Texto"].ToString();
             ((LinkButton)fila.FindControl("LinkButton4")).Text = datos_idioma.Rows[16]["Texto"].ToString();
         }
+
     }
 
 }//principal

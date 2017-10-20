@@ -12,7 +12,7 @@ using Data;
 public partial class Presentacion_Ingresar_autor : System.Web.UI.Page
 {
     DataTable datos_idioma = new DataTable();
-    
+
     protected void Page_Load(object sender, EventArgs e)
     {
         Response.Cache.SetNoStore();
@@ -37,8 +37,8 @@ public partial class Presentacion_Ingresar_autor : System.Web.UI.Page
             datos_idioma = operacion.idioma(idioma, 11);
             llenar_componentes(datos_idioma);
         }
-        
-        if (!IsPostBack) 
+
+        if (!IsPostBack)
         {
             datos = operacion.verificar(Session["user"], Session["rolUser"]);
 
@@ -69,7 +69,7 @@ public partial class Presentacion_Ingresar_autor : System.Web.UI.Page
         //Gridview
         GV_autor_foto.Columns[0].HeaderText = idioma_data.Rows[9]["Texto"].ToString();
         B_ingresar_autor.Text = idioma_data.Rows[11]["Texto"].ToString();
-        
+
         //errores
         RFV_nombre_autor.ErrorMessage = idioma_data.Rows[12]["Texto"].ToString();
         REV_nombre_autor.ErrorMessage = idioma_data.Rows[13]["Texto"].ToString();

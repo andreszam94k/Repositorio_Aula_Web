@@ -39,7 +39,7 @@ public partial class Presentacion_Subir_archivos : System.Web.UI.Page
             llenar_componentes(datos_idioma);
         }
 
-        if(!IsPostBack)
+        if (!IsPostBack)
         {
             datos = operacion.verificar(Session["user"], Session["rolUser"]);
 
@@ -366,7 +366,7 @@ public partial class Presentacion_Subir_archivos : System.Web.UI.Page
         //Consultar datos = new Consultar();
         DataTable info = operacion.precio(identificacion);
 
-        TB_archivo_precio.Text = "$ " + info.Rows[0]["Precio"].ToString();
+        TB_archivo_precio.Text = "$ " + info.Rows[0]["precio"].ToString();
     }
 
     protected void GV_archivo_foto_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -394,4 +394,5 @@ public partial class Presentacion_Subir_archivos : System.Web.UI.Page
         }
 
     }
+
 }//principal

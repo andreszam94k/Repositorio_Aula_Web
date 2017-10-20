@@ -102,7 +102,7 @@ namespace Data
 
         //------------------------------------------------------------------------
         //en este caso mandamos un objeto de tipo user que contiene los datos para la clase Encapsular
-        public DataTable insertar_descargar_archivo(E_descargar_archivo descargar)
+        public void insertar_descargar_archivo(E_descargar_archivo descargar)
         {
             DataTable usuarios = new DataTable();
             NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
@@ -136,12 +136,12 @@ namespace Data
                     conection.Close();
                 }
             }
-            return usuarios;
+            //return usuarios;
         }
 
         //------------------------------------------------------------------------
         //en este caso mandamos un objeto de tipo user que contiene los datos para la clase Encapsular
-        public DataTable insertar_subir_descargar(E_subir_descargar subir_descargar)
+        public void insertar_subir_descargar(E_subir_descargar subir_descargar)
         {
             DataTable usuarios = new DataTable();
             NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
@@ -176,12 +176,12 @@ namespace Data
                     conection.Close();
                 }
             }
-            return usuarios;
+            //return usuarios;
         }
 
         //------------------------------------------------------------------------
         //en este caso mandamos un objeto de tipo user que contiene los datos para la clase Encapsular
-        public DataTable insertar_comentario(E_comentario comentario)
+        public void insertar_comentario(E_comentario comentario)
         {
             DataTable usuarios = new DataTable();
             NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
@@ -216,7 +216,7 @@ namespace Data
                     conection.Close();
                 }
             }
-            return usuarios;
+            //return usuarios;
         }
 
     }//Dao_Descargar_archivo

@@ -44,7 +44,7 @@ namespace Data
 
         //------------------------------------------------------------------------
         //en este caso mandamos un objeto de tipo user que contiene los datos para la clase Encapsular
-        public DataTable insertar_categoria(E_categoria categoria)
+        public void insertar_categoria(E_categoria categoria)
         {
             DataTable usuarios = new DataTable();
             NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
@@ -52,7 +52,7 @@ namespace Data
             try
             {
                 //conexion y mandamos los parametros
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_insertar_categoria", conection);
+                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("public.sp_insertar_categoria", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 dataAdapter.SelectCommand.Parameters.Add("_categoria", NpgsqlDbType.Varchar, 30).Value = categoria.Categoria;
                 dataAdapter.SelectCommand.Parameters.Add("_precio", NpgsqlDbType.Integer).Value = categoria.Precio;
@@ -77,7 +77,7 @@ namespace Data
                     conection.Close();
                 }
             }
-            return usuarios;
+            //return usuarios;
         }
 
         //------------------------------------------------------------------------

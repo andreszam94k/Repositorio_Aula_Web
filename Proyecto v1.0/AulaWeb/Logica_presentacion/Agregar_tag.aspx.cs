@@ -38,7 +38,7 @@ public partial class Presentacion_Agregar_tag : System.Web.UI.Page
             llenar_componentes(datos_idioma);
         }
 
-        if(!IsPostBack)
+        if (!IsPostBack)
         {
             datos = operacion.verificar(Session["user"], Session["rolUser"]);
 
@@ -47,7 +47,7 @@ public partial class Presentacion_Agregar_tag : System.Web.UI.Page
 
             llenar_grilla();
         }
-    
+
     }//page_load
 
     protected void llenar_componentes(DataTable idioma_data)

@@ -6,16 +6,11 @@ using System.Threading.Tasks;
 using Data;
 using Utilitarios;
 using System.Data;
-using System.Reflection;
 
 namespace Logica
 {
     public class L_Descargar_archivo
     {
-        //objeto de persistencia
-        AulaWebContext_idioma.AulaWebDataContext_idioma operacion2 = new AulaWebContext_idioma.AulaWebDataContext_idioma();
-        AulaWebContext_public.AulaWebDataContext_public operacion = new AulaWebContext_public.AulaWebDataContext_public();
-
         //----- verificar sesion .....
         public U_Descargar_archivo verificar(object id_arch, object user)
         {
@@ -50,8 +45,8 @@ namespace Logica
         {
             DataTable idioma = new DataTable();
 
-            List<AulaWebContext_idioma.SpConsultarIdiomaResult> datos_idioma = operacion2.SpConsultarIdioma(idiomaId, formularioId).ToList<AulaWebContext_idioma.SpConsultarIdiomaResult>();
-            idioma = ToDataTable(datos_idioma);
+            Dao_idioma operacion = new Dao_idioma();
+            idioma = operacion.idioma(idiomaId, formularioId);
 
             return idioma;
         }
@@ -59,11 +54,8 @@ namespace Logica
         //----- obtener datos .....
         public DataTable archivo_datos(string id_archivo) 
         {
-            //Dao_Descargar_archivo operacion = new Dao_Descargar_archivo();
-            //DataTable info = operacion.ver_archivo(id_archivo);
-
-            List<AulaWebContext_public.SpVerArchivoResult> datos = operacion.SpVerArchivo(Int32.Parse(id_archivo)).ToList<AulaWebContext_public.SpVerArchivoResult>();
-            DataTable info = ToDataTable(datos);
+            Dao_Descargar_archivo operacion = new Dao_Descargar_archivo();
+            DataTable info = operacion.ver_archivo(id_archivo);
 
             return info;
         }
@@ -71,11 +63,8 @@ namespace Logica
         //----- llenar grillas .....
         public DataTable comentarios(string idArc) 
         {
-            //Dao_Descargar_archivo operacion = new Dao_Descargar_archivo();
-            //DataTable info_comentarios = operacion.consultar_comentarios(idArc);
-
-            List<AulaWebContext_public.SpConsultarComentarioResult> datos = operacion.SpConsultarComentario(Int32.Parse(idArc)).ToList<AulaWebContext_public.SpConsultarComentarioResult>();
-            DataTable info_comentarios = ToDataTable(datos);
+            Dao_Descargar_archivo operacion = new Dao_Descargar_archivo();
+            DataTable info_comentarios = operacion.consultar_comentarios(idArc);
 
             return info_comentarios;
         }
@@ -83,18 +72,14 @@ namespace Logica
         //----- descargar archivo .....
         public U_Descargar_archivo descargar_archivo(string user, string id_archivo, string idrol) 
         {
+            Dao_Descargar_archivo operacion = new Dao_Descargar_archivo();
             U_Descargar_archivo datos = new U_Descargar_archivo();
-            //Dao_Descargar_archivo operacion = new Dao_Descargar_archivo();
-            //DataTable info_user = operacion.consultar_usuario(user);
-            //DataTable info_file = operacion.ver_archivo(id_archivo);
 
-            List<AulaWebContext_public.Usuario> datos2 = operacion.SpConsultaUsuario(user).ToList<AulaWebContext_public.Usuario>();
-            DataTable info_user = ToDataTable(datos2);
-            List<AulaWebContext_public.SpVerArchivoResult> datos3 = operacion.SpVerArchivo(Int32.Parse(id_archivo)).ToList<AulaWebContext_public.SpVerArchivoResult>();
-            DataTable info_file = ToDataTable(datos3);
+            DataTable info_user = operacion.consultar_usuario(user);
+            DataTable info_file = operacion.ver_archivo(id_archivo);
 
-            int saldo = int.Parse(info_user.Rows[0]["Dinero"].ToString());
-            int precio = int.Parse(info_file.Rows[0]["Precio"].ToString());
+            int saldo = int.Parse(info_user.Rows[0]["dinero"].ToString());
+            int precio = int.Parse(info_file.Rows[0]["precio"].ToString());
 
             //asignamos session por si no pasa el if
             datos.Session_dinero = saldo;
@@ -110,15 +95,15 @@ namespace Logica
                     //--------------encapsulamos campos..............................................
                     E_subir_descargar subir_descargar = new E_subir_descargar();
 
-                    subir_descargar.IdUser = info_user.Rows[0]["IdUsuario"].ToString();
-                    subir_descargar.IdArchivo = info_file.Rows[0]["IdArchivo"].ToString();
+                    subir_descargar.IdUser = info_user.Rows[0]["id_usuario"].ToString();
+                    subir_descargar.IdArchivo = info_file.Rows[0]["id_archivo"].ToString();
                     subir_descargar.Concepto = "Download";
                     subir_descargar.Precio = precio.ToString();
                     subir_descargar.UserCambio = idrol;
 
                     E_descargar_archivo descargar = new E_descargar_archivo();
 
-                    descargar.IdUser = info_user.Rows[0]["idUsuario"].ToString();
+                    descargar.IdUser = info_user.Rows[0]["id_usuario"].ToString();
                     descargar.Dinero = precio.ToString();
                     descargar.UserCambio = idrol;
 
@@ -126,15 +111,12 @@ namespace Logica
                     //--------------descargar_archivo..............................................
                     try
                     {
-                        //operacion.insertar_descargar_archivo(descargar);
-                        //operacion.insertar_subir_descargar(subir_descargar);
-                        operacion.SpDescargarArchivo(Int32.Parse(descargar.IdUser), Int32.Parse(descargar.Dinero), Int32.Parse(descargar.UserCambio));
-                        operacion.SpInsertarSubirDescargar(Int32.Parse(subir_descargar.IdUser), Int32.Parse(subir_descargar.IdArchivo), subir_descargar.Concepto, Int32.Parse(subir_descargar.Precio), Int32.Parse(subir_descargar.UserCambio));
-
+                        operacion.insertar_descargar_archivo(descargar);
+                        operacion.insertar_subir_descargar(subir_descargar);
                         //cambiamos el valor de la session
                         datos.Session_dinero = saldo - precio;
 
-                        string ruta = info_file.Rows[0]["Url"].ToString();
+                        string ruta = info_file.Rows[0]["url"].ToString();
                         datos.Url_pag = ruta;
                         datos.Descargar = true;
                         
@@ -166,7 +148,7 @@ namespace Logica
         public U_Descargar_archivo comentar_archivo(string comentary, string idrol, string id_archivo) 
         {
             //llamamos metodos
-            //Dao_Descargar_archivo operacion = new Dao_Descargar_archivo();
+            Dao_Descargar_archivo operacion = new Dao_Descargar_archivo();
             U_Descargar_archivo datos = new U_Descargar_archivo();
             E_comentario comentario = new E_comentario();
 
@@ -179,8 +161,7 @@ namespace Logica
             //--------------insertar_comentario..............................................
             try
             {
-                //operacion.insertar_comentario(comentario);
-                operacion.SpInsertarComentario(Int32.Parse(comentario.IdUser), Int32.Parse(comentario.IdArchivo), comentario.Comentario, Int32.Parse(comentario.UserCambio));
+                operacion.insertar_comentario(comentario);
                 datos.Url_pag = "<script type='text/javascript'>window.location=\"Descargar_archivo.aspx\"</script>";
                 return datos;
             }
@@ -188,34 +169,6 @@ namespace Logica
             {
                 throw exc;
             }
-        }
-
-        //convierte en datatable
-        private DataTable ToDataTable<T>(List<T> items)
-        {
-            DataTable dataTable = new DataTable(typeof(T).Name);
-
-            //Get all the properties
-            PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
-            foreach (PropertyInfo prop in Props)
-            {
-                //Defining type of data column gives proper data table 
-                var type = (prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>) ? Nullable.GetUnderlyingType(prop.PropertyType) : prop.PropertyType);
-                //Setting column names as Property names
-                dataTable.Columns.Add(prop.Name, type);
-            }
-            foreach (T item in items)
-            {
-                var values = new object[Props.Length];
-                for (int i = 0; i < Props.Length; i++)
-                {
-                    //inserting property values to datatable rows
-                    values[i] = Props[i].GetValue(item, null);
-                }
-                dataTable.Rows.Add(values);
-            }
-            //put a breakpoint here and check datatable
-            return dataTable;
         }
 
     }//L_Descargar_archivo

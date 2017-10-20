@@ -38,7 +38,7 @@ public partial class Presentacion_Registrar_moderador : System.Web.UI.Page
             llenar_componentes(datos_idioma);
         }
 
-        if (!IsPostBack) 
+        if (!IsPostBack)
         {
             datos = operacion.verificar(Session["user"], Session["rolUser"]);
 
@@ -154,7 +154,7 @@ public partial class Presentacion_Registrar_moderador : System.Web.UI.Page
     {
         //definimos fila
         GridViewRow fila = e.Row;
-        
+
         //Buscamos controles
         if (fila.FindControl("LinkButton1") != null)
         {
@@ -166,5 +166,7 @@ public partial class Presentacion_Registrar_moderador : System.Web.UI.Page
             ((LinkButton)fila.FindControl("LinkButton2")).Text = datos_idioma.Rows[13]["Texto"].ToString();
             ((LinkButton)fila.FindControl("LinkButton3")).Text = datos_idioma.Rows[14]["Texto"].ToString();
         }
+
     }
+
 }//principal

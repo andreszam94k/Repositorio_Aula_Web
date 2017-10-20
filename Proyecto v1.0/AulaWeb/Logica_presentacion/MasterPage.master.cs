@@ -10,6 +10,8 @@ using System.Data;
 
 public partial class Presentacion_MasterPage : System.Web.UI.MasterPage
 {
+    DataTable datos_idioma = new DataTable();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         Response.Cache.SetNoStore();
@@ -17,6 +19,7 @@ public partial class Presentacion_MasterPage : System.Web.UI.MasterPage
         //verificar si hay sesiones iniciadas para mostrar los componentes
         L_master master = new L_master();
         U_master datos = master.verificar_session(Session["rolID"], Session["nomUser"], Session["user"], Session["dinero"], Session["rolUser"]);
+        
 
         //componentes
         L_Bienvenido.Text = datos.Bienvenido;
@@ -34,14 +37,12 @@ public partial class Presentacion_MasterPage : System.Web.UI.MasterPage
         DDL_idiomas.Visible = datos.Ddl_idiomas;
         B_idioma.Visible = datos.B_idiomas;
 
-
         //habilitamos menus
         Menu1.Visible = datos.Menu_1;
         Menu2.Visible = datos.Menu_2;
         Menu3.Visible = datos.Menu_3;
         Menu4.Visible = datos.Menu_4;
 
-        DataTable datos_idioma = new DataTable();
         Int64 idioma;
 
         //preguntamos si la session idioma viene vacio
@@ -138,7 +139,8 @@ public partial class Presentacion_MasterPage : System.Web.UI.MasterPage
         Menu4.Items[2].Text = idioma_data.Rows[33]["Texto"].ToString();
         Menu4.Items[3].Text = idioma_data.Rows[34]["Texto"].ToString();
 
-    }
+    }//componentes
+
 
     protected void B_idioma_Click(object sender, EventArgs e)
     {
@@ -154,4 +156,3 @@ public partial class Presentacion_MasterPage : System.Web.UI.MasterPage
     }
 
 }//principal
-

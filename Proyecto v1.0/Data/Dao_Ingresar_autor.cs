@@ -73,7 +73,7 @@ namespace Data
 
         //------------------------------------------------------------------------
         //en este caso mandamos un objeto de tipo user que contiene los datos para la clase Encapsular
-        public DataTable insertar_autor(E_autor autor)
+        public void insertar_autor(E_autor autor)
         {
             DataTable usuarios = new DataTable();
             NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
@@ -110,7 +110,7 @@ namespace Data
                     conection.Close();
                 }
             }
-            return usuarios;
+            //return usuarios;
         }
 
 

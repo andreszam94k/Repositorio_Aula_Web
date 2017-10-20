@@ -34,8 +34,7 @@ public partial class Presentacion_Normas : System.Web.UI.Page
             llenar_componentes(datos_idioma);
         }
 
-
-    }//pageload
+    }//page_load
 
     protected void llenar_componentes(DataTable idioma_data)
     {
@@ -56,13 +55,12 @@ public partial class Presentacion_Normas : System.Web.UI.Page
         HyperLink1.Text = idioma_data.Rows[13]["Texto"].ToString();
         B_normas.Text = idioma_data.Rows[14]["Texto"].ToString();
     }
-    
+
     protected void B_normas_Click(object sender, EventArgs e)
     {
         //cerrar ventana actual
         Response.Write("<script type='text/javascript'>window.close();</script>");
         //Response.Redirect("Registrar_usuario.aspx");
     }//boton
-
 
 }//principal

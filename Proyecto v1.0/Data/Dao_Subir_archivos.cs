@@ -186,7 +186,7 @@ namespace Data
 
         //------------------------------------------------------------------------
         //en este caso mandamos un objeto de tipo user que contiene los datos para la clase Encapsular
-        public DataTable insertar_archivo(E_archivo archivo)
+        public void insertar_archivo(E_archivo archivo)
         {
             DataTable usuarios = new DataTable();
             NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
@@ -227,12 +227,12 @@ namespace Data
                     conection.Close();
                 }
             }
-            return usuarios;
+            //return usuarios;
         }
 
         //------------------------------------------------------------------------
         //en este caso mandamos un objeto de tipo user que contiene los datos para la clase Encapsular
-        public DataTable insertar_archivo_autor(E_archivo_autor archivo_autor)
+        public void insertar_archivo_autor(E_archivo_autor archivo_autor)
         {
             DataTable usuarios = new DataTable();
             NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
@@ -264,12 +264,12 @@ namespace Data
                     conection.Close();
                 }
             }
-            return usuarios;
+            //return usuarios;
         }
 
         //------------------------------------------------------------------------
         //en este caso mandamos un objeto de tipo user que contiene los datos para la clase Encapsular
-        public DataTable insertar_subir_descargar(E_subir_descargar subir_descargar)
+        public void insertar_subir_descargar(E_subir_descargar subir_descargar)
         {
             DataTable usuarios = new DataTable();
             NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
@@ -304,7 +304,7 @@ namespace Data
                     conection.Close();
                 }
             }
-            return usuarios;
+            //return usuarios;
         }
 
     }//Dao_Subir_archivos

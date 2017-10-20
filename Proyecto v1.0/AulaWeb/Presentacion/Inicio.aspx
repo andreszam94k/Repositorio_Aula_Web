@@ -6,10 +6,6 @@
         color: #CCCCCC;
             text-align: center;
         }
-        .auto-style16 {
-            color: #990000;
-            font-size: large;
-        }
         .auto-style17 {
             color: #CCCCCC;
             text-align: center;
@@ -26,22 +22,21 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h1 class="auto-style15">
-        <asp:Label ID="L_MI_1" runat="server">aaa</asp:Label>
+        <asp:Label ID="L_MI_1" runat="server"></asp:Label>
     </h1>
     <h2 class="auto-style17">
-        <asp:Label ID="L_MI_2" runat="server">aaa</asp:Label>
+        <asp:Label ID="L_MI_2" runat="server"></asp:Label>
     </h2>
     <p class="auto-style18">
-        <asp:Label ID="L_MI_3" runat="server">aaa</asp:Label>
+        <asp:Label ID="L_MI_3" runat="server"></asp:Label>
     </p>
     <p class="auto-style15">
     <asp:Image ID="Img_portada" runat="server" ImageAlign="Middle" ImageUrl="~/Imagenes/portada.png" style="text-align: center" />
     </p>
     <p class="auto-style15"><span class="auto-style19">
-        <asp:Label ID="L_MI_4" runat="server">aaa</asp:Label>
+        <asp:Label ID="L_MI_4" runat="server"></asp:Label>
         </span></p>
-    <h3 style="color: #CCCCCC" class="auto-style3">
-        <asp:Label ID="L_MI_5" runat="server">aaa</asp:Label>
+    <h3 style="color: #CCCCCC" class="auto-style3">&nbsp;<asp:Label ID="L_MI_5" runat="server"></asp:Label>
     </h3>
     <br />
 </asp:Content>

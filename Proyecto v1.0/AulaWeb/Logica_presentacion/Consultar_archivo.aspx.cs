@@ -11,9 +11,8 @@ using Data;
 
 public partial class Presentacion_Consultar_archivo : System.Web.UI.Page
 {
-
     DataTable datos_idioma = new DataTable();
-    
+
     protected void Page_Load(object sender, EventArgs e)
     {
         Response.Cache.SetNoStore();
@@ -45,7 +44,7 @@ public partial class Presentacion_Consultar_archivo : System.Web.UI.Page
         L_MCA_1.Text = idioma_data.Rows[0]["Texto"].ToString();
         L_consultar_archivos.Text = idioma_data.Rows[1]["Texto"].ToString();
         B_mostrar_archivos.Text = idioma_data.Rows[2]["Texto"].ToString();
-        B_consultar_archivos.Text = idioma_data.Rows[3]["Texto"].ToString(); 
+        B_consultar_archivos.Text = idioma_data.Rows[3]["Texto"].ToString();
         //Gridview
         GV_consultar_archivo.Columns[0].HeaderText = idioma_data.Rows[4]["Texto"].ToString();
         GV_consultar_archivo.Columns[1].HeaderText = idioma_data.Rows[5]["Texto"].ToString();
@@ -117,4 +116,4 @@ public partial class Presentacion_Consultar_archivo : System.Web.UI.Page
         }
     }
 
-}//principal
+}//Principal

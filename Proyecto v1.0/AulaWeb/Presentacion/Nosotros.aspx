@@ -9,26 +9,26 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h1 class="auto-style15">
-        <asp:Label ID="L_MNos_1" runat="server">aaa</asp:Label>
+        <asp:Label ID="L_MNos_1" runat="server" Text="Label"></asp:Label>
     </h1>
         <h2 class="auto-style15">
-            <asp:Label ID="L_MNos_2" runat="server">aaa</asp:Label>
+            <asp:Label ID="L_MNos_2" runat="server" Text="Label"></asp:Label>
     </h2>
     <p class="auto-style15">
-        <asp:Label ID="L_MNos_3" runat="server">aaa</asp:Label>
+        <asp:Label ID="L_MNos_3" runat="server" Text="label"></asp:Label>
     </p>
     <br />
     <h2 class="auto-style15">
-        <asp:Label ID="L_MNos_4" runat="server">aaa</asp:Label>
+        <asp:Label ID="L_MNos_4" runat="server" Text="Label"></asp:Label>
     </h2>
         <p class="auto-style15">
-            <asp:Label ID="L_MNos_5" runat="server">aaa</asp:Label>
+            <asp:Label ID="L_MNos_5" runat="server" Text="Label"></asp:Label>
     </p>
         <h2 class="auto-style15">
-            <asp:Label ID="L_MNos_6" runat="server">aaa</asp:Label>
+            <asp:Label ID="L_MNos_6" runat="server" Text="Label"></asp:Label>
     </h2>
         <p class="auto-style15">
-            <asp:Label ID="L_MNos_7" runat="server">aaa</asp:Label>
+            <asp:Label ID="L_MNos_7" runat="server" Text="Label"></asp:Label>
     </p>
 </asp:Content>
 
