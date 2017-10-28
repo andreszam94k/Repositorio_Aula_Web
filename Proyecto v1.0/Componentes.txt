@@ -29,6 +29,9 @@ Menu1_fila5 = REPORTES / REPORTS
 Menu1_fila5_1 = Usuarios/ Users
 Menu1_fila5_2 = Archivos / Files
 Menu1_fila5_3 = Autores / Authors
+Menu1_fila6 = Idioma / Language
+Menu1_fila6_1 = Agregar idioma / Add Language
+Menu1_fila6_2 = Llenar formularios / Fill forms
 
 Menu2_fila0 = CONSULTAR / CONSULT
 Menu2_fila0_1 = Autor / Author
@@ -565,3 +568,31 @@ Reporte_usuarios => id 21
 
 CRV_usuarios
 CRS_usuarios
+
+-----------------------------------------
+Ingresar_idioma => id 22
+
+L_II_1 = Formulario agregar idioma / Form add tag language
+L_II_2 = Datos de registro / Registration data
+L_idioma = Idioma / Language
+L_terminacion = Terminacion / Termination
+B_ingresar_idioma = Ingresar idioma / Add Language
+
+error:
+RFV_idioma = Ingrese parametros / Enter parameters
+REV_idioma = Caracter invalido / Invalid character
+RFV_terminacion = Ingrese parametros / Enter parameters
+REV_terminacion = Caracter invalido / Invalid character
+
+
+-----------------------------------------
+Idioma_formularios => id 23
+
+L_IF_1 = Formulario idioma formularios / Forms language form
+L_IF_2 = Formularios y componentes / Forms and components
+Label1 = Elegir idioma / Choose Language
+B_agregar_datos = Agregar datos / Add Data
+
+error:
+RFV_idioma = Ingrese parametros / Enter parameters
+REV_idioma = Caracter invalido / Invalid character

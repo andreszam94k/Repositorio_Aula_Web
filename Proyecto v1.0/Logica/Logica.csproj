@@ -46,7 +46,9 @@
     <Compile Include="L_Consultar_autor.cs" />
     <Compile Include="L_Contacto.cs" />
     <Compile Include="L_Descargar_archivo.cs" />
+    <Compile Include="L_Idioma_formularios.cs" />
     <Compile Include="L_Ingresar_autor.cs" />
+    <Compile Include="L_Ingresar_idioma.cs" />
     <Compile Include="L_Inicio.cs" />
     <Compile Include="L_inicio_sesion.cs" />
     <Compile Include="L_loggin_user.cs" />

@@ -116,6 +116,9 @@ public partial class Presentacion_MasterPage : System.Web.UI.MasterPage
         Menu1.Items[5].ChildItems[0].Text = idioma_data.Rows[16]["Texto"].ToString();
         Menu1.Items[5].ChildItems[1].Text = idioma_data.Rows[17]["Texto"].ToString();
         Menu1.Items[5].ChildItems[2].Text = idioma_data.Rows[18]["Texto"].ToString();
+        Menu1.Items[6].Text = idioma_data.Rows[36]["Texto"].ToString();
+        Menu1.Items[6].ChildItems[0].Text = idioma_data.Rows[37]["Texto"].ToString();
+        Menu1.Items[6].ChildItems[1].Text = idioma_data.Rows[38]["Texto"].ToString();
 
         //menu2
         Menu2.Items[0].Text = idioma_data.Rows[19]["Texto"].ToString();

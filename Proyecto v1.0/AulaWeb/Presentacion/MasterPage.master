@@ -151,6 +151,10 @@
                                                         <asp:MenuItem Text="Archivos" Value="Archivos" NavigateUrl="~/Presentacion/Reporte_archivos.aspx"></asp:MenuItem>
                                                         <asp:MenuItem Text="Autores" Value="Autores" NavigateUrl="~/Presentacion/Reporte_autores.aspx"></asp:MenuItem>
                                                     </asp:MenuItem>
+                                                    <asp:MenuItem Text="IDIOMA" Value="IDIOMA">
+                                                        <asp:MenuItem NavigateUrl="~/Presentacion/Ingresar_idioma.aspx" Text="Agregar idoma" Value="Agregar idoma"></asp:MenuItem>
+                                                        <asp:MenuItem Text="Llenar formularios" Value="Llenar formularios" NavigateUrl="~/Presentacion/Idioma_formularios.aspx"></asp:MenuItem>
+                                                    </asp:MenuItem>
                                                 </Items>
                                                 <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
                                                 <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />

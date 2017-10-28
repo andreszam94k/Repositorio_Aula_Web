@@ -60,7 +60,9 @@
     <Compile Include="U_Consultar_archivo.cs" />
     <Compile Include="U_Consultar_autor.cs" />
     <Compile Include="U_Descargar_archivo.cs" />
+    <Compile Include="U_Idioma_formularios.cs" />
     <Compile Include="U_Ingresar_autor.cs" />
+    <Compile Include="U_Ingresar_idioma.cs" />
     <Compile Include="U_inicio_sesion.cs" />
     <Compile Include="U_master.cs" />
     <Compile Include="U_Registrar_moderador.cs" />

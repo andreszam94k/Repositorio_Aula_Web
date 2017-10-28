@@ -54,6 +54,7 @@
     <Compile Include="Dao_Descargar_archivo.cs" />
     <Compile Include="Dao_idioma.cs" />
     <Compile Include="Dao_Ingresar_autor.cs" />
+    <Compile Include="Dao_Ingresar_idioma.cs" />
     <Compile Include="Dao_loggin_user.cs" />
     <Compile Include="Dao_Registrar_moderador.cs" />
     <Compile Include="Dao_Registrar_usuario.cs" />
