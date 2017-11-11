@@ -56,9 +56,9 @@ namespace Logica
 
                 //agregamos las campos y los llenamos con los datos del datatable intermedio
                 fila["id_archivo"] = int.Parse(Intermedio.Rows[i]["id_archivo"].ToString());
-                fila["nombre"] = Intermedio.Rows[i]["nombre"].ToString();
-                fila["anio"] = Intermedio.Rows[i]["anio"].ToString();
-                fila["sinopsis"] = Intermedio.Rows[i]["sinopsis"].ToString();
+                fila["nombre"] = Intermedio.Rows[i]["nombre_archivo"].ToString();
+                fila["anio"] = Intermedio.Rows[i]["anio_archivo"].ToString();
+                fila["sinopsis"] = Intermedio.Rows[i]["sinopsis_archivo"].ToString();
                 fila["num_pag"] = int.Parse(Intermedio.Rows[i]["num_pag"].ToString());
                 fila["url"] = Intermedio.Rows[i]["url"].ToString();
                 fila["id_usuario"] = int.Parse(Intermedio.Rows[i]["id_usuario"].ToString());
@@ -67,9 +67,9 @@ namespace Logica
                 fila["tags"] = Intermedio.Rows[i]["tags"].ToString();
                 fila["id_moderador"] = int.Parse(Intermedio.Rows[i]["id_moderador"].ToString());
                 fila["estado_mod"] = int.Parse(Intermedio.Rows[i]["estado_mod"].ToString());
-                fila["user_name"] = Intermedio.Rows[i]["user_name"].ToString();
+                fila["user_name"] = Intermedio.Rows[i]["usuario"].ToString();
                 fila["categoria"] = Intermedio.Rows[i]["categoria"].ToString();
-                fila["precio"] = int.Parse(Intermedio.Rows[i]["precio"].ToString());
+                fila["precio"] = int.Parse(Intermedio.Rows[i]["precio_categoria"].ToString());
                 //para la imagen se utiliza un metodo
                 fila["imagen_portada"] = obtenerImagen(Intermedio.Rows[i]["imagen_portada"].ToString(), saveLocation, url_defecto);
 

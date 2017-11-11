@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Utilitarios;
+using System.Data.SqlClient;
 
 namespace Data
 {
@@ -17,13 +18,16 @@ namespace Data
         public DataTable consultar_usuario(string usuario)
         {
             DataTable usuarios = new DataTable();
-            NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            //NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            SqlConnection conection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConexion2"].ConnectionString);
 
             try
             {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_consulta_usuario", conection);
+                //NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_consulta_usuario", conection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_consulta_usuario", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                dataAdapter.SelectCommand.Parameters.Add("_usuario", NpgsqlDbType.Varchar, 30).Value = usuario;
+                //dataAdapter.SelectCommand.Parameters.Add("_usuario", NpgsqlDbType.Varchar, 30).Value = usuario;
+                dataAdapter.SelectCommand.Parameters.Add("@_usuario", SqlDbType.VarChar, 50).Value = usuario;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -46,13 +50,16 @@ namespace Data
         public DataTable consultar_documento(String documento)
         {
             DataTable usuarios = new DataTable();
-            NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            //NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            SqlConnection conection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConexion2"].ConnectionString);
 
             try
             {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_consulta_documento", conection);
+                //NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_consulta_documento", conection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_consulta_documento", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                dataAdapter.SelectCommand.Parameters.Add("_documento", NpgsqlDbType.Bigint, 10).Value = documento;
+                //dataAdapter.SelectCommand.Parameters.Add("_documento", NpgsqlDbType.Bigint, 10).Value = documento;
+                dataAdapter.SelectCommand.Parameters.Add("@_documento", SqlDbType.BigInt).Value = documento;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -75,13 +82,16 @@ namespace Data
         public DataTable consultar_correo(string correo)
         {
             DataTable usuarios = new DataTable();
-            NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            //NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            SqlConnection conection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConexion2"].ConnectionString);
 
             try
             {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_consulta_correo", conection);
+                //NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_consulta_correo", conection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_consulta_correo", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                dataAdapter.SelectCommand.Parameters.Add("_correo", NpgsqlDbType.Varchar, 30).Value = correo;
+                //dataAdapter.SelectCommand.Parameters.Add("_correo", NpgsqlDbType.Varchar, 30).Value = correo;
+                dataAdapter.SelectCommand.Parameters.Add("@_correo", SqlDbType.VarChar, 50).Value = correo;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -105,13 +115,16 @@ namespace Data
         public void insertar_usuario(E_usuario user)
         {
             DataTable usuarios = new DataTable();
-            NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            //NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            SqlConnection conection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConexion2"].ConnectionString);
 
             try
             {
                 //conexion y mandamos los parametros
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_insertar_usuario", conection);
+                //NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_insertar_usuario", conection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_insertar_usuario", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                /*
                 dataAdapter.SelectCommand.Parameters.Add("_nombre", NpgsqlDbType.Varchar, 30).Value = user.Nombre;
                 dataAdapter.SelectCommand.Parameters.Add("_apellido", NpgsqlDbType.Varchar, 30).Value = user.Apellido;
                 dataAdapter.SelectCommand.Parameters.Add("_documento", NpgsqlDbType.Bigint, 10).Value = user.Documento;
@@ -120,10 +133,15 @@ namespace Data
                 dataAdapter.SelectCommand.Parameters.Add("_user", NpgsqlDbType.Varchar, 30).Value = user.UserName;
                 dataAdapter.SelectCommand.Parameters.Add("_clave", NpgsqlDbType.Varchar, 30).Value = user.Clave;
                 dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = user.UserCambio;
-
-                //dataAdapter.SelectCommand.Parameters.Add("_user", NpgsqlDbType.Varchar).Value = user.UserName;
-                //dataAdapter.SelectCommand.Parameters.Add("_clave", NpgsqlDbType.Varchar).Value = user.Clave;
-
+                 */
+                dataAdapter.SelectCommand.Parameters.Add("@_nombre", SqlDbType.VarChar, 50).Value = user.Nombre;
+                dataAdapter.SelectCommand.Parameters.Add("@_apellido", SqlDbType.VarChar, 50).Value = user.Apellido;
+                dataAdapter.SelectCommand.Parameters.Add("@_documento", SqlDbType.BigInt).Value = user.Documento;
+                dataAdapter.SelectCommand.Parameters.Add("@_telefono", SqlDbType.VarChar, 10).Value = user.Telefono;
+                dataAdapter.SelectCommand.Parameters.Add("@_correo", SqlDbType.VarChar, 50).Value = user.Correo;
+                dataAdapter.SelectCommand.Parameters.Add("@_user", SqlDbType.VarChar, 50).Value = user.UserName;
+                dataAdapter.SelectCommand.Parameters.Add("@_clave", SqlDbType.VarChar, 50).Value = user.Clave;
+                dataAdapter.SelectCommand.Parameters.Add("@_user_cambio", SqlDbType.Int).Value = user.UserCambio;
 
 
                 conection.Open();

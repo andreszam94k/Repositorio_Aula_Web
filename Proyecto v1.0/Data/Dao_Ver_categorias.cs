@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Utilitarios;
+using System.Data.SqlClient;
 
 namespace Data
 {
@@ -17,11 +18,13 @@ namespace Data
         public DataTable mostrar_categoria_archivo()
         {
             DataTable usuarios = new DataTable();
-            NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            //NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            SqlConnection conection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConexion2"].ConnectionString);
 
             try
             {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_mostrar_categoria_archivo", conection);
+                //NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_mostrar_categoria_archivo", conection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_mostrar_categoria_archivo", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                 conection.Open();
@@ -46,11 +49,13 @@ namespace Data
         public DataTable mostrar_tags()
         {
             DataTable usuarios = new DataTable();
-            NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            //NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            SqlConnection conection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConexion2"].ConnectionString);
 
             try
             {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_mostrar_tags", conection);
+                //NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_mostrar_tags", conection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_mostrar_tags", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                 conection.Open();

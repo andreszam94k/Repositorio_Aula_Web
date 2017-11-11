@@ -78,8 +78,8 @@ namespace Logica
             DataTable info_user = operacion.consultar_usuario(user);
             DataTable info_file = operacion.ver_archivo(id_archivo);
 
-            int saldo = int.Parse(info_user.Rows[0]["dinero"].ToString());
-            int precio = int.Parse(info_file.Rows[0]["precio"].ToString());
+            int saldo = int.Parse(info_user.Rows[0]["dinero_user"].ToString());
+            int precio = int.Parse(info_file.Rows[0]["precio_categoria"].ToString());
 
             //asignamos session por si no pasa el if
             datos.Session_dinero = saldo;

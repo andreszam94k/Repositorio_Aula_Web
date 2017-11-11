@@ -40,7 +40,7 @@
                         <asp:Label ID="Label2" runat="server" style="color: #CCCCCC" Text='<%# Eval("categoria") %>'></asp:Label>
                         <br />
                         <span class="auto-style19">$ </span>
-                        <asp:Label ID="Label3" runat="server" CssClass="auto-style19" Text='<%# Eval("precio") %>'></asp:Label>
+                        <asp:Label ID="Label3" runat="server" CssClass="auto-style19" Text='<%# Eval("precio_categoria") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:DataList>
             </td>

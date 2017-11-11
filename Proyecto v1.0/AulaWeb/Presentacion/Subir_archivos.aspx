@@ -89,7 +89,7 @@
                     </div>
                 </HeaderTemplate>
                 <ItemTemplate>
-                    <asp:CheckBox ID="CB_autores" runat="server" style="color: #CCCCCC; background-color: #333333" Text='<%# Eval("nombre") %>' />
+                    <asp:CheckBox ID="CB_autores" runat="server" style="color: #CCCCCC; background-color: #333333" Text='<%# Eval("nombre_autor") %>' />
                 </ItemTemplate>
                 </asp:DataList>
             </td>

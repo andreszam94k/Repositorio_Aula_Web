@@ -56,14 +56,14 @@ namespace Logica
 
                 //agregamos las campos y los llenamos con los datos del datatable intermedio
                 fila["id_usuario"] = int.Parse(Intermedio.Rows[i]["id_usuario"].ToString());
-                fila["nombre"] = Intermedio.Rows[i]["nombre"].ToString();
-                fila["apellido"] = Intermedio.Rows[i]["apellido"].ToString();
-                fila["documento"] = Intermedio.Rows[i]["documento"].ToString();
-                fila["telefono"] = Intermedio.Rows[i]["telefono"].ToString();
-                fila["correo"] = Intermedio.Rows[i]["correo"].ToString();
+                fila["nombre"] = Intermedio.Rows[i]["nombre_user"].ToString();
+                fila["apellido"] = Intermedio.Rows[i]["apellido_user"].ToString();
+                fila["documento"] = Intermedio.Rows[i]["documento_user"].ToString();
+                fila["telefono"] = Intermedio.Rows[i]["telefono_user"].ToString();
+                fila["correo"] = Intermedio.Rows[i]["correo_user"].ToString();
                 fila["usuario"] = Intermedio.Rows[i]["usuario"].ToString();
                 fila["clave"] = Intermedio.Rows[i]["clave"].ToString();
-                fila["dinero"] = Intermedio.Rows[i]["dinero"].ToString();
+                fila["dinero"] = Intermedio.Rows[i]["dinero_user"].ToString();
                 fila["id_rol"] = Intermedio.Rows[i]["id_rol"].ToString();
                 fila["rol"] = Intermedio.Rows[i]["rol"].ToString();
 

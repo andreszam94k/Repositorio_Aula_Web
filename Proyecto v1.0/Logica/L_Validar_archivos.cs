@@ -162,7 +162,7 @@ namespace Logica
 
                         DataTable info = new DataTable();
                         info = archivoDatos.consultar_categoria(nomCategoria);
-                        dinero = info.Rows[0]["precio"].ToString();
+                        dinero = info.Rows[0]["precio_categoria"].ToString();
                     }
 
                     //encapsulamos datos

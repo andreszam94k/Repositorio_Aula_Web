@@ -21,7 +21,7 @@
                 <asp:Label ID="L_elegir_autor" runat="server" style="font-size: x-large; color: #CCCCCC" Text="Elegir autor: "></asp:Label>
             </td>
             <td>
-                <asp:DropDownList ID="DDL_autor" runat="server" AutoPostBack="True" DataSourceID="ODS_elegir_autor" DataTextField="nombre" DataValueField="id_autor" style="font-size: large" OnSelectedIndexChanged="DDL_autor_SelectedIndexChanged">
+                <asp:DropDownList ID="DDL_autor" runat="server" AutoPostBack="True" DataSourceID="ODS_elegir_autor" DataTextField="nombre_autor" DataValueField="id_autor" style="font-size: large" OnSelectedIndexChanged="DDL_autor_SelectedIndexChanged">
                 </asp:DropDownList>
 &nbsp;<asp:ObjectDataSource ID="ODS_elegir_autor" runat="server" SelectMethod="mostrar_autor" TypeName="Data.Dao_Consultar_autor"></asp:ObjectDataSource>
             </td>
@@ -66,7 +66,7 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="DESCRIPCION">
                 <ItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Enabled="False" Height="80px" style="font-size: medium" Text='<%# Eval("sinopsis") %>' Width="300px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" Enabled="False" Height="80px" style="font-size: medium" Text='<%# Eval("sinopsis_archivo") %>' Width="300px"></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField>

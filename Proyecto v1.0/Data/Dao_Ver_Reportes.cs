@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace Data
 {
@@ -15,11 +16,13 @@ namespace Data
         public DataTable consultar_reporte_usuarios()
         {
             DataTable usuarios = new DataTable();
-            NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            //NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            SqlConnection conection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConexion2"].ConnectionString);
 
             try
             {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_reporte_usuarios", conection);
+                //NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_reporte_usuarios", conection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_reporte_usuarios", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                 conection.Open();
@@ -43,11 +46,13 @@ namespace Data
         public DataTable consultar_reporte_archivos()
         {
             DataTable usuarios = new DataTable();
-            NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            //NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            SqlConnection conection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConexion2"].ConnectionString);
 
             try
             {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_reporte_archivos", conection);
+                //NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_reporte_archivos", conection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_reporte_archivos", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                 conection.Open();
@@ -71,11 +76,13 @@ namespace Data
         public DataTable consultar_reporte_autores()
         {
             DataTable usuarios = new DataTable();
-            NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            //NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            SqlConnection conection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConexion2"].ConnectionString);
 
             try
             {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_reporte_autores", conection);
+                //NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_reporte_autores", conection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_reporte_autores", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                 conection.Open();

@@ -69,10 +69,10 @@ namespace Logica
                     //datos_user_loggin.insertar_ip_mac(datos_loggin);
 
                     datos1.IdUser = informacion.Rows[0]["id_usuario"].ToString();
-                    datos1.Nombre = informacion.Rows[0]["nombre"].ToString() + " " + informacion.Rows[0]["apellido"].ToString();
-                    datos1.Documento =  informacion.Rows[0]["documento"].ToString();
+                    datos1.Nombre = informacion.Rows[0]["nombre_user"].ToString() + " " + informacion.Rows[0]["apellido_user"].ToString();
+                    datos1.Documento =  informacion.Rows[0]["documento_user"].ToString();
                     datos1.UserName = informacion.Rows[0]["usuario"].ToString();
-                    datos1.Dinero = informacion.Rows[0]["dinero"].ToString();
+                    datos1.Dinero = informacion.Rows[0]["dinero_user"].ToString();
                     datos1.IdRol = informacion.Rows[0]["id_rol"].ToString();
 
                     datos1.Mensajes = "<script type='text/javascript'>alert('Bienvenido a Aula Web');window.location=\"inicio.aspx\"</script>";

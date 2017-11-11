@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Utilitarios;
+using System.Data.SqlClient;
 
 namespace Data
 {
@@ -17,13 +18,16 @@ namespace Data
         public DataTable consultar_categoria(string categoria)
         {
             DataTable usuarios = new DataTable();
-            NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            //NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            SqlConnection conection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConexion2"].ConnectionString);
 
             try
             {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_consulta_categoria", conection);
+                //NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_consulta_categoria", conection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_consulta_categoria", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                dataAdapter.SelectCommand.Parameters.Add("_categoria", NpgsqlDbType.Varchar, 30).Value = categoria;
+                //dataAdapter.SelectCommand.Parameters.Add("_categoria", NpgsqlDbType.Varchar, 30).Value = categoria;
+                dataAdapter.SelectCommand.Parameters.Add("@_categoria", SqlDbType.VarChar, 50).Value = categoria;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -47,20 +51,21 @@ namespace Data
         public void insertar_categoria(E_categoria categoria)
         {
             DataTable usuarios = new DataTable();
-            NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            //NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            SqlConnection conection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConexion2"].ConnectionString);
 
             try
             {
                 //conexion y mandamos los parametros
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("public.sp_insertar_categoria", conection);
+                //NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("public.sp_insertar_categoria", conection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_insertar_categoria", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                dataAdapter.SelectCommand.Parameters.Add("_categoria", NpgsqlDbType.Varchar, 30).Value = categoria.Categoria;
-                dataAdapter.SelectCommand.Parameters.Add("_precio", NpgsqlDbType.Integer).Value = categoria.Precio;
-                dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = categoria.UserCambio;
-
-                //dataAdapter.SelectCommand.Parameters.Add("_user", NpgsqlDbType.Varchar).Value = user.UserName;
-                //dataAdapter.SelectCommand.Parameters.Add("_clave", NpgsqlDbType.Varchar).Value = user.Clave;
-
+                //dataAdapter.SelectCommand.Parameters.Add("_categoria", NpgsqlDbType.Varchar, 30).Value = categoria.Categoria;
+                //dataAdapter.SelectCommand.Parameters.Add("_precio", NpgsqlDbType.Integer).Value = categoria.Precio;
+                //dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = categoria.UserCambio;
+                dataAdapter.SelectCommand.Parameters.Add("@_categoria", SqlDbType.VarChar, 50).Value = categoria.Categoria;
+                dataAdapter.SelectCommand.Parameters.Add("@_precio", SqlDbType.Int).Value = categoria.Precio;
+                dataAdapter.SelectCommand.Parameters.Add("@_user_cambio", SqlDbType.Int).Value = categoria.UserCambio;
 
 
                 conection.Open();
@@ -84,11 +89,13 @@ namespace Data
         public DataTable mostrar_categoria()
         {
             DataTable usuarios = new DataTable();
-            NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            //NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            SqlConnection conection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConexion2"].ConnectionString);
 
             try
             {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_mostrar_categoria", conection);
+                //NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_mostrar_categoria", conection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_mostrar_categoria", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                 conection.Open();
@@ -120,8 +127,6 @@ namespace Data
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 dataAdapter.SelectCommand.Parameters.Add("_id", NpgsqlDbType.Integer).Value = id;
                 dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = user_cambio;
-                //dataAdapter.SelectCommand.Parameters.Add("_user", NpgsqlDbType.Varchar).Value = user.UserName;
-                //dataAdapter.SelectCommand.Parameters.Add("_clave", NpgsqlDbType.Varchar).Value = user.Clave;
 
 
 
@@ -147,17 +152,23 @@ namespace Data
         public DataTable modificar_categoria(E_categoria categoria)
         {
             DataTable usuarios = new DataTable();
-            NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            //NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            SqlConnection conection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConexion2"].ConnectionString);
 
             try
             {
                 //conexion y mandamos los parametros
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_modificar_categoria", conection);
+                //NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_modificar_categoria", conection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_modificar_categoria", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                dataAdapter.SelectCommand.Parameters.Add("_id", NpgsqlDbType.Integer).Value = categoria.IdCategoria;
-                dataAdapter.SelectCommand.Parameters.Add("_categoria", NpgsqlDbType.Varchar, 30).Value = categoria.Categoria;
-                dataAdapter.SelectCommand.Parameters.Add("_precio", NpgsqlDbType.Integer).Value = categoria.Precio;
-                dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = categoria.UserCambio;
+                //dataAdapter.SelectCommand.Parameters.Add("_id", NpgsqlDbType.Integer).Value = categoria.IdCategoria;
+                //dataAdapter.SelectCommand.Parameters.Add("_categoria", NpgsqlDbType.Varchar, 30).Value = categoria.Categoria;
+                //dataAdapter.SelectCommand.Parameters.Add("_precio", NpgsqlDbType.Integer).Value = categoria.Precio;
+                //dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = categoria.UserCambio;
+                dataAdapter.SelectCommand.Parameters.Add("@_id", SqlDbType.Int).Value = categoria.IdCategoria;
+                dataAdapter.SelectCommand.Parameters.Add("@_categoria", SqlDbType.VarChar, 50).Value = categoria.Categoria;
+                dataAdapter.SelectCommand.Parameters.Add("@_precio", SqlDbType.Int).Value = categoria.Precio;
+                dataAdapter.SelectCommand.Parameters.Add("@_user_cambio", SqlDbType.Int).Value = categoria.UserCambio;
 
 
                 conection.Open();

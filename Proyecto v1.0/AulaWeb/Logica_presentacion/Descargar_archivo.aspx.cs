@@ -89,12 +89,12 @@ public partial class Presentacion_Descargar_archivo : System.Web.UI.Page
 
             //----------------------llenamos los componentes con los datos......................................
             Image1_archivo.ImageUrl = info_archivo.Rows[0]["imagen_portada"].ToString();
-            L_nombre_archivo.Text = info_archivo.Rows[0]["nombre"].ToString();
-            L_fecha_archivo.Text = info_archivo.Rows[0]["anio"].ToString();
+            L_nombre_archivo.Text = info_archivo.Rows[0]["nombre_archivo"].ToString();
+            L_fecha_archivo.Text = info_archivo.Rows[0]["anio_archivo"].ToString();
             L_paginas_archivo.Text = info_archivo.Rows[0]["num_pag"].ToString();
             L_categoria_archivo.Text = info_archivo.Rows[0]["categoria"].ToString();
-            L_precio_archivo.Text = "$ " + info_archivo.Rows[0]["precio"].ToString();
-            TB_sinopsis_archivo.Text = info_archivo.Rows[0]["sinopsis"].ToString();
+            L_precio_archivo.Text = "$ " + info_archivo.Rows[0]["precio_categoria"].ToString();
+            TB_sinopsis_archivo.Text = info_archivo.Rows[0]["sinopsis_archivo"].ToString();
             L_tags_archivo.Text = info_archivo.Rows[0]["tags"].ToString();
 
             //foreach es un ciclo, Sintaxis: (var objeto, in coleccion(componente))

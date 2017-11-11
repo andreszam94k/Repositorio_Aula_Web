@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Utilitarios;
+using System.Data.SqlClient;
 
 namespace Data
 {
@@ -17,13 +18,17 @@ namespace Data
         public DataTable loggin_user(E_loggin_user datos_loggin)
         {
             DataTable usuarios = new DataTable();
-            NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            //NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            SqlConnection conection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConexion2"].ConnectionString);
             try
             {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_loggin_usuario", conection);
+                //NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_loggin_usuario", conection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_loggin_usuario", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                dataAdapter.SelectCommand.Parameters.Add("_user", NpgsqlDbType.Varchar, 30).Value = datos_loggin.User;
-                dataAdapter.SelectCommand.Parameters.Add("_password", NpgsqlDbType.Varchar, 30).Value = datos_loggin.Clave;
+                //dataAdapter.SelectCommand.Parameters.Add("_user", NpgsqlDbType.Varchar, 30).Value = datos_loggin.User;
+                //dataAdapter.SelectCommand.Parameters.Add("_password", NpgsqlDbType.Varchar, 30).Value = datos_loggin.Clave;
+                dataAdapter.SelectCommand.Parameters.Add("@_user", SqlDbType.VarChar, 50).Value = datos_loggin.User;
+                dataAdapter.SelectCommand.Parameters.Add("@_password", SqlDbType.VarChar, 50).Value = datos_loggin.Clave;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -47,15 +52,19 @@ namespace Data
         public DataTable cerrar_session(string id_user, string user_cambio)
         {
             DataTable usuarios = new DataTable();
-            NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            //NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            SqlConnection conection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConexion2"].ConnectionString);
 
             try
             {
                 //conexion y mandamos los parametros
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_cerrar_session", conection);
+                //NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_cerrar_session", conection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_cerrar_session", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                dataAdapter.SelectCommand.Parameters.Add("_id", NpgsqlDbType.Integer).Value = id_user;
-                dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = user_cambio;
+                //dataAdapter.SelectCommand.Parameters.Add("_id", NpgsqlDbType.Integer).Value = id_user;
+                //dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = user_cambio;
+                dataAdapter.SelectCommand.Parameters.Add("@_id", SqlDbType.Int).Value = id_user;
+                dataAdapter.SelectCommand.Parameters.Add("@_user_cambio", SqlDbType.Int).Value = user_cambio;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -79,21 +88,23 @@ namespace Data
         public void insertar_ip_mac(E_loggin_user datos_loggin)
         {
             DataTable usuarios = new DataTable();
-            NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            //NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            SqlConnection conection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConexion2"].ConnectionString);
 
             try
             {
                 //conexion y mandamos los parametros
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_insertar_ip_mac", conection);
+                //NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_insertar_ip_mac", conection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_insertar_ip_mac", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                dataAdapter.SelectCommand.Parameters.Add("_id", NpgsqlDbType.Integer).Value = datos_loggin.IdUser;
-                dataAdapter.SelectCommand.Parameters.Add("_ip", NpgsqlDbType.Varchar, 50).Value = datos_loggin.Ip;
-                dataAdapter.SelectCommand.Parameters.Add("_mac", NpgsqlDbType.Varchar, 50).Value = datos_loggin.Mac;
-                dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = datos_loggin.UserCambio;
-
-                //dataAdapter.SelectCommand.Parameters.Add("_user", NpgsqlDbType.Varchar).Value = user.UserName;
-                //dataAdapter.SelectCommand.Parameters.Add("_clave", NpgsqlDbType.Varchar).Value = user.Clave;
-
+                //dataAdapter.SelectCommand.Parameters.Add("_id", NpgsqlDbType.Integer).Value = datos_loggin.IdUser;
+                //dataAdapter.SelectCommand.Parameters.Add("_ip", NpgsqlDbType.Varchar, 50).Value = datos_loggin.Ip;
+                //dataAdapter.SelectCommand.Parameters.Add("_mac", NpgsqlDbType.Varchar, 50).Value = datos_loggin.Mac;
+                //dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = datos_loggin.UserCambio;
+                dataAdapter.SelectCommand.Parameters.Add("@_id", SqlDbType.Int).Value = datos_loggin.IdUser;
+                dataAdapter.SelectCommand.Parameters.Add("@_ip", SqlDbType.VarChar, 50).Value = datos_loggin.Ip;
+                dataAdapter.SelectCommand.Parameters.Add("@_mac", SqlDbType.VarChar, 50).Value = datos_loggin.Mac;
+                dataAdapter.SelectCommand.Parameters.Add("@_user_cambio", SqlDbType.Int).Value = datos_loggin.UserCambio;
 
 
                 conection.Open();

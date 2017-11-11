@@ -56,10 +56,10 @@ namespace Logica
 
                 //agregamos las campos y los llenamos con los datos del datatable intermedio
                 fila["id_autor"] = int.Parse(Intermedio.Rows[i]["id_autor"].ToString());
-                fila["nombre"] = Intermedio.Rows[i]["nombre"].ToString();
-                fila["fecha_birth"] = Intermedio.Rows[i]["fecha_birth"].ToString();
-                fila["fecha_death"] = Intermedio.Rows[i]["fecha_death"].ToString();
-                fila["descripcion"] = Intermedio.Rows[i]["descripcion"].ToString();
+                fila["nombre"] = Intermedio.Rows[i]["nombre_autor"].ToString();
+                fila["fecha_birth"] = Intermedio.Rows[i]["fecha_nacimiento"].ToString();
+                fila["fecha_death"] = Intermedio.Rows[i]["fecha_muerte"].ToString();
+                fila["descripcion"] = Intermedio.Rows[i]["descripcion_autor"].ToString();
                 fila["id_nacionalidad"] = int.Parse(Intermedio.Rows[i]["id_nacionalidad"].ToString());
                 fila["pais"] = Intermedio.Rows[i]["pais"].ToString();
                 //para la imagen se utiliza un metodo

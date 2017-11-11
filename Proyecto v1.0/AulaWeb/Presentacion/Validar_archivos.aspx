@@ -30,12 +30,12 @@
                 <ItemTemplate>
                     <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl='<%# Eval("imagen_portada") %>' Width="100px" />
                     <br />
-                    <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl='<%# Eval("url") %>' style="color: #FF0000" Target="_blank" Text='<%# Bind("nombre") %>'></asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl='<%# Eval("url") %>' style="color: #FF0000" Target="_blank" Text='<%# Bind("nombre_archivo") %>'></asp:HyperLink>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="DESCRIPCION">
                 <ItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Enabled="False" Height="55px" Text='<%# Eval("sinopsis") %>' TextMode="MultiLine" Width="197px" style="color: #000000"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" Enabled="False" Height="55px" Text='<%# Eval("sinopsis_archivo") %>' TextMode="MultiLine" Width="197px" style="color: #000000"></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="CATEGORIA">

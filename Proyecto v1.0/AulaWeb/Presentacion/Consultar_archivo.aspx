@@ -53,12 +53,12 @@
                 <ItemTemplate>
                     <asp:Image ID="Image1" runat="server" Height="100px" ImageUrl='<%# Eval("imagen_portada") %>' Width="100px" />
                     <br />
-                    <asp:Label ID="Label3" runat="server" style="color: #FF0000" Text='<%# Bind("nombre") %>'></asp:Label>
+                    <asp:Label ID="Label3" runat="server" style="color: #FF0000" Text='<%# Bind("nombre_archivo") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="DESCRIPCION">
                 <ItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Enabled="False" Height="68px" Text='<%# Bind("sinopsis") %>' TextMode="MultiLine" Width="207px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" Enabled="False" Height="68px" Text='<%# Bind("sinopsis_archivo") %>' TextMode="MultiLine" Width="207px"></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="TAGS">
