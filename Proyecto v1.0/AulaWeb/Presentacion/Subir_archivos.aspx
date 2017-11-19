@@ -65,11 +65,13 @@
         <tr>
             <td class="auto-style15">
                 <asp:ObjectDataSource ID="ODS_archivo_categoria" runat="server" SelectMethod="mostrar_categoria_archivo" TypeName="Data.Dao_Subir_archivos"></asp:ObjectDataSource>
+                <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=Aula_Web_SQLEntities" DefaultContainerName="Aula_Web_SQLEntities" EnableFlattening="False" EntitySetName="categoria" Select="it.[id_categoria], it.[categoria1]">
+                </asp:EntityDataSource>
             </td>
             <td class="auto-style16">
                 <asp:Label ID="L_archivo_categoria" runat="server" style="font-size: x-large; color: #CCCCCC" Text="Categoria: " Visible="False"></asp:Label>
             </td>
-            <td>&nbsp;&nbsp;<asp:DropDownList ID="DDL_archivo_categoria" runat="server" AutoPostBack="True" DataSourceID="ODS_archivo_categoria" DataTextField="categoria" DataValueField="id_categoria" OnSelectedIndexChanged="DDL_archivo_categoria_SelectedIndexChanged" style="font-size: large" Visible="False">
+            <td>&nbsp;&nbsp;<asp:DropDownList ID="DDL_archivo_categoria" runat="server" AutoPostBack="True" DataSourceID="EntityDataSource1" DataTextField="categoria1" DataValueField="id_categoria" OnSelectedIndexChanged="DDL_archivo_categoria_SelectedIndexChanged" style="font-size: large" Visible="False">
                 </asp:DropDownList>
 &nbsp;&nbsp;
                 <asp:TextBox ID="TB_archivo_precio" runat="server" Enabled="False" style="font-size: medium; color: #FF6600" Visible="False" Width="52px"></asp:TextBox>
@@ -77,11 +79,13 @@
         </tr>
         <tr>
             <td class="auto-style15">&nbsp;&nbsp;<asp:ObjectDataSource ID="ODS_archivo_autores" runat="server" SelectMethod="mostrar_autor" TypeName="Data.Dao_Subir_archivos"></asp:ObjectDataSource>
+                <asp:EntityDataSource ID="EntityDataSource2" runat="server" ConnectionString="name=Aula_Web_SQLEntities" DefaultContainerName="Aula_Web_SQLEntities" EnableFlattening="False" EntitySetName="autor" Select="it.[id_autor], it.[nombre_autor]">
+                </asp:EntityDataSource>
             </td>
             <td class="auto-style16">
                 <asp:Label ID="L_archivo_autores" runat="server" style="color: #CCCCCC; font-size: x-large" Text="Autor(es)"></asp:Label>
             </td>
-            <td>&nbsp;&nbsp;<asp:DataList ID="DL_archivo_autores" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" CellPadding="3" DataSourceID="ODS_archivo_autores" RepeatColumns="3" RepeatDirection="Horizontal" style="text-align: left; background-color: #333333" Width="100%">
+            <td>&nbsp;&nbsp;<asp:DataList ID="DL_archivo_autores" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" CellPadding="3" DataSourceID="EntityDataSource2" RepeatColumns="3" RepeatDirection="Horizontal" style="text-align: left; background-color: #333333" Width="100%">
                 <HeaderStyle BackColor="#999999" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                 <HeaderTemplate>
                     <div class="auto-style3">
@@ -97,11 +101,13 @@
         <tr>
             <td class="auto-style15">
                 <asp:ObjectDataSource ID="ODS_archivo_tags" runat="server" SelectMethod="mostrar_tags" TypeName="Data.Dao_Subir_archivos"></asp:ObjectDataSource>
+                <asp:EntityDataSource ID="EntityDataSource3" runat="server" ConnectionString="name=Aula_Web_SQLEntities" DefaultContainerName="Aula_Web_SQLEntities" EnableFlattening="False" EntitySetName="tags" Select="it.[id_tags], it.[tag]">
+                </asp:EntityDataSource>
             </td>
             <td class="auto-style16">
                 <asp:Label ID="L_archivo_tags" runat="server" style="color: #CCCCCC; font-size: x-large" Text="Tags"></asp:Label>
             </td>
-            <td>&nbsp;&nbsp;<asp:DataList ID="DL_archivo_tags" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" CellPadding="3" DataSourceID="ODS_archivo_tags" RepeatColumns="3" RepeatDirection="Horizontal" style="text-align: left; color: #000000; background-color: #333333" Width="100%">
+            <td>&nbsp;&nbsp;<asp:DataList ID="DL_archivo_tags" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" CellPadding="3" DataSourceID="EntityDataSource3" RepeatColumns="3" RepeatDirection="Horizontal" style="text-align: left; color: #000000; background-color: #333333" Width="100%">
                 <HeaderStyle BackColor="#999999" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
                 <HeaderTemplate>
                     <div class="auto-style17">

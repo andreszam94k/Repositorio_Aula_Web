@@ -57,7 +57,7 @@ namespace Data
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_ver_autor", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_id_autor", NpgsqlDbType.Integer).Value = id_autor;
-                dataAdapter.SelectCommand.Parameters.Add("@_id_autor", SqlDbType.Int).Value = id_autor;
+                dataAdapter.SelectCommand.Parameters.Add("@id_autor", SqlDbType.Int).Value = id_autor;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -89,7 +89,7 @@ namespace Data
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_ver_archivo_autor", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_id_autor", NpgsqlDbType.Integer).Value = id;
-                dataAdapter.SelectCommand.Parameters.Add("@_id_autor", SqlDbType.Int).Value = id;
+                dataAdapter.SelectCommand.Parameters.Add("@id_autor", SqlDbType.Int).Value = id;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);

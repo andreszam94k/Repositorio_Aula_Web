@@ -58,7 +58,7 @@ namespace Data
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_consulta_autor", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_nom_autor", NpgsqlDbType.Varchar, 30).Value = nom_autor;
-                dataAdapter.SelectCommand.Parameters.Add("@_nom_autor", SqlDbType.VarChar, 50).Value = nom_autor;
+                dataAdapter.SelectCommand.Parameters.Add("@nom_autor", SqlDbType.VarChar, 50).Value = nom_autor;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -98,13 +98,13 @@ namespace Data
                 //dataAdapter.SelectCommand.Parameters.Add("_descripcion", NpgsqlDbType.Varchar, 200).Value = autor.Descripcion;
                 //dataAdapter.SelectCommand.Parameters.Add("_nacionalidad", NpgsqlDbType.Integer).Value = autor.Nacionalidad;
                 //dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = autor.UserCambio;
-                dataAdapter.SelectCommand.Parameters.Add("@_nombre", SqlDbType.VarChar, 50).Value = autor.Nombre;
-                dataAdapter.SelectCommand.Parameters.Add("@_fecha_birth", SqlDbType.VarChar, 50).Value = autor.FechaBirth;
-                dataAdapter.SelectCommand.Parameters.Add("@_fecha_death", SqlDbType.VarChar, 50).Value = autor.FechaDeath;
-                dataAdapter.SelectCommand.Parameters.Add("@_foto", SqlDbType.Text).Value = autor.Foto;
-                dataAdapter.SelectCommand.Parameters.Add("@_descripcion", SqlDbType.VarChar, 200).Value = autor.Descripcion;
-                dataAdapter.SelectCommand.Parameters.Add("@_nacionalidad", SqlDbType.Int).Value = autor.Nacionalidad;
-                dataAdapter.SelectCommand.Parameters.Add("@_user_cambio", SqlDbType.Int).Value = autor.UserCambio;
+                dataAdapter.SelectCommand.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = autor.Nombre;
+                dataAdapter.SelectCommand.Parameters.Add("@fecha_birth", SqlDbType.VarChar, 50).Value = autor.FechaBirth;
+                dataAdapter.SelectCommand.Parameters.Add("@fecha_death", SqlDbType.VarChar, 50).Value = autor.FechaDeath;
+                dataAdapter.SelectCommand.Parameters.Add("@foto", SqlDbType.Text).Value = autor.Foto;
+                dataAdapter.SelectCommand.Parameters.Add("@descripcion", SqlDbType.VarChar, 200).Value = autor.Descripcion;
+                dataAdapter.SelectCommand.Parameters.Add("@nacionalidad", SqlDbType.Int).Value = autor.Nacionalidad;
+                dataAdapter.SelectCommand.Parameters.Add("@user_cambio", SqlDbType.Int).Value = autor.UserCambio;
 
 
                 conection.Open();

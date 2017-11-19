@@ -27,7 +27,7 @@ namespace Data
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_consulta_rol", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_rol", NpgsqlDbType.Integer).Value = rol;
-                dataAdapter.SelectCommand.Parameters.Add("@_rol", SqlDbType.Int).Value = rol;
+                dataAdapter.SelectCommand.Parameters.Add("@rol", SqlDbType.Int).Value = rol;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -73,17 +73,17 @@ namespace Data
                 dataAdapter.SelectCommand.Parameters.Add("_id_rol", NpgsqlDbType.Integer).Value = user.IdRol;
                 dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = user.UserCambio;
                 */
-                dataAdapter.SelectCommand.Parameters.Add("@_id", SqlDbType.Int).Value = user.IdUser;
-                dataAdapter.SelectCommand.Parameters.Add("@_nombre", SqlDbType.VarChar, 50).Value = user.Nombre;
-                dataAdapter.SelectCommand.Parameters.Add("@_apellido", SqlDbType.VarChar, 50).Value = user.Apellido;
-                dataAdapter.SelectCommand.Parameters.Add("@_documento", SqlDbType.BigInt).Value = user.Documento;
-                dataAdapter.SelectCommand.Parameters.Add("@_telefono", SqlDbType.VarChar, 10).Value = user.Telefono;
-                dataAdapter.SelectCommand.Parameters.Add("@_correo", SqlDbType.VarChar, 50).Value = user.Correo;
-                dataAdapter.SelectCommand.Parameters.Add("@_user", SqlDbType.VarChar, 50).Value = user.UserName;
-                dataAdapter.SelectCommand.Parameters.Add("@_clave", SqlDbType.VarChar, 50).Value = user.Clave;
-                dataAdapter.SelectCommand.Parameters.Add("@_dinero", SqlDbType.Int).Value = user.Dinero;
-                dataAdapter.SelectCommand.Parameters.Add("@_id_rol", SqlDbType.Int).Value = user.IdRol;
-                dataAdapter.SelectCommand.Parameters.Add("@_user_cambio", SqlDbType.Int).Value = user.UserCambio;
+                dataAdapter.SelectCommand.Parameters.Add("@id", SqlDbType.Int).Value = user.IdUser;
+                dataAdapter.SelectCommand.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = user.Nombre;
+                dataAdapter.SelectCommand.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = user.Apellido;
+                dataAdapter.SelectCommand.Parameters.Add("@documento", SqlDbType.BigInt).Value = user.Documento;
+                dataAdapter.SelectCommand.Parameters.Add("@telefono", SqlDbType.VarChar, 10).Value = user.Telefono;
+                dataAdapter.SelectCommand.Parameters.Add("@correo", SqlDbType.VarChar, 50).Value = user.Correo;
+                dataAdapter.SelectCommand.Parameters.Add("@user", SqlDbType.VarChar, 50).Value = user.UserName;
+                dataAdapter.SelectCommand.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = user.Clave;
+                dataAdapter.SelectCommand.Parameters.Add("@dinero", SqlDbType.Int).Value = user.Dinero;
+                dataAdapter.SelectCommand.Parameters.Add("@id_rol", SqlDbType.Int).Value = user.IdRol;
+                dataAdapter.SelectCommand.Parameters.Add("@user_cambio", SqlDbType.Int).Value = user.UserCambio;
 
 
 

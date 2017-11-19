@@ -33,12 +33,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\AulaWeb\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Npgsql">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\PostgreSQL\Npgsql\bin\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,6 +81,162 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="SQL_Entity\archivo.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\archivo_autor.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\AulaWeb_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AulaWeb_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\AulaWeb_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\AulaWeb_Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AulaWeb_Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\autor.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\categoria.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\comentario.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\control_formulario.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\control_idioma.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\estado.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\formularios.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\idiomas.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\pais.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\rol.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_consultar_archivos_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_consultar_comentarios_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_consultar_idioma_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_consulta_archivo_datos_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_consulta_archivo_nombre_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_consulta_autor_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_consulta_categoria_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_consulta_correo_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_consulta_documento_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_consulta_idioma_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_consulta_rol_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_consulta_tags_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_consulta_terminacion_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_consulta_usuario_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_helpdiagrams_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_loggin_usuario_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_mostrar_archivos_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_mostrar_archivo_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_mostrar_autor_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_mostrar_categoria_archivo_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_mostrar_categoria_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_mostrar_idioma_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_mostrar_pais_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_mostrar_tags_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_reporte_archivos_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_reporte_autores_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_reporte_usuarios_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_ver_archivo_autor_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_ver_archivo_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sp_ver_autor_Result.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\subir_descargar.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\sysdiagrams.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\tags.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL_Entity\usuario.cs">
+      <DependentUpon>AulaWeb_Model.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Utilitarios\Utilitarios.csproj">
@@ -93,10 +257,33 @@
     <None Include="Data_Reportes.xss">
       <DependentUpon>Data_Reportes.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <EntityDeploy Include="SQL_Entity\AulaWeb_Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AulaWeb_Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SQL_Entity\AulaWeb_Model.edmx.diagram">
+      <DependentUpon>AulaWeb_Model.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SQL_Entity\AulaWeb_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AulaWeb_Model.edmx</DependentUpon>
+      <LastGenOutput>AulaWeb_Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SQL_Entity\AulaWeb_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AulaWeb_Model.edmx</DependentUpon>
+      <LastGenOutput>AulaWeb_Model.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

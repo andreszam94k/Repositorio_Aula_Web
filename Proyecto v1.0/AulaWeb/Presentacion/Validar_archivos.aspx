@@ -40,10 +40,12 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="CATEGORIA">
                 <EditItemTemplate>
-                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="ObjectDataSource1" DataTextField="categoria" DataValueField="id_categoria" SelectedValue='<%# Eval("id_categoria") %>' style="color: #000000">
+                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="EntityDataSource1" DataTextField="categoria1" DataValueField="id_categoria" SelectedValue='<%# Eval("id_categoria") %>' style="color: #000000">
                     </asp:DropDownList>
                     <br />
                     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="mostrar_categoria_archivo" TypeName="Data.Dao_Validar_archivos"></asp:ObjectDataSource>
+                    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=Aula_Web_SQLEntities" DefaultContainerName="Aula_Web_SQLEntities" EnableFlattening="False" EntitySetName="categoria" Select="it.[id_categoria], it.[categoria1]">
+                    </asp:EntityDataSource>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label3" runat="server" Text='<%# Eval("categoria") %>' style="color: #CCCCCC"></asp:Label>

@@ -27,8 +27,8 @@ namespace Data
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_user", NpgsqlDbType.Varchar, 30).Value = datos_loggin.User;
                 //dataAdapter.SelectCommand.Parameters.Add("_password", NpgsqlDbType.Varchar, 30).Value = datos_loggin.Clave;
-                dataAdapter.SelectCommand.Parameters.Add("@_user", SqlDbType.VarChar, 50).Value = datos_loggin.User;
-                dataAdapter.SelectCommand.Parameters.Add("@_password", SqlDbType.VarChar, 50).Value = datos_loggin.Clave;
+                dataAdapter.SelectCommand.Parameters.Add("@user", SqlDbType.VarChar, 50).Value = datos_loggin.User;
+                dataAdapter.SelectCommand.Parameters.Add("@password", SqlDbType.VarChar, 50).Value = datos_loggin.Clave;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -63,8 +63,8 @@ namespace Data
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_id", NpgsqlDbType.Integer).Value = id_user;
                 //dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = user_cambio;
-                dataAdapter.SelectCommand.Parameters.Add("@_id", SqlDbType.Int).Value = id_user;
-                dataAdapter.SelectCommand.Parameters.Add("@_user_cambio", SqlDbType.Int).Value = user_cambio;
+                dataAdapter.SelectCommand.Parameters.Add("@id", SqlDbType.Int).Value = id_user;
+                dataAdapter.SelectCommand.Parameters.Add("@user_cambio", SqlDbType.Int).Value = user_cambio;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -101,10 +101,10 @@ namespace Data
                 //dataAdapter.SelectCommand.Parameters.Add("_ip", NpgsqlDbType.Varchar, 50).Value = datos_loggin.Ip;
                 //dataAdapter.SelectCommand.Parameters.Add("_mac", NpgsqlDbType.Varchar, 50).Value = datos_loggin.Mac;
                 //dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = datos_loggin.UserCambio;
-                dataAdapter.SelectCommand.Parameters.Add("@_id", SqlDbType.Int).Value = datos_loggin.IdUser;
-                dataAdapter.SelectCommand.Parameters.Add("@_ip", SqlDbType.VarChar, 50).Value = datos_loggin.Ip;
-                dataAdapter.SelectCommand.Parameters.Add("@_mac", SqlDbType.VarChar, 50).Value = datos_loggin.Mac;
-                dataAdapter.SelectCommand.Parameters.Add("@_user_cambio", SqlDbType.Int).Value = datos_loggin.UserCambio;
+                dataAdapter.SelectCommand.Parameters.Add("@id", SqlDbType.Int).Value = datos_loggin.IdUser;
+                dataAdapter.SelectCommand.Parameters.Add("@ip", SqlDbType.VarChar, 50).Value = datos_loggin.Ip;
+                dataAdapter.SelectCommand.Parameters.Add("@mac", SqlDbType.VarChar, 50).Value = datos_loggin.Mac;
+                dataAdapter.SelectCommand.Parameters.Add("@user_cambio", SqlDbType.Int).Value = datos_loggin.UserCambio;
 
 
                 conection.Open();

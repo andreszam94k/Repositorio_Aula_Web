@@ -54,9 +54,11 @@
             <td class="auto-style17">
                 <asp:Label ID="L_autor_nacionalidad" runat="server" style="color: #CCCCCC; font-size: x-large" Text="Pais de origen: "></asp:Label>
             </td>
-            <td>&nbsp;&nbsp;<asp:DropDownList ID="DDL_autor_nacionalidad" runat="server" DataSourceID="ObjectDataSource1" DataTextField="pais" DataValueField="id_nacionalidad" style="font-size: medium">
+            <td>&nbsp;&nbsp;<asp:DropDownList ID="DDL_autor_nacionalidad" runat="server" DataSourceID="EntityDataSource1" DataTextField="pais1" DataValueField="id_nacionalidad" style="font-size: medium">
                 </asp:DropDownList>
                 <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="mostrar_pais" TypeName="Data.Dao_Ingresar_autor"></asp:ObjectDataSource>
+                <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=Aula_Web_SQLEntities" DefaultContainerName="Aula_Web_SQLEntities" EnableFlattening="False" EntitySetName="pais" Select="it.[id_nacionalidad], it.[pais1]">
+                </asp:EntityDataSource>
             </td>
         </tr>
         <tr>

@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 using Data;
 using Utilitarios;
 using System.Data;
+using Data.SQL_Entity;
+using System.Reflection;
 
 namespace Logica
 {
     public class L_Subir_archivos
     {
+        //objeto de persistencia
+        Aula_Web_SQLEntities operacion_n = new Aula_Web_SQLEntities();
+
         //----- verificar sesion .....
         public U_Subir_archivos verificar(object user, object rol)
         {
@@ -41,8 +46,11 @@ namespace Logica
         {
             DataTable idioma = new DataTable();
 
-            Dao_idioma operacion = new Dao_idioma();
-            idioma = operacion.idioma(idiomaId, formularioId);
+            //Dao_idioma operacion = new Dao_idioma();
+            //idioma = operacion.idioma(idiomaId, formularioId);
+
+            List<sp_consultar_idioma_Result> datos_idioma = operacion_n.sp_consultar_idioma(idiomaId, formularioId).ToList<sp_consultar_idioma_Result>();
+            idioma = ToDataTable(datos_idioma);
 
             return idioma;
         }
@@ -223,8 +231,11 @@ namespace Logica
                                 DataTable imagen_file, DataTable archivo_file, object Stags, object Sautor) 
         {
             U_Subir_archivos info_2 = new U_Subir_archivos();
-            Dao_Subir_archivos operacion = new Dao_Subir_archivos();
-            DataTable informacion_archivo = operacion.consultar_archivo_nombre(nombre);
+            //Dao_Subir_archivos operacion = new Dao_Subir_archivos();
+            //DataTable informacion_archivo = operacion.consultar_archivo_nombre(nombre);
+
+            List<sp_consulta_archivo_nombre_Result> datos = operacion_n.sp_consulta_archivo_nombre(nombre).ToList<sp_consulta_archivo_nombre_Result>();
+            DataTable informacion_archivo = ToDataTable(datos);
 
             //asignamos la session en caso que no pase el if
             info_2.Session_fotos = imagen_file;
@@ -319,7 +330,11 @@ namespace Logica
                 //mandamos al metodo de agregar archivo
                 try
                 {
-                    operacion.insertar_archivo(datosArchivo);
+                    //operacion.insertar_archivo(datosArchivo);
+                    operacion_n.sp_insertar_archivo(Int32.Parse(datosArchivo.IdMod), datosArchivo.Nombre, datosArchivo.Fecha, datosArchivo.Sinopsis,
+                        Int32.Parse(datosArchivo.NumPag), datosArchivo.Foto, datosArchivo.Link, datosArchivo.Tags, Int32.Parse(datosArchivo.IdUser), Int32.Parse(datosArchivo.IdCategoria),
+                        Int32.Parse(datosArchivo.UserCambio));
+
                 }
                 catch (Exception exc)
                 {
@@ -338,7 +353,9 @@ namespace Logica
                     try
                     {
                         //mandamos al metodo de agregar archivo_autor
-                        operacion.insertar_archivo_autor(archivo_autor);
+                        //operacion.insertar_archivo_autor(archivo_autor);
+                        operacion_n.sp_insertar_archivo_autor(archivo_autor.NombreAutor, Int32.Parse(archivo_autor.UserCambio));
+
                     }
                     catch (Exception exc)
                     {
@@ -348,7 +365,10 @@ namespace Logica
                 }
 
                 //obtenemos los datos del ultimo archivo subido
-                DataTable info = operacion.mostrar_archivo();
+                //DataTable info = operacion.mostrar_archivo();
+
+                List<sp_mostrar_archivo_Result> datos3 = operacion_n.sp_mostrar_archivo().ToList<sp_mostrar_archivo_Result>();
+                DataTable info = ToDataTable(datos3);
 
                 //Encapsulamos datos
                 E_subir_descargar subir_descargar = new E_subir_descargar();
@@ -364,7 +384,8 @@ namespace Logica
                 try
                 {
                     //mandamos al metodo de agregAR subir_descargar
-                    operacion.insertar_subir_descargar(subir_descargar);
+                    //operacion.insertar_subir_descargar(subir_descargar);
+                    operacion_n.sp_insertar_subir_descargar(Int32.Parse(subir_descargar.IdUser), Int32.Parse(subir_descargar.IdArchivo), subir_descargar.Concepto, Int32.Parse(subir_descargar.Precio), Int32.Parse(subir_descargar.UserCambio));
 
                     info_2.Mensajes = "<script type='text/javascript'>alert('Archivo subido con exito, esperar a moderacion');window.location=\"inicio.aspx\"</script>";
                     info_2.Session_fotos = null;
@@ -391,13 +412,43 @@ namespace Logica
 
         public DataTable precio(string identificacion) 
         {
-            Dao_Subir_archivos operacion = new Dao_Subir_archivos();
-            DataTable nom = new DataTable();
+            //Dao_Subir_archivos operacion = new Dao_Subir_archivos();
+            //DataTable nom = new DataTable();
+            //nom = operacion.consultar_categoria(identificacion);
 
-            nom = operacion.consultar_categoria(identificacion);
+            List<sp_consulta_categoria_Result> datos4 = operacion_n.sp_consulta_categoria(identificacion).ToList<sp_consulta_categoria_Result>();
+            DataTable nom = ToDataTable(datos4);
 
             return nom;
-        } 
+        }
+
+        //convierte en datatable
+        private DataTable ToDataTable<T>(List<T> items)
+        {
+            DataTable dataTable = new DataTable(typeof(T).Name);
+
+            //Get all the properties
+            PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            foreach (PropertyInfo prop in Props)
+            {
+                //Defining type of data column gives proper data table 
+                var type = (prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>) ? Nullable.GetUnderlyingType(prop.PropertyType) : prop.PropertyType);
+                //Setting column names as Property names
+                dataTable.Columns.Add(prop.Name, type);
+            }
+            foreach (T item in items)
+            {
+                var values = new object[Props.Length];
+                for (int i = 0; i < Props.Length; i++)
+                {
+                    //inserting property values to datatable rows
+                    values[i] = Props[i].GetValue(item, null);
+                }
+                dataTable.Rows.Add(values);
+            }
+            //put a breakpoint here and check datatable
+            return dataTable;
+        }
 
     }//L_Subir_archivos
 

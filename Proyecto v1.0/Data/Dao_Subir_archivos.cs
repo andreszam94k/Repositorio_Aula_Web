@@ -148,7 +148,7 @@ namespace Data
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_consulta_archivo_nombre", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_nombre", NpgsqlDbType.Varchar, 30).Value = nombre;
-                dataAdapter.SelectCommand.Parameters.Add("@_nombre", SqlDbType.VarChar, 50).Value = nombre;
+                dataAdapter.SelectCommand.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = nombre;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -180,7 +180,7 @@ namespace Data
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_consulta_categoria", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_categoria", NpgsqlDbType.Varchar, 30).Value = categoria;
-                dataAdapter.SelectCommand.Parameters.Add("@_categoria", SqlDbType.VarChar, 50).Value = categoria;
+                dataAdapter.SelectCommand.Parameters.Add("@categoria", SqlDbType.VarChar, 50).Value = categoria;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -226,17 +226,17 @@ namespace Data
                 dataAdapter.SelectCommand.Parameters.Add("_tags", NpgsqlDbType.Varchar, 300).Value = archivo.Tags;
                 dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = archivo.UserCambio;
                 */
-                dataAdapter.SelectCommand.Parameters.Add("@_id_rol", SqlDbType.Int).Value = archivo.IdMod;
-                dataAdapter.SelectCommand.Parameters.Add("@_nombre", SqlDbType.VarChar, 50).Value = archivo.Nombre;
-                dataAdapter.SelectCommand.Parameters.Add("@_fecha", SqlDbType.VarChar, 50).Value = archivo.Fecha;
-                dataAdapter.SelectCommand.Parameters.Add("@_sinopsis", SqlDbType.VarChar, 50).Value = archivo.Sinopsis;
-                dataAdapter.SelectCommand.Parameters.Add("@_num_pag", SqlDbType.Int).Value = archivo.NumPag;
-                dataAdapter.SelectCommand.Parameters.Add("@_foto", SqlDbType.Text).Value = archivo.Foto;
-                dataAdapter.SelectCommand.Parameters.Add("@_link", SqlDbType.Text).Value = archivo.Link;
-                dataAdapter.SelectCommand.Parameters.Add("@_tags", SqlDbType.VarChar, 800).Value = archivo.Tags;
-                dataAdapter.SelectCommand.Parameters.Add("@_id_user", SqlDbType.Int).Value = archivo.IdUser;
-                dataAdapter.SelectCommand.Parameters.Add("@_id_categoria", SqlDbType.Int).Value = archivo.IdCategoria;
-                dataAdapter.SelectCommand.Parameters.Add("@_user_cambio", SqlDbType.Int).Value = archivo.UserCambio;
+                dataAdapter.SelectCommand.Parameters.Add("@id_rol", SqlDbType.Int).Value = archivo.IdMod;
+                dataAdapter.SelectCommand.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = archivo.Nombre;
+                dataAdapter.SelectCommand.Parameters.Add("@fecha", SqlDbType.VarChar, 50).Value = archivo.Fecha;
+                dataAdapter.SelectCommand.Parameters.Add("@sinopsis", SqlDbType.VarChar, 50).Value = archivo.Sinopsis;
+                dataAdapter.SelectCommand.Parameters.Add("@num_pag", SqlDbType.Int).Value = archivo.NumPag;
+                dataAdapter.SelectCommand.Parameters.Add("@foto", SqlDbType.Text).Value = archivo.Foto;
+                dataAdapter.SelectCommand.Parameters.Add("@link", SqlDbType.Text).Value = archivo.Link;
+                dataAdapter.SelectCommand.Parameters.Add("@tags", SqlDbType.VarChar, 800).Value = archivo.Tags;
+                dataAdapter.SelectCommand.Parameters.Add("@id_user", SqlDbType.Int).Value = archivo.IdUser;
+                dataAdapter.SelectCommand.Parameters.Add("@id_categoria", SqlDbType.Int).Value = archivo.IdCategoria;
+                dataAdapter.SelectCommand.Parameters.Add("@user_cambio", SqlDbType.Int).Value = archivo.UserCambio;
 
 
 
@@ -273,8 +273,8 @@ namespace Data
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_nombre", NpgsqlDbType.Varchar, 30).Value = archivo_autor.NombreAutor;
                 //dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = archivo_autor.UserCambio;
-                dataAdapter.SelectCommand.Parameters.Add("@_nombre", SqlDbType.VarChar, 50).Value = archivo_autor.NombreAutor;
-                dataAdapter.SelectCommand.Parameters.Add("@_user_cambio", SqlDbType.Int).Value = archivo_autor.UserCambio;
+                dataAdapter.SelectCommand.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = archivo_autor.NombreAutor;
+                dataAdapter.SelectCommand.Parameters.Add("@user_cambio", SqlDbType.Int).Value = archivo_autor.UserCambio;
 
 
 
@@ -316,11 +316,11 @@ namespace Data
                 dataAdapter.SelectCommand.Parameters.Add("_precio", NpgsqlDbType.Integer).Value = subir_descargar.Precio;
                 dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = subir_descargar.UserCambio;
                 */
-                dataAdapter.SelectCommand.Parameters.Add("@_id_user", SqlDbType.Int).Value = subir_descargar.IdUser;
-                dataAdapter.SelectCommand.Parameters.Add("@_id_archivo", SqlDbType.Int).Value = subir_descargar.IdArchivo;
-                dataAdapter.SelectCommand.Parameters.Add("@_concepto", SqlDbType.VarChar, 50).Value = subir_descargar.Concepto;
-                dataAdapter.SelectCommand.Parameters.Add("@_precio", SqlDbType.Int).Value = subir_descargar.Precio;
-                dataAdapter.SelectCommand.Parameters.Add("@_user_cambio", SqlDbType.Int).Value = subir_descargar.UserCambio;
+                dataAdapter.SelectCommand.Parameters.Add("@id_user", SqlDbType.Int).Value = subir_descargar.IdUser;
+                dataAdapter.SelectCommand.Parameters.Add("@id_archivo", SqlDbType.Int).Value = subir_descargar.IdArchivo;
+                dataAdapter.SelectCommand.Parameters.Add("@concepto", SqlDbType.VarChar, 50).Value = subir_descargar.Concepto;
+                dataAdapter.SelectCommand.Parameters.Add("@precio", SqlDbType.Int).Value = subir_descargar.Precio;
+                dataAdapter.SelectCommand.Parameters.Add("@user_cambio", SqlDbType.Int).Value = subir_descargar.UserCambio;
 
 
                 conection.Open();

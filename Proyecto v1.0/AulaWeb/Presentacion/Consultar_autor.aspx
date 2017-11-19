@@ -21,9 +21,11 @@
                 <asp:Label ID="L_elegir_autor" runat="server" style="font-size: x-large; color: #CCCCCC" Text="Elegir autor: "></asp:Label>
             </td>
             <td>
-                <asp:DropDownList ID="DDL_autor" runat="server" AutoPostBack="True" DataSourceID="ODS_elegir_autor" DataTextField="nombre_autor" DataValueField="id_autor" style="font-size: large" OnSelectedIndexChanged="DDL_autor_SelectedIndexChanged">
+                <asp:DropDownList ID="DDL_autor" runat="server" AutoPostBack="True" DataSourceID="EntityDataSource1" DataTextField="nombre_autor" DataValueField="id_autor" style="font-size: large" OnSelectedIndexChanged="DDL_autor_SelectedIndexChanged">
                 </asp:DropDownList>
 &nbsp;<asp:ObjectDataSource ID="ODS_elegir_autor" runat="server" SelectMethod="mostrar_autor" TypeName="Data.Dao_Consultar_autor"></asp:ObjectDataSource>
+                <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=Aula_Web_SQLEntities" DefaultContainerName="Aula_Web_SQLEntities" EnableFlattening="False" EntitySetName="autor" Select="it.[id_autor], it.[nombre_autor]">
+                </asp:EntityDataSource>
             </td>
         </tr>
         <tr>

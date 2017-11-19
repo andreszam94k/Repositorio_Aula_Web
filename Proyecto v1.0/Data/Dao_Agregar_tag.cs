@@ -27,7 +27,7 @@ namespace Data
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_consulta_tags", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_tag", NpgsqlDbType.Varchar, 30).Value = tag;
-                dataAdapter.SelectCommand.Parameters.Add("@_tag", SqlDbType.VarChar, 50).Value = tag;
+                dataAdapter.SelectCommand.Parameters.Add("@tag", SqlDbType.VarChar, 50).Value = tag;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -62,8 +62,8 @@ namespace Data
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_tag", NpgsqlDbType.Varchar, 30).Value = tag.Tag;
                 //dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = tag.UserCambio;
-                dataAdapter.SelectCommand.Parameters.Add("@_tag", SqlDbType.VarChar, 50).Value = tag.Tag;
-                dataAdapter.SelectCommand.Parameters.Add("@_user_cambio", SqlDbType.Int).Value = tag.UserCambio;
+                dataAdapter.SelectCommand.Parameters.Add("@tag", SqlDbType.VarChar, 50).Value = tag.Tag;
+                dataAdapter.SelectCommand.Parameters.Add("@user_cambio", SqlDbType.Int).Value = tag.UserCambio;
 
 
 
@@ -128,8 +128,8 @@ namespace Data
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_id", NpgsqlDbType.Integer).Value = id;
                 //dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = user_cambio;
-                dataAdapter.SelectCommand.Parameters.Add("@_id", SqlDbType.Int).Value = id;
-                dataAdapter.SelectCommand.Parameters.Add("@_user_cambio", SqlDbType.Int).Value = user_cambio;
+                dataAdapter.SelectCommand.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                dataAdapter.SelectCommand.Parameters.Add("@user_cambio", SqlDbType.Int).Value = user_cambio;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);

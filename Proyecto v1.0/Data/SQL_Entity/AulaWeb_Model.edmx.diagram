@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="36a798aadbec4aacbc30ead3117baf58" Name="Diagrama1">
+        <EntityTypeShape EntityType="Aula_Web_SQLModel.archivo" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Aula_Web_SQLModel.archivo_autor" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Aula_Web_SQLModel.autor" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Aula_Web_SQLModel.categoria" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Aula_Web_SQLModel.comentario" Width="1.5" PointX="10.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Aula_Web_SQLModel.control_formulario" Width="1.5" PointX="10" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Aula_Web_SQLModel.control_idioma" Width="1.5" PointX="12.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Aula_Web_SQLModel.estado" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Aula_Web_SQLModel.formularios" Width="1.5" PointX="7.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Aula_Web_SQLModel.idiomas" Width="1.5" PointX="10" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Aula_Web_SQLModel.pais" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Aula_Web_SQLModel.rol" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Aula_Web_SQLModel.subir_descargar" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Aula_Web_SQLModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Aula_Web_SQLModel.tags" Width="1.5" PointX="11.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Aula_Web_SQLModel.usuario" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="Aula_Web_SQLModel.FK_archivo_autor_archivo" ManuallyRouted="false" />
+        <AssociationConnector Association="Aula_Web_SQLModel.FK_archivo_categoria" ManuallyRouted="false" />
+        <AssociationConnector Association="Aula_Web_SQLModel.FK_archivo_estado" ManuallyRouted="false" />
+        <AssociationConnector Association="Aula_Web_SQLModel.FK_archivo_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="Aula_Web_SQLModel.FK_comentario_archivo" ManuallyRouted="false" />
+        <AssociationConnector Association="Aula_Web_SQLModel.FK_subir_descargar_archivo" ManuallyRouted="false" />
+        <AssociationConnector Association="Aula_Web_SQLModel.FK_archivo_autor_autor" ManuallyRouted="false" />
+        <AssociationConnector Association="Aula_Web_SQLModel.FK_autor_pais" ManuallyRouted="false" />
+        <AssociationConnector Association="Aula_Web_SQLModel.FK_comentario_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="Aula_Web_SQLModel.FK_control_formulario_formularios" ManuallyRouted="false" />
+        <AssociationConnector Association="Aula_Web_SQLModel.FK_control_idioma_control_formulario" ManuallyRouted="false" />
+        <AssociationConnector Association="Aula_Web_SQLModel.FK_control_idioma_idiomas" ManuallyRouted="false" />
+        <AssociationConnector Association="Aula_Web_SQLModel.FK_usuario_rol" ManuallyRouted="false" />
+        <AssociationConnector Association="Aula_Web_SQLModel.FK_subir_descargar_usuario" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

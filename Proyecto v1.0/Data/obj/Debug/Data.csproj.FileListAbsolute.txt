@@ -25,3 +25,15 @@ C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\pruebas\normal\Proyec
 C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\pruebas\normal\Proyecto v1.0\Data\obj\Debug\Data.dll
 C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\pruebas\normal\Proyecto v1.0\Data\obj\Debug\Data.pdb
 C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\Proyecto v1.0\Data\bin\Debug\Data.dll.config
+C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\pruebas\normal_sql_server\Proyecto v1.0\Data\bin\Debug\Data.dll.config
+C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\pruebas\normal_sql_server\Proyecto v1.0\Data\bin\Debug\Data.dll
+C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\pruebas\normal_sql_server\Proyecto v1.0\Data\bin\Debug\Data.pdb
+C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\pruebas\normal_sql_server\Proyecto v1.0\Data\bin\Debug\Utilitarios.dll
+C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\pruebas\normal_sql_server\Proyecto v1.0\Data\bin\Debug\Utilitarios.pdb
+C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\pruebas\normal_sql_server\Proyecto v1.0\Data\bin\Debug\Npgsql.pdb
+C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\pruebas\normal_sql_server\Proyecto v1.0\Data\bin\Debug\Npgsql.xml
+C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\pruebas\normal_sql_server\Proyecto v1.0\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
+C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\pruebas\normal_sql_server\Proyecto v1.0\Data\obj\Debug\Data.dll
+C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\pruebas\normal_sql_server\Proyecto v1.0\Data\obj\Debug\Data.pdb
+C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\Proyecto v1.0\Data\bin\Debug\EntityFramework.dll
+C:\Users\Asus\Desktop\XI SEMESTRE\Ingenieria de software 2\Proyecto v1.0\Data\bin\Debug\EntityFramework.xml

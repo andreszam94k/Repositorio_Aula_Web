@@ -40,10 +40,12 @@
             <td class="auto-style15">
                 <asp:Label ID="Label1" runat="server" style="font-size: x-large; color: #CCCCCC" Text="Label"></asp:Label>
             </td>
-            <td>&nbsp;&nbsp;<asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="ObjectDataSource1" DataTextField="nombre" DataValueField="id_idiomas">
+            <td>&nbsp;&nbsp;<asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="EntityDataSource1" DataTextField="nombre" DataValueField="id_idiomas">
                 </asp:DropDownList>
 &nbsp;
                 <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="mostrar_idioma" TypeName="Data.Dao_Ingresar_idioma"></asp:ObjectDataSource>
+                <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=Aula_Web_SQLEntities" DefaultContainerName="Aula_Web_SQLEntities" EnableFlattening="False" EntitySetName="idiomas" Select="it.[id_idiomas], it.[nombre]">
+                </asp:EntityDataSource>
             </td>
         </tr>
     </table>

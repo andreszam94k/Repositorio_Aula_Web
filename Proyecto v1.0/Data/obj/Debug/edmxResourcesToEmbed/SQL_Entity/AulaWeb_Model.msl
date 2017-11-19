@@ -1,0 +1,665 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Aula_Web_SQLModelStoreContainer" CdmEntityContainer="Aula_Web_SQLEntities">
+    <EntitySetMapping Name="archivo">
+      <EntityTypeMapping TypeName="Aula_Web_SQLModel.archivo">
+        <MappingFragment StoreEntitySet="archivo">
+          <ScalarProperty Name="id_archivo" ColumnName="id_archivo" />
+          <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+          <ScalarProperty Name="anio_archivo" ColumnName="anio_archivo" />
+          <ScalarProperty Name="sinopsis_archivo" ColumnName="sinopsis_archivo" />
+          <ScalarProperty Name="num_pag" ColumnName="num_pag" />
+          <ScalarProperty Name="imagen_portada" ColumnName="imagen_portada" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="id_moderador" ColumnName="id_moderador" />
+          <ScalarProperty Name="estado_mod" ColumnName="estado_mod" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="archivo_autor">
+      <EntityTypeMapping TypeName="Aula_Web_SQLModel.archivo_autor">
+        <MappingFragment StoreEntitySet="archivo_autor">
+          <ScalarProperty Name="id_archivo_autor" ColumnName="id_archivo_autor" />
+          <ScalarProperty Name="id_autor" ColumnName="id_autor" />
+          <ScalarProperty Name="id_archivo" ColumnName="id_archivo" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="autor">
+      <EntityTypeMapping TypeName="Aula_Web_SQLModel.autor">
+        <MappingFragment StoreEntitySet="autor">
+          <ScalarProperty Name="id_autor" ColumnName="id_autor" />
+          <ScalarProperty Name="nombre_autor" ColumnName="nombre_autor" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+          <ScalarProperty Name="fecha_muerte" ColumnName="fecha_muerte" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="descripcion_autor" ColumnName="descripcion_autor" />
+          <ScalarProperty Name="id_nacionalidad" ColumnName="id_nacionalidad" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categoria">
+      <EntityTypeMapping TypeName="Aula_Web_SQLModel.categoria">
+        <MappingFragment StoreEntitySet="categoria">
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="categoria1" ColumnName="categoria" />
+          <ScalarProperty Name="precio_categoria" ColumnName="precio_categoria" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comentario">
+      <EntityTypeMapping TypeName="Aula_Web_SQLModel.comentario">
+        <MappingFragment StoreEntitySet="comentario">
+          <ScalarProperty Name="id_comentario" ColumnName="id_comentario" />
+          <ScalarProperty Name="comentario1" ColumnName="comentario" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_archivo" ColumnName="id_archivo" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="control_formulario">
+      <EntityTypeMapping TypeName="Aula_Web_SQLModel.control_formulario">
+        <MappingFragment StoreEntitySet="control_formulario">
+          <ScalarProperty Name="id_control_formulario" ColumnName="id_control_formulario" />
+          <ScalarProperty Name="id_formulario" ColumnName="id_formulario" />
+          <ScalarProperty Name="componente" ColumnName="componente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="control_idioma">
+      <EntityTypeMapping TypeName="Aula_Web_SQLModel.control_idioma">
+        <MappingFragment StoreEntitySet="control_idioma">
+          <ScalarProperty Name="id_control_idioma" ColumnName="id_control_idioma" />
+          <ScalarProperty Name="id_control" ColumnName="id_control" />
+          <ScalarProperty Name="id_idioma" ColumnName="id_idioma" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estado">
+      <EntityTypeMapping TypeName="Aula_Web_SQLModel.estado">
+        <MappingFragment StoreEntitySet="estado">
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="estado1" ColumnName="estado" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="formularios">
+      <EntityTypeMapping TypeName="Aula_Web_SQLModel.formularios">
+        <MappingFragment StoreEntitySet="formularios">
+          <ScalarProperty Name="id_formularios" ColumnName="id_formularios" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="idiomas">
+      <EntityTypeMapping TypeName="Aula_Web_SQLModel.idiomas">
+        <MappingFragment StoreEntitySet="idiomas">
+          <ScalarProperty Name="id_idiomas" ColumnName="id_idiomas" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="terminacion" ColumnName="terminacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pais">
+      <EntityTypeMapping TypeName="Aula_Web_SQLModel.pais">
+        <MappingFragment StoreEntitySet="pais">
+          <ScalarProperty Name="id_nacionalidad" ColumnName="id_nacionalidad" />
+          <ScalarProperty Name="pais1" ColumnName="pais" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rol">
+      <EntityTypeMapping TypeName="Aula_Web_SQLModel.rol">
+        <MappingFragment StoreEntitySet="rol">
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="rol1" ColumnName="rol" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subir_descargar">
+      <EntityTypeMapping TypeName="Aula_Web_SQLModel.subir_descargar">
+        <MappingFragment StoreEntitySet="subir_descargar">
+          <ScalarProperty Name="id_subir_descargar" ColumnName="id_subir_descargar" />
+          <ScalarProperty Name="concepto" ColumnName="concepto" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_archivo" ColumnName="id_archivo" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Aula_Web_SQLModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tags">
+      <EntityTypeMapping TypeName="Aula_Web_SQLModel.tags">
+        <MappingFragment StoreEntitySet="tags">
+          <ScalarProperty Name="id_tags" ColumnName="id_tags" />
+          <ScalarProperty Name="tag" ColumnName="tag" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="Aula_Web_SQLModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="nombre_user" ColumnName="nombre_user" />
+          <ScalarProperty Name="apellido_user" ColumnName="apellido_user" />
+          <ScalarProperty Name="documento_user" ColumnName="documento_user" />
+          <ScalarProperty Name="telefono_user" ColumnName="telefono_user" />
+          <ScalarProperty Name="correo_user" ColumnName="correo_user" />
+          <ScalarProperty Name="usuario1" ColumnName="usuario" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="dinero_user" ColumnName="dinero_user" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="ip" ColumnName="ip" />
+          <ScalarProperty Name="mac" ColumnName="mac" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Aula_Web_SQLModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_aprobar_archivo" FunctionName="Aula_Web_SQLModel.Store.sp_aprobar_archivo" />
+    <FunctionImportMapping FunctionImportName="sp_cambiar_rol" FunctionName="Aula_Web_SQLModel.Store.sp_cambiar_rol" />
+    <FunctionImportMapping FunctionImportName="sp_cerrar_session" FunctionName="Aula_Web_SQLModel.Store.sp_cerrar_session" />
+    <FunctionImportMapping FunctionImportName="sp_consulta_archivo_datos" FunctionName="Aula_Web_SQLModel.Store.sp_consulta_archivo_datos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_consulta_archivo_datos_Result">
+          <ScalarProperty Name="id_archivo" ColumnName="id_archivo" />
+          <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+          <ScalarProperty Name="sinopsis_archivo" ColumnName="sinopsis_archivo" />
+          <ScalarProperty Name="imagen_portada" ColumnName="imagen_portada" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_consulta_archivo_nombre" FunctionName="Aula_Web_SQLModel.Store.sp_consulta_archivo_nombre">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_consulta_archivo_nombre_Result">
+          <ScalarProperty Name="id_archivo" ColumnName="id_archivo" />
+          <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+          <ScalarProperty Name="anio_archivo" ColumnName="anio_archivo" />
+          <ScalarProperty Name="sinopsis_archivo" ColumnName="sinopsis_archivo" />
+          <ScalarProperty Name="num_pag" ColumnName="num_pag" />
+          <ScalarProperty Name="imagen_portada" ColumnName="imagen_portada" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="id_moderador" ColumnName="id_moderador" />
+          <ScalarProperty Name="estado_mod" ColumnName="estado_mod" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_consulta_autor" FunctionName="Aula_Web_SQLModel.Store.sp_consulta_autor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_consulta_autor_Result">
+          <ScalarProperty Name="id_autor" ColumnName="id_autor" />
+          <ScalarProperty Name="nombre_autor" ColumnName="nombre_autor" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+          <ScalarProperty Name="fecha_muerte" ColumnName="fecha_muerte" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="descripcion_autor" ColumnName="descripcion_autor" />
+          <ScalarProperty Name="id_nacionalidad" ColumnName="id_nacionalidad" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_consulta_categoria" FunctionName="Aula_Web_SQLModel.Store.sp_consulta_categoria">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_consulta_categoria_Result">
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="precio_categoria" ColumnName="precio_categoria" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_consulta_correo" FunctionName="Aula_Web_SQLModel.Store.sp_consulta_correo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_consulta_correo_Result">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="nombre_user" ColumnName="nombre_user" />
+          <ScalarProperty Name="apellido_user" ColumnName="apellido_user" />
+          <ScalarProperty Name="documento_user" ColumnName="documento_user" />
+          <ScalarProperty Name="telefono_user" ColumnName="telefono_user" />
+          <ScalarProperty Name="correo_user" ColumnName="correo_user" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="dinero_user" ColumnName="dinero_user" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="ip" ColumnName="ip" />
+          <ScalarProperty Name="mac" ColumnName="mac" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_consulta_documento" FunctionName="Aula_Web_SQLModel.Store.sp_consulta_documento">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_consulta_documento_Result">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="nombre_user" ColumnName="nombre_user" />
+          <ScalarProperty Name="apellido_user" ColumnName="apellido_user" />
+          <ScalarProperty Name="documento_user" ColumnName="documento_user" />
+          <ScalarProperty Name="telefono_user" ColumnName="telefono_user" />
+          <ScalarProperty Name="correo_user" ColumnName="correo_user" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="dinero_user" ColumnName="dinero_user" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="ip" ColumnName="ip" />
+          <ScalarProperty Name="mac" ColumnName="mac" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_consulta_idioma" FunctionName="Aula_Web_SQLModel.Store.sp_consulta_idioma">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_consulta_idioma_Result">
+          <ScalarProperty Name="id_idiomas" ColumnName="id_idiomas" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="terminacion" ColumnName="terminacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_consulta_rol" FunctionName="Aula_Web_SQLModel.Store.sp_consulta_rol">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_consulta_rol_Result">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="nombre_user" ColumnName="nombre_user" />
+          <ScalarProperty Name="apellido_user" ColumnName="apellido_user" />
+          <ScalarProperty Name="documento_user" ColumnName="documento_user" />
+          <ScalarProperty Name="telefono_user" ColumnName="telefono_user" />
+          <ScalarProperty Name="correo_user" ColumnName="correo_user" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="dinero_user" ColumnName="dinero_user" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="ip" ColumnName="ip" />
+          <ScalarProperty Name="mac" ColumnName="mac" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_consulta_tags" FunctionName="Aula_Web_SQLModel.Store.sp_consulta_tags">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_consulta_tags_Result">
+          <ScalarProperty Name="id_tags" ColumnName="id_tags" />
+          <ScalarProperty Name="tag" ColumnName="tag" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_consulta_terminacion" FunctionName="Aula_Web_SQLModel.Store.sp_consulta_terminacion">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_consulta_terminacion_Result">
+          <ScalarProperty Name="id_idiomas" ColumnName="id_idiomas" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="terminacion" ColumnName="terminacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_consulta_usuario" FunctionName="Aula_Web_SQLModel.Store.sp_consulta_usuario">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_consulta_usuario_Result">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="nombre_user" ColumnName="nombre_user" />
+          <ScalarProperty Name="apellido_user" ColumnName="apellido_user" />
+          <ScalarProperty Name="documento_user" ColumnName="documento_user" />
+          <ScalarProperty Name="telefono_user" ColumnName="telefono_user" />
+          <ScalarProperty Name="correo_user" ColumnName="correo_user" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="dinero_user" ColumnName="dinero_user" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="ip" ColumnName="ip" />
+          <ScalarProperty Name="mac" ColumnName="mac" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_consultar_archivos" FunctionName="Aula_Web_SQLModel.Store.sp_consultar_archivos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_consultar_archivos_Result">
+          <ScalarProperty Name="id_archivo" ColumnName="id_archivo" />
+          <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+          <ScalarProperty Name="anio_archivo" ColumnName="anio_archivo" />
+          <ScalarProperty Name="sinopsis_archivo" ColumnName="sinopsis_archivo" />
+          <ScalarProperty Name="num_pag" ColumnName="num_pag" />
+          <ScalarProperty Name="imagen_portada" ColumnName="imagen_portada" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="id_moderador" ColumnName="id_moderador" />
+          <ScalarProperty Name="estado_mod" ColumnName="estado_mod" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_consultar_comentarios" FunctionName="Aula_Web_SQLModel.Store.sp_consultar_comentarios">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_consultar_comentarios_Result">
+          <ScalarProperty Name="id_comentario" ColumnName="id_comentario" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_archivo" ColumnName="id_archivo" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_consultar_idioma" FunctionName="Aula_Web_SQLModel.Store.sp_consultar_idioma">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_consultar_idioma_Result">
+          <ScalarProperty Name="id_control_idioma" ColumnName="id_control_idioma" />
+          <ScalarProperty Name="id_control" ColumnName="id_control" />
+          <ScalarProperty Name="id_idioma" ColumnName="id_idioma" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="id_control_formulario" ColumnName="id_control_formulario" />
+          <ScalarProperty Name="id_formulario" ColumnName="id_formulario" />
+          <ScalarProperty Name="componente" ColumnName="componente" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Aula_Web_SQLModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_descargar_archivo" FunctionName="Aula_Web_SQLModel.Store.sp_descargar_archivo" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Aula_Web_SQLModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_eliminar_archivo" FunctionName="Aula_Web_SQLModel.Store.sp_eliminar_archivo" />
+    <FunctionImportMapping FunctionImportName="sp_eliminar_categoria" FunctionName="Aula_Web_SQLModel.Store.sp_eliminar_categoria" />
+    <FunctionImportMapping FunctionImportName="sp_eliminar_tags" FunctionName="Aula_Web_SQLModel.Store.sp_eliminar_tags" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Aula_Web_SQLModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Aula_Web_SQLModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_insertar_archivo" FunctionName="Aula_Web_SQLModel.Store.sp_insertar_archivo" />
+    <FunctionImportMapping FunctionImportName="sp_insertar_archivo_autor" FunctionName="Aula_Web_SQLModel.Store.sp_insertar_archivo_autor" />
+    <FunctionImportMapping FunctionImportName="sp_insertar_autor" FunctionName="Aula_Web_SQLModel.Store.sp_insertar_autor" />
+    <FunctionImportMapping FunctionImportName="sp_insertar_categoria" FunctionName="Aula_Web_SQLModel.Store.sp_insertar_categoria" />
+    <FunctionImportMapping FunctionImportName="sp_insertar_comentario" FunctionName="Aula_Web_SQLModel.Store.sp_insertar_comentario" />
+    <FunctionImportMapping FunctionImportName="sp_insertar_idioma" FunctionName="Aula_Web_SQLModel.Store.sp_insertar_idioma" />
+    <FunctionImportMapping FunctionImportName="sp_insertar_ip_mac" FunctionName="Aula_Web_SQLModel.Store.sp_insertar_ip_mac" />
+    <FunctionImportMapping FunctionImportName="sp_insertar_subir_descargar" FunctionName="Aula_Web_SQLModel.Store.sp_insertar_subir_descargar" />
+    <FunctionImportMapping FunctionImportName="sp_insertar_tags" FunctionName="Aula_Web_SQLModel.Store.sp_insertar_tags" />
+    <FunctionImportMapping FunctionImportName="sp_insertar_usuario" FunctionName="Aula_Web_SQLModel.Store.sp_insertar_usuario" />
+    <FunctionImportMapping FunctionImportName="sp_loggin_usuario" FunctionName="Aula_Web_SQLModel.Store.sp_loggin_usuario">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_loggin_usuario_Result">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="nombre_user" ColumnName="nombre_user" />
+          <ScalarProperty Name="apellido_user" ColumnName="apellido_user" />
+          <ScalarProperty Name="documento_user" ColumnName="documento_user" />
+          <ScalarProperty Name="telefono_user" ColumnName="telefono_user" />
+          <ScalarProperty Name="correo_user" ColumnName="correo_user" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="dinero_user" ColumnName="dinero_user" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="ip" ColumnName="ip" />
+          <ScalarProperty Name="mac" ColumnName="mac" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_modificar_categoria" FunctionName="Aula_Web_SQLModel.Store.sp_modificar_categoria" />
+    <FunctionImportMapping FunctionImportName="sp_mostrar_archivo" FunctionName="Aula_Web_SQLModel.Store.sp_mostrar_archivo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_mostrar_archivo_Result">
+          <ScalarProperty Name="id_archivo" ColumnName="id_archivo" />
+          <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+          <ScalarProperty Name="anio_archivo" ColumnName="anio_archivo" />
+          <ScalarProperty Name="sinopsis_archivo" ColumnName="sinopsis_archivo" />
+          <ScalarProperty Name="num_pag" ColumnName="num_pag" />
+          <ScalarProperty Name="imagen_portada" ColumnName="imagen_portada" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="id_moderador" ColumnName="id_moderador" />
+          <ScalarProperty Name="estado_mod" ColumnName="estado_mod" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_mostrar_archivos" FunctionName="Aula_Web_SQLModel.Store.sp_mostrar_archivos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_mostrar_archivos_Result">
+          <ScalarProperty Name="id_archivo" ColumnName="id_archivo" />
+          <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+          <ScalarProperty Name="anio_archivo" ColumnName="anio_archivo" />
+          <ScalarProperty Name="sinopsis_archivo" ColumnName="sinopsis_archivo" />
+          <ScalarProperty Name="num_pag" ColumnName="num_pag" />
+          <ScalarProperty Name="imagen_portada" ColumnName="imagen_portada" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="id_moderador" ColumnName="id_moderador" />
+          <ScalarProperty Name="estado_mod" ColumnName="estado_mod" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_mostrar_autor" FunctionName="Aula_Web_SQLModel.Store.sp_mostrar_autor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_mostrar_autor_Result">
+          <ScalarProperty Name="id_autor" ColumnName="id_autor" />
+          <ScalarProperty Name="nombre_autor" ColumnName="nombre_autor" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+          <ScalarProperty Name="fecha_muerte" ColumnName="fecha_muerte" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="descripcion_autor" ColumnName="descripcion_autor" />
+          <ScalarProperty Name="id_nacionalidad" ColumnName="id_nacionalidad" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_mostrar_categoria" FunctionName="Aula_Web_SQLModel.Store.sp_mostrar_categoria">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_mostrar_categoria_Result">
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="precio_categoria" ColumnName="precio_categoria" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_mostrar_categoria_archivo" FunctionName="Aula_Web_SQLModel.Store.sp_mostrar_categoria_archivo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_mostrar_categoria_archivo_Result">
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="precio_categoria" ColumnName="precio_categoria" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_mostrar_idioma" FunctionName="Aula_Web_SQLModel.Store.sp_mostrar_idioma">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_mostrar_idioma_Result">
+          <ScalarProperty Name="id_idiomas" ColumnName="id_idiomas" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="terminacion" ColumnName="terminacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_mostrar_pais" FunctionName="Aula_Web_SQLModel.Store.sp_mostrar_pais">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_mostrar_pais_Result">
+          <ScalarProperty Name="id_nacionalidad" ColumnName="id_nacionalidad" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_mostrar_tags" FunctionName="Aula_Web_SQLModel.Store.sp_mostrar_tags">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_mostrar_tags_Result">
+          <ScalarProperty Name="id_tags" ColumnName="id_tags" />
+          <ScalarProperty Name="tag" ColumnName="tag" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Aula_Web_SQLModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_reporte_archivos" FunctionName="Aula_Web_SQLModel.Store.sp_reporte_archivos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_reporte_archivos_Result">
+          <ScalarProperty Name="id_archivo" ColumnName="id_archivo" />
+          <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+          <ScalarProperty Name="anio_archivo" ColumnName="anio_archivo" />
+          <ScalarProperty Name="sinopsis_archivo" ColumnName="sinopsis_archivo" />
+          <ScalarProperty Name="num_pag" ColumnName="num_pag" />
+          <ScalarProperty Name="imagen_portada" ColumnName="imagen_portada" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="id_moderador" ColumnName="id_moderador" />
+          <ScalarProperty Name="estado_mod" ColumnName="estado_mod" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="precio_categoria" ColumnName="precio_categoria" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_reporte_autores" FunctionName="Aula_Web_SQLModel.Store.sp_reporte_autores">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_reporte_autores_Result">
+          <ScalarProperty Name="id_autor" ColumnName="id_autor" />
+          <ScalarProperty Name="nombre_autor" ColumnName="nombre_autor" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+          <ScalarProperty Name="fecha_muerte" ColumnName="fecha_muerte" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="descripcion_autor" ColumnName="descripcion_autor" />
+          <ScalarProperty Name="id_nacionalidad" ColumnName="id_nacionalidad" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_reporte_usuarios" FunctionName="Aula_Web_SQLModel.Store.sp_reporte_usuarios">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_reporte_usuarios_Result">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="nombre_user" ColumnName="nombre_user" />
+          <ScalarProperty Name="apellido_user" ColumnName="apellido_user" />
+          <ScalarProperty Name="documento_user" ColumnName="documento_user" />
+          <ScalarProperty Name="telefono_user" ColumnName="telefono_user" />
+          <ScalarProperty Name="correo_user" ColumnName="correo_user" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="dinero_user" ColumnName="dinero_user" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="rol" ColumnName="rol" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Aula_Web_SQLModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_ver_archivo" FunctionName="Aula_Web_SQLModel.Store.sp_ver_archivo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_ver_archivo_Result">
+          <ScalarProperty Name="id_archivo" ColumnName="id_archivo" />
+          <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+          <ScalarProperty Name="anio_archivo" ColumnName="anio_archivo" />
+          <ScalarProperty Name="sinopsis_archivo" ColumnName="sinopsis_archivo" />
+          <ScalarProperty Name="num_pag" ColumnName="num_pag" />
+          <ScalarProperty Name="imagen_portada" ColumnName="imagen_portada" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="id_moderador" ColumnName="id_moderador" />
+          <ScalarProperty Name="estado_mod" ColumnName="estado_mod" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="precio_categoria" ColumnName="precio_categoria" />
+          <ScalarProperty Name="nombre_autor" ColumnName="nombre_autor" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_ver_archivo_autor" FunctionName="Aula_Web_SQLModel.Store.sp_ver_archivo_autor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_ver_archivo_autor_Result">
+          <ScalarProperty Name="id_archivo" ColumnName="id_archivo" />
+          <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+          <ScalarProperty Name="sinopsis_archivo" ColumnName="sinopsis_archivo" />
+          <ScalarProperty Name="imagen_portada" ColumnName="imagen_portada" />
+          <ScalarProperty Name="nombre_autor" ColumnName="nombre_autor" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_ver_autor" FunctionName="Aula_Web_SQLModel.Store.sp_ver_autor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Aula_Web_SQLModel.sp_ver_autor_Result">
+          <ScalarProperty Name="id_autor" ColumnName="id_autor" />
+          <ScalarProperty Name="nombre_autor" ColumnName="nombre_autor" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+          <ScalarProperty Name="fecha_muerte" ColumnName="fecha_muerte" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="descripcion_autor" ColumnName="descripcion_autor" />
+          <ScalarProperty Name="id_nacionalidad" ColumnName="id_nacionalidad" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -27,8 +27,8 @@ namespace Data
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_idioma", NpgsqlDbType.Integer).Value = idiomaId;
                 //dataAdapter.SelectCommand.Parameters.Add("_formulario", NpgsqlDbType.Integer).Value = formularioId;
-                dataAdapter.SelectCommand.Parameters.Add("@_idioma", SqlDbType.BigInt).Value = idiomaId;
-                dataAdapter.SelectCommand.Parameters.Add("@_formulario", SqlDbType.BigInt).Value = formularioId;
+                dataAdapter.SelectCommand.Parameters.Add("@idioma", SqlDbType.BigInt).Value = idiomaId;
+                dataAdapter.SelectCommand.Parameters.Add("@formulario", SqlDbType.BigInt).Value = formularioId;
 
                 conection.Open();
                 dataAdapter.Fill(idioma);

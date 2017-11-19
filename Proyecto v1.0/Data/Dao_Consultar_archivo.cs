@@ -57,7 +57,7 @@ namespace Data
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_consultar_archivos", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_parametro", NpgsqlDbType.Varchar, 30).Value = parametro;
-                dataAdapter.SelectCommand.Parameters.Add("@_parametro", SqlDbType.VarChar, 50).Value = parametro;
+                dataAdapter.SelectCommand.Parameters.Add("@parametro", SqlDbType.VarChar, 50).Value = parametro;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);

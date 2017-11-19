@@ -27,7 +27,7 @@ namespace Data
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_consulta_idioma", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_nombre", NpgsqlDbType.Text).Value = nombre;
-                dataAdapter.SelectCommand.Parameters.Add("@_nombre", SqlDbType.VarChar, 50).Value = nombre;
+                dataAdapter.SelectCommand.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = nombre;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -59,7 +59,7 @@ namespace Data
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_consulta_terminacion", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_terminacion", NpgsqlDbType.Text).Value = terminacion;
-                dataAdapter.SelectCommand.Parameters.Add("@_terminacion",SqlDbType.VarChar, 50).Value = terminacion;
+                dataAdapter.SelectCommand.Parameters.Add("@terminacion",SqlDbType.VarChar, 50).Value = terminacion;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -94,8 +94,8 @@ namespace Data
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_idioma", NpgsqlDbType.Text).Value = idioma.Name_idioma;
                 //dataAdapter.SelectCommand.Parameters.Add("_terminacion", NpgsqlDbType.Text).Value = idioma.Terminacion;
-                dataAdapter.SelectCommand.Parameters.Add("@_idioma", SqlDbType.Text).Value = idioma.Name_idioma;
-                dataAdapter.SelectCommand.Parameters.Add("@_terminacion", SqlDbType.Text).Value = idioma.Terminacion;
+                dataAdapter.SelectCommand.Parameters.Add("@idioma", SqlDbType.Text).Value = idioma.Name_idioma;
+                dataAdapter.SelectCommand.Parameters.Add("@terminacion", SqlDbType.Text).Value = idioma.Terminacion;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);

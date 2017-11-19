@@ -27,7 +27,7 @@ namespace Data
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_consulta_categoria", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_categoria", NpgsqlDbType.Varchar, 30).Value = categoria;
-                dataAdapter.SelectCommand.Parameters.Add("@_categoria", SqlDbType.VarChar, 50).Value = categoria;
+                dataAdapter.SelectCommand.Parameters.Add("@categoria", SqlDbType.VarChar, 50).Value = categoria;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -63,9 +63,9 @@ namespace Data
                 //dataAdapter.SelectCommand.Parameters.Add("_categoria", NpgsqlDbType.Varchar, 30).Value = categoria.Categoria;
                 //dataAdapter.SelectCommand.Parameters.Add("_precio", NpgsqlDbType.Integer).Value = categoria.Precio;
                 //dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = categoria.UserCambio;
-                dataAdapter.SelectCommand.Parameters.Add("@_categoria", SqlDbType.VarChar, 50).Value = categoria.Categoria;
-                dataAdapter.SelectCommand.Parameters.Add("@_precio", SqlDbType.Int).Value = categoria.Precio;
-                dataAdapter.SelectCommand.Parameters.Add("@_user_cambio", SqlDbType.Int).Value = categoria.UserCambio;
+                dataAdapter.SelectCommand.Parameters.Add("@categoria", SqlDbType.VarChar, 50).Value = categoria.Categoria;
+                dataAdapter.SelectCommand.Parameters.Add("@precio", SqlDbType.Int).Value = categoria.Precio;
+                dataAdapter.SelectCommand.Parameters.Add("@user_cambio", SqlDbType.Int).Value = categoria.UserCambio;
 
 
                 conection.Open();
@@ -119,15 +119,20 @@ namespace Data
         public DataTable eliminar_categoria(String id, String user_cambio)
         {
             DataTable usuarios = new DataTable();
-            NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            //NpgsqlConnection conection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyConexion"].ConnectionString);
+            SqlConnection conection = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConexion2"].ConnectionString);
 
             try
             {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_eliminar_categoria", conection);
+                //NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter("sp_eliminar_categoria", conection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_eliminar_categoria", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                /*
                 dataAdapter.SelectCommand.Parameters.Add("_id", NpgsqlDbType.Integer).Value = id;
                 dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = user_cambio;
-
+                */
+                dataAdapter.SelectCommand.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                dataAdapter.SelectCommand.Parameters.Add("@user_cambio", SqlDbType.Int).Value = user_cambio;
 
 
                 conection.Open();
@@ -165,10 +170,10 @@ namespace Data
                 //dataAdapter.SelectCommand.Parameters.Add("_categoria", NpgsqlDbType.Varchar, 30).Value = categoria.Categoria;
                 //dataAdapter.SelectCommand.Parameters.Add("_precio", NpgsqlDbType.Integer).Value = categoria.Precio;
                 //dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = categoria.UserCambio;
-                dataAdapter.SelectCommand.Parameters.Add("@_id", SqlDbType.Int).Value = categoria.IdCategoria;
-                dataAdapter.SelectCommand.Parameters.Add("@_categoria", SqlDbType.VarChar, 50).Value = categoria.Categoria;
-                dataAdapter.SelectCommand.Parameters.Add("@_precio", SqlDbType.Int).Value = categoria.Precio;
-                dataAdapter.SelectCommand.Parameters.Add("@_user_cambio", SqlDbType.Int).Value = categoria.UserCambio;
+                dataAdapter.SelectCommand.Parameters.Add("@id", SqlDbType.Int).Value = categoria.IdCategoria;
+                dataAdapter.SelectCommand.Parameters.Add("@categoria", SqlDbType.VarChar, 50).Value = categoria.Categoria;
+                dataAdapter.SelectCommand.Parameters.Add("@precio", SqlDbType.Int).Value = categoria.Precio;
+                dataAdapter.SelectCommand.Parameters.Add("@user_cambio", SqlDbType.Int).Value = categoria.UserCambio;
 
 
                 conection.Open();

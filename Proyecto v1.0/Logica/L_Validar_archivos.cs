@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 using Data;
 using Utilitarios;
 using System.Data;
+using Data.SQL_Entity;
+using System.Reflection;
 
 namespace Logica
 {
     public class L_Validar_archivos
     {
+        //objeto de persistencia
+        Aula_Web_SQLEntities operacion_n = new Aula_Web_SQLEntities();
+
         //----- verificar sesion .....
         public U_Validar_archivos verificar(object user, object rol)
         {
@@ -35,8 +40,11 @@ namespace Logica
         {
             DataTable idioma = new DataTable();
 
-            Dao_idioma operacion = new Dao_idioma();
-            idioma = operacion.idioma(idiomaId, formularioId);
+            //Dao_idioma operacion = new Dao_idioma();
+            //idioma = operacion.idioma(idiomaId, formularioId);
+
+            List<sp_consultar_idioma_Result> datos_idioma = operacion_n.sp_consultar_idioma(idiomaId, formularioId).ToList<sp_consultar_idioma_Result>();
+            idioma = ToDataTable(datos_idioma);
 
             return idioma;
         }
@@ -45,7 +53,7 @@ namespace Logica
         public DataTable mostrar_grilla(object rol_user) 
         {
             DataTable informacion = new DataTable();
-            Dao_Validar_archivos mostrar = new Dao_Validar_archivos();
+            //Dao_Validar_archivos mostrar = new Dao_Validar_archivos();
             
             //Dependiendo el rol llenamos el gridview
             string roles = "0";
@@ -65,7 +73,10 @@ namespace Logica
                     }
                 }
 
-            informacion = mostrar.Consultar_archivo_datos(roles); 
+            //informacion = mostrar.Consultar_archivo_datos(roles); 
+            List<sp_consulta_archivo_datos_Result> datos = operacion_n.sp_consulta_archivo_datos(Int32.Parse(roles)).ToList<sp_consulta_archivo_datos_Result>();
+            informacion = ToDataTable(datos);
+
             return informacion;   
         }
 
@@ -73,9 +84,12 @@ namespace Logica
         public U_Validar_archivos eliminar_archivo(string nombre_archivo, string id, string imagen_saveLocation, string archivo_saveLocation, string rol_user) 
         {
             //llamamos metodos
-            Dao_Validar_archivos archivoDatos = new Dao_Validar_archivos();
             U_Validar_archivos accion = new U_Validar_archivos();
-            DataTable estado = archivoDatos.consultar_archivo_nombre(nombre_archivo);
+            //Dao_Validar_archivos archivoDatos = new Dao_Validar_archivos();
+            //DataTable estado = archivoDatos.consultar_archivo_nombre(nombre_archivo);
+
+            List<sp_consulta_archivo_nombre_Result> datos = operacion_n.sp_consulta_archivo_nombre(nombre_archivo).ToList<sp_consulta_archivo_nombre_Result>();
+            DataTable estado = ToDataTable(datos);
 
             //preguntamos si el archivo ya ha sido moderado
             if (estado.Rows.Count == 0)
@@ -102,7 +116,9 @@ namespace Logica
                     try
                     {
                         //eliminamos desde BD y  servidor
-                        archivoDatos.eliminar_archivo(id, rol_user);
+                        //archivoDatos.eliminar_archivo(id, rol_user);
+                        operacion_n.sp_eliminar_archivo(Int32.Parse(id), Int32.Parse(rol_user));
+
                         System.IO.File.Delete(imagen_saveLocation);
                         System.IO.File.Delete(archivo_saveLocation);
 
@@ -125,10 +141,14 @@ namespace Logica
         public U_Validar_archivos aprobar_archivo(string nombre_archivo, string dinero, string id, string idCategoria, string nomCategoria, string idUser, string rol_user) 
         {
             //llamamos metodos
-            Dao_Validar_archivos archivoDatos = new Dao_Validar_archivos();
             U_Validar_archivos accion = new U_Validar_archivos();
-            DataTable estado = archivoDatos.consultar_archivo_nombre(nombre_archivo);
             E_Aprobar_archivo archivos = new E_Aprobar_archivo();
+            //Dao_Validar_archivos archivoDatos = new Dao_Validar_archivos();
+            //DataTable estado = archivoDatos.consultar_archivo_nombre(nombre_archivo);
+
+            List<sp_consulta_archivo_nombre_Result> datos2 = operacion_n.sp_consulta_archivo_nombre(nombre_archivo).ToList<sp_consulta_archivo_nombre_Result>();
+            DataTable estado = ToDataTable(datos2);
+
             
             //preguntamos si el archivo ya ha sido moderado
             if (estado.Rows.Count == 0)
@@ -161,7 +181,9 @@ namespace Logica
                     { //en caso contrario obtenemos el precio de la categoria
 
                         DataTable info = new DataTable();
-                        info = archivoDatos.consultar_categoria(nomCategoria);
+                        //info = archivoDatos.consultar_categoria(nomCategoria);
+                        List<sp_consulta_categoria_Result> datos3 = operacion_n.sp_consulta_categoria(nomCategoria).ToList<sp_consulta_categoria_Result>();
+                        info = ToDataTable(datos3);
                         dinero = info.Rows[0]["precio_categoria"].ToString();
                     }
 
@@ -174,7 +196,9 @@ namespace Logica
 
                     try
                     {
-                        archivoDatos.modificar_archivo(archivos);
+                        //archivoDatos.modificar_archivo(archivos);
+                        operacion_n.sp_aprobar_archivo(Int32.Parse(archivos.IdArchivo), Int32.Parse(archivos.IdCategoria), Int32.Parse(archivos.IdUser), Int32.Parse(archivos.Precio), Int32.Parse(archivos.UserCambio));
+
                         accion.Mensajes = "<script type='text/javascript'>alert('Archivo aprobado con exito');</script>";
                         return accion;
                     }
@@ -187,6 +211,34 @@ namespace Logica
 
             }//fin else moderado
             
+        }
+
+        //convierte en datatable
+        private DataTable ToDataTable<T>(List<T> items)
+        {
+            DataTable dataTable = new DataTable(typeof(T).Name);
+
+            //Get all the properties
+            PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            foreach (PropertyInfo prop in Props)
+            {
+                //Defining type of data column gives proper data table 
+                var type = (prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>) ? Nullable.GetUnderlyingType(prop.PropertyType) : prop.PropertyType);
+                //Setting column names as Property names
+                dataTable.Columns.Add(prop.Name, type);
+            }
+            foreach (T item in items)
+            {
+                var values = new object[Props.Length];
+                for (int i = 0; i < Props.Length; i++)
+                {
+                    //inserting property values to datatable rows
+                    values[i] = Props[i].GetValue(item, null);
+                }
+                dataTable.Rows.Add(values);
+            }
+            //put a breakpoint here and check datatable
+            return dataTable;
         }
 
 

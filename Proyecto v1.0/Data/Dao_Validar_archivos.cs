@@ -27,7 +27,7 @@ namespace Data
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_consulta_archivo_datos", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_id_rol", NpgsqlDbType.Integer).Value = id_rol;
-                dataAdapter.SelectCommand.Parameters.Add("@_id_rol", SqlDbType.Int).Value = id_rol;
+                dataAdapter.SelectCommand.Parameters.Add("@id_rol", SqlDbType.Int).Value = id_rol;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -59,7 +59,7 @@ namespace Data
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_consulta_archivo_nombre", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_nombre", NpgsqlDbType.Varchar, 30).Value = nombre;
-                dataAdapter.SelectCommand.Parameters.Add("@_nombre", SqlDbType.VarChar, 50).Value = nombre;
+                dataAdapter.SelectCommand.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = nombre;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -91,7 +91,7 @@ namespace Data
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_consulta_categoria", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_categoria", NpgsqlDbType.Varchar, 30).Value = categoria;
-                dataAdapter.SelectCommand.Parameters.Add("@_categoria", SqlDbType.VarChar, 50).Value = categoria;
+                dataAdapter.SelectCommand.Parameters.Add("@categoria", SqlDbType.VarChar, 50).Value = categoria;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -161,11 +161,11 @@ namespace Data
                 dataAdapter.SelectCommand.Parameters.Add("_dinero", NpgsqlDbType.Integer).Value = archivo.Precio;
                 dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = archivo.UserCambio;
                 */
-                dataAdapter.SelectCommand.Parameters.Add("@_id_archivo", SqlDbType.Int).Value = archivo.IdArchivo;
-                dataAdapter.SelectCommand.Parameters.Add("@_id_categoria", SqlDbType.Int).Value = archivo.IdCategoria;
-                dataAdapter.SelectCommand.Parameters.Add("@_id", SqlDbType.Int).Value = archivo.IdUser;
-                dataAdapter.SelectCommand.Parameters.Add("@_dinero", SqlDbType.Int).Value = archivo.Precio;
-                dataAdapter.SelectCommand.Parameters.Add("@_user_cambio", SqlDbType.Int).Value = archivo.UserCambio;
+                dataAdapter.SelectCommand.Parameters.Add("@id_archivo", SqlDbType.Int).Value = archivo.IdArchivo;
+                dataAdapter.SelectCommand.Parameters.Add("@id_categoria", SqlDbType.Int).Value = archivo.IdCategoria;
+                dataAdapter.SelectCommand.Parameters.Add("@id", SqlDbType.Int).Value = archivo.IdUser;
+                dataAdapter.SelectCommand.Parameters.Add("@dinero", SqlDbType.Int).Value = archivo.Precio;
+                dataAdapter.SelectCommand.Parameters.Add("@user_cambio", SqlDbType.Int).Value = archivo.UserCambio;
 
 
                 conection.Open();
@@ -201,8 +201,8 @@ namespace Data
                 dataAdapter.SelectCommand.Parameters.Add("_id", NpgsqlDbType.Integer).Value = id;
                 dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = user_cambio;
                  */
-                dataAdapter.SelectCommand.Parameters.Add("@_id", SqlDbType.Int).Value = id;
-                dataAdapter.SelectCommand.Parameters.Add("@_user_cambio", SqlDbType.Int).Value = user_cambio;
+                dataAdapter.SelectCommand.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                dataAdapter.SelectCommand.Parameters.Add("@user_cambio", SqlDbType.Int).Value = user_cambio;
 
 
                 conection.Open();

@@ -27,7 +27,7 @@ namespace Data
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_consulta_usuario", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_usuario", NpgsqlDbType.Varchar, 30).Value = usuario;
-                dataAdapter.SelectCommand.Parameters.Add("@_usuario", SqlDbType.VarChar, 50).Value = usuario;
+                dataAdapter.SelectCommand.Parameters.Add("@usuario", SqlDbType.VarChar, 50).Value = usuario;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -59,7 +59,7 @@ namespace Data
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_consulta_documento", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_documento", NpgsqlDbType.Bigint, 10).Value = documento;
-                dataAdapter.SelectCommand.Parameters.Add("@_documento", SqlDbType.BigInt).Value = documento;
+                dataAdapter.SelectCommand.Parameters.Add("@documento", SqlDbType.BigInt).Value = documento;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -91,7 +91,7 @@ namespace Data
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("sp_consulta_correo", conection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 //dataAdapter.SelectCommand.Parameters.Add("_correo", NpgsqlDbType.Varchar, 30).Value = correo;
-                dataAdapter.SelectCommand.Parameters.Add("@_correo", SqlDbType.VarChar, 50).Value = correo;
+                dataAdapter.SelectCommand.Parameters.Add("@correo", SqlDbType.VarChar, 50).Value = correo;
 
                 conection.Open();
                 dataAdapter.Fill(usuarios);
@@ -134,14 +134,14 @@ namespace Data
                 dataAdapter.SelectCommand.Parameters.Add("_clave", NpgsqlDbType.Varchar, 30).Value = user.Clave;
                 dataAdapter.SelectCommand.Parameters.Add("_user_cambio", NpgsqlDbType.Integer).Value = user.UserCambio;
                  */
-                dataAdapter.SelectCommand.Parameters.Add("@_nombre", SqlDbType.VarChar, 50).Value = user.Nombre;
-                dataAdapter.SelectCommand.Parameters.Add("@_apellido", SqlDbType.VarChar, 50).Value = user.Apellido;
-                dataAdapter.SelectCommand.Parameters.Add("@_documento", SqlDbType.BigInt).Value = user.Documento;
-                dataAdapter.SelectCommand.Parameters.Add("@_telefono", SqlDbType.VarChar, 10).Value = user.Telefono;
-                dataAdapter.SelectCommand.Parameters.Add("@_correo", SqlDbType.VarChar, 50).Value = user.Correo;
-                dataAdapter.SelectCommand.Parameters.Add("@_user", SqlDbType.VarChar, 50).Value = user.UserName;
-                dataAdapter.SelectCommand.Parameters.Add("@_clave", SqlDbType.VarChar, 50).Value = user.Clave;
-                dataAdapter.SelectCommand.Parameters.Add("@_user_cambio", SqlDbType.Int).Value = user.UserCambio;
+                dataAdapter.SelectCommand.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = user.Nombre;
+                dataAdapter.SelectCommand.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = user.Apellido;
+                dataAdapter.SelectCommand.Parameters.Add("@documento", SqlDbType.BigInt).Value = user.Documento;
+                dataAdapter.SelectCommand.Parameters.Add("@telefono", SqlDbType.VarChar, 10).Value = user.Telefono;
+                dataAdapter.SelectCommand.Parameters.Add("@correo", SqlDbType.VarChar, 50).Value = user.Correo;
+                dataAdapter.SelectCommand.Parameters.Add("@user", SqlDbType.VarChar, 50).Value = user.UserName;
+                dataAdapter.SelectCommand.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = user.Clave;
+                dataAdapter.SelectCommand.Parameters.Add("@user_cambio", SqlDbType.Int).Value = user.UserCambio;
 
 
                 conection.Open();
